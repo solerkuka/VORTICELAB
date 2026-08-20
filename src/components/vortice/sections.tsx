@@ -354,8 +354,20 @@ export function Atuacao() {
             </Reveal>
           ))}
         </div>
+
+        <CtaLink>Quero entender melhor</CtaLink>
       </Wrap>
+      <Rings
+        className="pointer-events-none absolute -top-24 -left-36 size-[300px] sm:-left-24 sm:size-[440px]"
+        color="var(--ember)"
+        count={7}
+        gap={26}
+        sweep={0.6}
+        rotate={20}
+        opacity={0.18}
+      />
     </Band>
+
   );
 }
 
