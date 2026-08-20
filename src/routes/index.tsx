@@ -40,7 +40,7 @@ const CHAPTERS = [
 const CHAPTER_IDS = CHAPTERS.map((c) => c.id);
 
 const INK = "var(--ink)";
-const INK_VOID = "var(--ink-void)";
+const INK_VOID = "var(--ink)";
 const LIGHT = "var(--surface-light)";
 
 function Index() {
