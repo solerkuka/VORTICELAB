@@ -20,15 +20,31 @@ export function Hero() {
       <Particles count={3} opacity={0.5} />
 
       <Wrap className="flex min-h-[100svh] flex-col">
-        <nav className="flex items-center justify-between py-4 sm:py-7">
-          <span className="font-display text-[34px] italic leading-none tracking-[0.02em] sm:text-[19px]">VórticeLab</span>
-          <a
-            className="hidden rounded-full border border-bone/35 px-[18px] py-[9px] font-mono text-xs tracking-[0.08em] uppercase no-underline transition-colors duration-250 hover:border-ember hover:bg-ember hover:text-ink sm:inline-block"
-            href="#contato"
-          >
-            Fale conosco
-          </a>
+        <nav className="flex flex-col gap-2.5 py-4 sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:py-7">
+          <div className="flex items-center justify-between gap-4">
+            <span className="font-display text-[34px] leading-none tracking-[0.02em] italic sm:text-[19px]">
+              VórticeLab
+            </span>
+            <a
+              className="hidden rounded-full border border-bone/35 px-[18px] py-[9px] font-mono text-xs tracking-[0.08em] uppercase no-underline transition-colors duration-250 hover:border-ember hover:bg-ember hover:text-ink sm:inline-block sm:order-2"
+              href="#contato"
+            >
+              Fale conosco
+            </a>
+          </div>
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 sm:order-1 sm:ml-auto sm:mr-6">
+            {FRENTES.map((f) => (
+              <a
+                key={f.key}
+                href={f.url}
+                className="font-mono text-[10.5px] tracking-[0.14em] text-bone/65 uppercase no-underline transition-colors duration-250 hover:text-ember sm:text-[11px]"
+              >
+                {f.title}
+              </a>
+            ))}
+          </div>
         </nav>
+
 
         <div className="flex flex-1 flex-col justify-center pb-12 sm:pb-20">
           <div className="max-w-[660px]">

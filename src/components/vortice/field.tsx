@@ -196,31 +196,35 @@ export function Seam({ from, to, soft = false }: { from: string; to: string; sof
 
   return (
     <div
-      className="relative h-[72px] w-full overflow-hidden"
-      style={{ backgroundImage: `linear-gradient(to bottom, ${from} 0%, ${from} 18%, ${to} 82%, ${to} 100%)` }}
+      className="relative -mt-px h-[86px] w-full overflow-hidden"
+      style={{ backgroundColor: from }}
       aria-hidden="true"
     >
-      <svg viewBox="0 0 1200 72" preserveAspectRatio="none" className="absolute inset-0 size-full">
+      <svg viewBox="0 0 1200 86" preserveAspectRatio="none" className="absolute inset-0 size-full">
         <path
-          d="M-20,38 C240,24 420,50 620,38 C820,26 1000,50 1220,36"
-          stroke="var(--ember)"
-          strokeWidth={1}
-          fill="none"
-          opacity={0.35}
-          className="vx-drift"
+          d="M0,44 C200,10 380,74 620,48 C840,24 1000,66 1200,38 L1200,86 L0,86 Z"
+          fill={to}
         />
         <path
-          d="M-20,48 C260,60 460,32 660,46 C860,60 1020,34 1220,46"
+          d="M0,44 C200,10 380,74 620,48 C840,24 1000,66 1200,38"
           stroke="var(--ember)"
           strokeWidth={1}
           fill="none"
-          opacity={0.18}
+          opacity={0.4}
+        />
+        <path
+          d="M0,30 C220,0 400,60 640,34 C860,12 1020,52 1200,26"
+          stroke="var(--ember)"
+          strokeWidth={1}
+          fill="none"
+          opacity={0.16}
           className="vx-drift"
         />
       </svg>
     </div>
   );
 }
+
 
 
 
