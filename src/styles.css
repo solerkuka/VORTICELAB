@@ -89,6 +89,10 @@
   --bone-lift: oklch(0.971 0.0155 86.42);
   --clay: oklch(0.4383 0.0859 35.27);
   --clay-bright: oklch(0.5521 0.1051 36.34);
+  /* cool neutrals — replace the warm bone on surfaces and decorative strokes */
+  --surface-light: oklch(0.975 0.002 240);
+  --mist: oklch(0.86 0.004 240);
+
 
   /* default band = dark */
   --band: var(--ink);
