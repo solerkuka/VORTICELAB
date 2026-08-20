@@ -248,3 +248,74 @@ export function QuoteField({
     </svg>
   );
 }
+
+/**
+ * Moodboard rings — concentric circles / partial arcs, usually bled off an edge.
+ * Purely decorative; `sweep` (0..1) cuts the circle into an arc.
+ */
+export function Rings({
+  className = "",
+  color = "var(--band-accent)",
+  count = 6,
+  gap = 26,
+  start = 30,
+  sweep = 1,
+  rotate = 0,
+  strokeWidth = 1,
+  opacity = 0.35,
+}: {
+  className?: string;
+  color?: string;
+  count?: number;
+  gap?: number;
+  start?: number;
+  sweep?: number;
+  rotate?: number;
+  strokeWidth?: number;
+  opacity?: number;
+}) {
+  const size = 400;
+  const c = size / 2;
+
+  return (
+    <svg viewBox={`0 0 ${size} ${size}`} className={className} aria-hidden="true" style={{ opacity }}>
+      <g transform={`rotate(${rotate} ${c} ${c})`}>
+        {Array.from({ length: count }).map((_, i) => {
+          const r = start + i * gap;
+          if (sweep >= 1) {
+            return (
+              <circle
+                key={i}
+                cx={c}
+                cy={c}
+                r={r}
+                fill="none"
+                stroke={color}
+                strokeWidth={i % 3 === 0 ? strokeWidth * 1.8 : strokeWidth}
+                opacity={0.85 - i * 0.08}
+              />
+            );
+          }
+          const a1 = -Math.PI / 2;
+          const a2 = a1 + sweep * Math.PI * 2;
+          const x1 = c + Math.cos(a1) * r;
+          const y1 = c + Math.sin(a1) * r;
+          const x2 = c + Math.cos(a2) * r;
+          const y2 = c + Math.sin(a2) * r;
+          const large = sweep > 0.5 ? 1 : 0;
+          return (
+            <path
+              key={i}
+              d={`M ${x1.toFixed(1)} ${y1.toFixed(1)} A ${r} ${r} 0 ${large} 1 ${x2.toFixed(1)} ${y2.toFixed(1)}`}
+              fill="none"
+              stroke={color}
+              strokeWidth={i % 3 === 0 ? strokeWidth * 1.8 : strokeWidth}
+              strokeLinecap="round"
+              opacity={0.85 - i * 0.08}
+            />
+          );
+        })}
+      </g>
+    </svg>
+  );
+}

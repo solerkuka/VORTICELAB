@@ -1,7 +1,10 @@
 import { Icon } from "./icons";
-import { Particles, PulseField, QuoteField, Spiral, WindField } from "./field";
-import { Band, Highlight, HighlightBox, Reveal, SectionHead, Wrap } from "./primitives";
+import { Particles, PulseField, QuoteField, Rings, Spiral, WindField } from "./field";
+import { Band, CtaLink, Highlight, HighlightBox, Reveal, SectionHead, Wrap } from "./primitives";
 import { useParallax } from "./use-vortice-motion";
+
+const WHATSAPP = "https://wa.me/5551999990101";
+const EMAIL = "mailto:contato@vorticelab.com.br";
 
 /* ------------------------------------------------------------------ hero */
 
@@ -9,56 +12,50 @@ export function Hero() {
   const y = useParallax(0.12, 900);
 
   return (
-    <Band tone="dark" id="hero" className="min-h-[92vh]">
+    <Band tone="dark" id="hero">
       <div
-        className="pointer-events-none absolute -top-24 -right-32 size-[600px] opacity-55"
+        className="pointer-events-none absolute -top-24 -right-32 size-[420px] opacity-55 sm:size-[600px]"
         style={{ transform: `translateY(${y}px)` }}
         aria-hidden="true"
       >
         <Spiral className="size-full" spin />
       </div>
-      <PulseField className="pointer-events-none absolute -top-10 -right-10 size-[520px] opacity-30" />
+      <PulseField className="pointer-events-none absolute -top-10 -right-10 size-[380px] opacity-30 sm:size-[520px]" />
+      <Rings
+        className="pointer-events-none absolute -bottom-40 -left-32 size-[380px] sm:-bottom-52 sm:-left-24 sm:size-[520px]"
+        color="var(--ember)"
+        count={7}
+        gap={24}
+        opacity={0.22}
+      />
       <Particles />
 
-      <Wrap>
-        <nav className="flex items-center justify-between py-7">
-          <span className="font-display text-[19px] italic tracking-[0.02em]">VórticeLab</span>
+      <Wrap className="flex min-h-[100svh] flex-col">
+        <nav className="flex items-center justify-between py-5 sm:py-7">
+          <span className="font-display text-[17px] italic tracking-[0.02em] sm:text-[19px]">VórticeLab</span>
           <a
-            className="rounded-full border border-bone/35 px-[18px] py-[9px] font-mono text-xs tracking-[0.08em] uppercase no-underline transition-colors duration-250 hover:border-ember hover:bg-ember hover:text-ink"
+            className="rounded-full border border-bone/35 px-4 py-2 font-mono text-[11px] tracking-[0.08em] uppercase no-underline transition-colors duration-250 hover:border-ember hover:bg-ember hover:text-ink sm:px-[18px] sm:py-[9px] sm:text-xs"
             href="#contato"
           >
             Fale conosco
           </a>
         </nav>
 
-        <div className="flex min-h-[74vh] items-center pt-10 pb-16">
+        <div className="flex flex-1 flex-col justify-center pb-14 sm:pb-20">
           <div className="max-w-[660px]">
             <Reveal delay={0.12}>
-              <h1 className="m-0 mb-6 font-display text-[clamp(38px,6vw,60px)] leading-[1.08] font-light text-bone">
+              <h1 className="m-0 mb-4 font-display text-[clamp(31px,7.4vw,60px)] leading-[1.08] font-light text-bone sm:mb-6">
                 O próximo movimento já começou.
               </h1>
             </Reveal>
             <Reveal delay={0.22}>
-              <p className="m-0 mb-4 font-mono text-[15px] tracking-[0.02em] text-bone/65">
+              <p className="m-0 mb-6 max-w-[46ch] font-mono text-[13px] leading-[1.65] tracking-[0.02em] text-bone/70 sm:mb-8 sm:text-[15px]">
                 VórticeLab: Arquitetura energética e inteligência estratégica para quem molda o topo do mercado.
               </p>
             </Reveal>
-            <Reveal delay={0.28}>
-              <p className="m-0 mb-6 max-w-[50ch] text-[17px] text-bone/90">
-                Unimos a sabedoria das tecnologias ancestrais à dinâmica dos negócios de alta performance. Uma
-                consultoria exclusiva para atletas, empresários e investidores que exigem{" "}
-                <HighlightBox>precisão em cada tomada de decisão</HighlightBox>, seja na expansão de corporações, na
-                gestão de carreiras ou em grandes transições de vida.
-              </p>
-            </Reveal>
-            <Reveal delay={0.36}>
-              <p className="m-0 mb-9 max-w-[40ch] font-display text-[18px] font-light text-ember-mid italic">
-                A engenharia sutil por trás das decisões que moldam o futuro.
-              </p>
-            </Reveal>
-            <Reveal delay={0.42}>
+            <Reveal delay={0.3}>
               <a
-                className="inline-block rounded-full bg-ember px-[30px] py-[14px] font-mono text-[13px] font-medium tracking-[0.08em] text-ink uppercase no-underline transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-[var(--shadow-ember)]"
+                className="inline-block rounded-full bg-ember px-7 py-3.5 font-mono text-[12px] font-medium tracking-[0.08em] text-ink uppercase no-underline transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-[var(--shadow-ember)] sm:px-[30px] sm:py-[14px] sm:text-[13px]"
                 href="#contato"
               >
                 Fale conosco
@@ -68,13 +65,33 @@ export function Hero() {
         </div>
       </Wrap>
 
-      <span className="absolute bottom-5 left-7 z-[1] flex items-center gap-2.5 font-mono text-[10px] tracking-[0.2em] text-bone/45 uppercase">
+      <Wrap className="pb-24">
+        <div className="grid max-w-[880px] grid-cols-1 gap-8 border-t border-bone/12 pt-10 md:grid-cols-[1.4fr_1fr] md:items-start md:gap-14">
+          <Reveal delay={0.08}>
+            <p className="m-0 max-w-[52ch] text-[16px] leading-[1.7] text-bone/90 sm:text-[17px]">
+              Unimos a sabedoria das tecnologias ancestrais à dinâmica dos negócios de alta performance. Uma
+              consultoria exclusiva para atletas, empresários e investidores que exigem{" "}
+              <HighlightBox>precisão em cada tomada de decisão</HighlightBox>, seja na expansão de corporações, na
+              gestão de carreiras ou em grandes transições de vida.
+            </p>
+          </Reveal>
+          <Reveal delay={0.16} from={18}>
+            <p className="m-0 max-w-[34ch] font-display text-[18px] leading-[1.45] font-light text-ember-mid italic">
+              A engenharia sutil por trás das decisões que moldam o futuro.
+            </p>
+          </Reveal>
+        </div>
+      </Wrap>
+
+      <span className="absolute top-[calc(100svh-2.2rem)] left-7 z-[1] flex items-center gap-2.5 font-mono text-[10px] tracking-[0.2em] text-bone/45 uppercase">
         <span className="vx-cue relative block h-px w-7 overflow-hidden bg-bone/35" />
         rolar
       </span>
+
     </Band>
   );
 }
+
 
 /* ----------------------------------------------------------------- break */
 
@@ -88,13 +105,32 @@ export function Quote({
   seed?: number;
 }) {
   return (
-    <Band tone={tone} className="flex min-h-[46vh] items-center justify-center px-7 py-20 text-center">
+    <Band tone={tone} className="flex min-h-[42vh] items-center justify-center px-7 py-16 text-center sm:min-h-[46vh] sm:py-20">
       <QuoteField
         className="pointer-events-none absolute inset-0 size-full"
         color={tone === "light" ? "var(--clay)" : "var(--ember)"}
         seed={seed}
         count={5}
       />
+      <Rings
+        className="pointer-events-none absolute top-1/2 -left-32 size-[320px] -translate-y-1/2 sm:-left-24 sm:size-[420px]"
+        color="var(--band-accent)"
+        count={6}
+        gap={28}
+        sweep={0.55}
+        rotate={90}
+        opacity={0.2}
+      />
+      <Rings
+        className="pointer-events-none absolute top-1/2 -right-36 size-[300px] -translate-y-1/2 sm:-right-28 sm:size-[400px]"
+        color="var(--band-accent)"
+        count={5}
+        gap={30}
+        sweep={0.55}
+        rotate={270}
+        opacity={0.18}
+      />
+
       <div
         className="pointer-events-none absolute top-1/2 left-1/2 aspect-[16/9] w-[min(1100px,120%)] -translate-x-1/2 -translate-y-1/2 rounded-full"
         aria-hidden="true"
@@ -140,7 +176,7 @@ export function Quote({
 
 export function Equilibrio() {
   return (
-    <Band tone="light" id="equilibrio" className="py-24">
+    <Band tone="light" id="equilibrio" className="py-16 sm:py-24">
       <WindField
         className="pointer-events-none absolute inset-0 size-full opacity-25"
         color="var(--clay)"
@@ -212,8 +248,20 @@ export function Equilibrio() {
             </aside>
           </Reveal>
         </div>
+
+        <CtaLink>Quero entender melhor</CtaLink>
       </Wrap>
+      <Rings
+        className="pointer-events-none absolute -right-28 -bottom-32 size-[300px] sm:-right-20 sm:size-[420px]"
+        color="var(--clay)"
+        count={7}
+        gap={26}
+        sweep={0.62}
+        rotate={200}
+        opacity={0.25}
+      />
     </Band>
+
   );
 }
 
@@ -266,7 +314,7 @@ const PILARES = [
 
 export function Atuacao() {
   return (
-    <Band tone="dark" id="atuacao" className="py-24">
+    <Band tone="dark" id="atuacao" className="py-16 sm:py-24">
       <WindField
         className="pointer-events-none absolute inset-0 size-full opacity-30"
         color="var(--moss-bright)"
@@ -306,8 +354,20 @@ export function Atuacao() {
             </Reveal>
           ))}
         </div>
+
+        <CtaLink>Quero entender melhor</CtaLink>
       </Wrap>
+      <Rings
+        className="pointer-events-none absolute -top-24 -left-36 size-[300px] sm:-left-24 sm:size-[440px]"
+        color="var(--ember)"
+        count={7}
+        gap={26}
+        sweep={0.6}
+        rotate={20}
+        opacity={0.18}
+      />
     </Band>
+
   );
 }
 
@@ -315,7 +375,7 @@ export function Atuacao() {
 
 export function Metodologia() {
   return (
-    <Band tone="deep" id="metodologia" className="py-24">
+    <Band tone="deep" id="metodologia" className="py-16 sm:py-24">
       <WindField
         className="pointer-events-none absolute inset-0 size-full opacity-25"
         color="var(--bone)"
@@ -371,8 +431,20 @@ export function Metodologia() {
             </div>
           </Reveal>
         </div>
+
+        <CtaLink>Como funciona</CtaLink>
       </Wrap>
+      <Rings
+        className="pointer-events-none absolute -right-32 -bottom-36 size-[320px] sm:-right-24 sm:size-[460px]"
+        color="var(--bone)"
+        count={8}
+        gap={24}
+        sweep={0.58}
+        rotate={185}
+        opacity={0.14}
+      />
     </Band>
+
   );
 }
 
@@ -416,7 +488,7 @@ const ETAPAS = [
 
 export function Etapas() {
   return (
-    <Band tone="light" id="etapas" className="py-24">
+    <Band tone="light" id="etapas" className="py-16 sm:py-24">
       <WindField
         className="pointer-events-none absolute inset-0 size-full opacity-20"
         color="var(--moss)"
@@ -455,8 +527,20 @@ export function Etapas() {
             </Reveal>
           ))}
         </div>
+
+        <CtaLink>Como funciona</CtaLink>
       </Wrap>
+      <Rings
+        className="pointer-events-none absolute -bottom-40 left-1/2 size-[360px] -translate-x-1/2 sm:size-[520px]"
+        color="var(--moss)"
+        count={8}
+        gap={26}
+        sweep={0.5}
+        rotate={270}
+        opacity={0.16}
+      />
     </Band>
+
   );
 }
 
@@ -485,7 +569,7 @@ const EDITORIAL = [
 
 export function Editorial() {
   return (
-    <Band tone="dark" id="editorial" className="py-24">
+    <Band tone="dark" id="editorial" className="py-16 sm:py-24">
       <Particles count={4} opacity={0.5} />
       <Wrap>
         <SectionHead index="04" label="Editorial" icon="field" />
@@ -513,7 +597,17 @@ export function Editorial() {
           ))}
         </div>
       </Wrap>
+      <Rings
+        className="pointer-events-none absolute -bottom-32 -left-28 size-[300px] sm:-left-16 sm:size-[420px]"
+        color="var(--ember)"
+        count={7}
+        gap={26}
+        sweep={0.45}
+        rotate={45}
+        opacity={0.2}
+      />
     </Band>
+
   );
 }
 
@@ -521,11 +615,19 @@ export function Editorial() {
 
 export function Contato() {
   return (
-    <Band tone="light" id="contato" className="py-28 text-center">
-      <div className="pointer-events-none absolute top-1/2 left-1/2 size-[560px] -translate-x-1/2 -translate-y-1/2 opacity-40" aria-hidden="true">
+    <Band tone="light" id="contato" className="py-20 text-center sm:py-28">
+      <div className="pointer-events-none absolute top-1/2 left-1/2 size-[420px] -translate-x-1/2 -translate-y-1/2 opacity-40 sm:size-[560px]" aria-hidden="true">
         <Spiral className="size-full" strokes={["var(--clay)", "var(--moss)", "var(--ember)"]} spin />
       </div>
-      <PulseField className="pointer-events-none absolute top-1/2 left-1/2 size-[620px] -translate-x-1/2 -translate-y-1/2 opacity-40" />
+      <PulseField className="pointer-events-none absolute top-1/2 left-1/2 size-[480px] -translate-x-1/2 -translate-y-1/2 opacity-40 sm:size-[620px]" />
+      <Rings
+        className="pointer-events-none absolute top-1/2 left-1/2 size-[560px] -translate-x-1/2 -translate-y-1/2 sm:size-[820px]"
+        color="var(--clay)"
+        count={9}
+        gap={22}
+        start={60}
+        opacity={0.16}
+      />
       <Wrap>
         <Reveal>
           <p className="m-0 mb-4 flex items-center justify-center gap-2.5 font-mono text-[11px] tracking-[0.22em] text-band-muted uppercase">
@@ -537,13 +639,30 @@ export function Contato() {
           <h2 className="m-0 mb-8 font-display text-[clamp(34px,5vw,54px)] font-light text-ink-deep italic">
             Fale conosco.
           </h2>
-          <a
-            className="inline-block rounded-full bg-clay px-[30px] py-[14px] font-mono text-[13px] font-medium tracking-[0.08em] text-bone-lift uppercase no-underline transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-[var(--shadow-light)]"
-            href="mailto:contato@vorticelab.com.br"
-          >
-            contato@vorticelab.com.br
-          </a>
-          <p className="mt-6 mb-0 text-[13px] text-band-muted">
+
+          <div className="flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
+            <a
+              className="inline-flex items-center justify-center gap-3 rounded-full bg-clay px-7 py-4 font-mono text-[12px] font-medium tracking-[0.08em] text-bone-lift uppercase no-underline transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-[var(--shadow-light)] sm:px-[30px] sm:text-[13px]"
+              href={WHATSAPP}
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              <Icon name="wave" className="size-4" />
+              WhatsApp
+            </a>
+            <a
+              className="inline-flex items-center justify-center gap-3 rounded-full border border-clay/45 px-7 py-4 font-mono text-[12px] font-medium tracking-[0.06em] text-ink-deep no-underline transition-colors duration-200 hover:border-clay hover:bg-clay/10 sm:px-[30px] sm:text-[13px]"
+              href={EMAIL}
+            >
+              <Icon name="orbit" className="size-4 text-clay" />
+              contato@vorticelab.com.br
+            </a>
+          </div>
+
+          <p className="mx-auto mt-10 mb-0 flex max-w-[42ch] items-center justify-center gap-4 border-t border-band-line pt-5 font-mono text-[11px] leading-[1.7] tracking-[0.1em] text-band-muted uppercase">
+            <span aria-hidden="true" className="text-clay">
+              <Icon name="diamond" className="size-3" />
+            </span>
             Atendimento mediante indicação ou avaliação de compatibilidade.
           </p>
         </Reveal>
@@ -551,6 +670,7 @@ export function Contato() {
     </Band>
   );
 }
+
 
 export function Footer() {
   return (
