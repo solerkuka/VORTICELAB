@@ -54,8 +54,8 @@ export function Reveal({
 }
 
 /**
- * Chapter head. The numeral is deliberately demoted to a small mono marker
- * next to the label — it no longer competes with the title.
+ * Chapter head. The numeral is promoted to a large stylized outlined glyph
+ * that anchors the section visually, with the label set beside/over it.
  */
 export function SectionHead({
   index,
@@ -67,21 +67,37 @@ export function SectionHead({
   icon: VorticeIcon;
 }) {
   return (
-    <div className="relative mb-10">
-      <p className="m-0 flex flex-wrap items-center gap-3 font-mono uppercase sm:gap-4">
-        <span className="text-[13px] tracking-[0.2em] text-moss-mid sm:text-[15px]">{index}</span>
-        <span className="h-px w-8 bg-band-line sm:w-10" />
-        <span className="text-band-accent">
-          <Icon name={icon} className="size-6 sm:size-7" pulse />
+    <div className="relative mb-12">
+      <div className="flex flex-wrap items-end gap-x-5 gap-y-2">
+        {/* Large stylized numeral — outlined gradient, breathing */}
+        <span
+          aria-hidden="true"
+          className="vx-breathe select-none font-mono font-bold leading-[0.8] tracking-tighter"
+          style={{
+            fontSize: "clamp(3.5rem,9vw,6.5rem)",
+            lineHeight: 0.78,
+            color: "transparent",
+            WebkitTextStroke: "1.4px var(--band-accent)",
+            textShadow: "0 0 28px color-mix(in oklab, var(--band-accent) 35%, transparent)",
+            opacity: 0.92,
+          }}
+        >
+          {index}
         </span>
-        <span className="text-[clamp(1.05rem,2.6vw,1.6rem)] font-semibold tracking-[0.16em] text-band-fg">
-          {label}
-        </span>
-      </p>
+        {/* Meta line: icon + label */}
+        <div className="flex items-center gap-3 pb-1 font-mono uppercase sm:gap-4">
+          <span className="text-band-accent">
+            <Icon name={icon} className="size-6 sm:size-7" pulse />
+          </span>
+          <span className="text-[clamp(1.05rem,2.6vw,1.6rem)] font-semibold tracking-[0.16em] text-band-fg">
+            {label}
+          </span>
+        </div>
+      </div>
       <svg
         viewBox="0 0 1000 6"
         preserveAspectRatio="none"
-        className="mt-4 block h-[6px] w-full"
+        className="mt-5 block h-[6px] w-full"
         aria-hidden="true"
       >
         <path
