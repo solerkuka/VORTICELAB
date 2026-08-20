@@ -507,7 +507,6 @@ export function Etapas() {
           ))}
         </div>
 
-        <CtaLink>Como funciona</CtaLink>
       </Wrap>
       <Rings
         className="pointer-events-none absolute -bottom-40 left-1/2 size-[360px] -translate-x-1/2 sm:size-[520px]"
