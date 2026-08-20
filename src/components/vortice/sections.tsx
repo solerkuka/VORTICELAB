@@ -1,4 +1,3 @@
-import { Link } from "@tanstack/react-router";
 import { FRENTES } from "@/content/frentes";
 import { Icon } from "./icons";
 import { Particles, QuoteField, Rings, SpiralCluster, WindField } from "./field";
