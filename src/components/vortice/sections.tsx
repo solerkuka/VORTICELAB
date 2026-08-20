@@ -33,11 +33,6 @@ export function Hero() {
 
         <div className="flex min-h-[74vh] items-center pt-10 pb-16">
           <div className="max-w-[660px]">
-            <Reveal>
-              <span className="mb-6 block font-mono text-[11px] tracking-[0.24em] text-ember uppercase">
-                VórticeLab
-              </span>
-            </Reveal>
             <Reveal delay={0.12}>
               <h1 className="m-0 mb-6 font-display text-[clamp(38px,6vw,60px)] leading-[1.08] font-light text-bone">
                 O próximo movimento já começou.
