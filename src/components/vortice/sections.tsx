@@ -1,6 +1,6 @@
 import { Icon } from "./icons";
 import { Particles, QuoteField, Rings, SpiralCluster, WindField } from "./field";
-import { Band, CtaLink, Highlight, HighlightBox, Reveal, SectionHead, Wrap } from "./primitives";
+import { Band, Highlight, HighlightBox, Reveal, SectionHead, Wrap } from "./primitives";
 import { useParallax } from "./use-vortice-motion";
 
 const WHATSAPP = "https://wa.me/5551999990101";
@@ -224,7 +224,6 @@ export function Equilibrio() {
           </Reveal>
         </div>
 
-        <CtaLink>Quero entender melhor</CtaLink>
       </Wrap>
       <Rings
         className="pointer-events-none absolute -right-28 -bottom-32 size-[300px] sm:-right-20 sm:size-[420px]"
@@ -330,7 +329,6 @@ export function Atuacao() {
           ))}
         </div>
 
-        <CtaLink>Quero entender melhor</CtaLink>
       </Wrap>
       <Rings
         className="pointer-events-none absolute -top-24 -left-36 size-[300px] sm:-left-24 sm:size-[440px]"
