@@ -355,6 +355,10 @@
   .vx-breathe,
   .vx-drift,
   .vx-spin,
+  .vx-spin-slow,
+  .vx-spin-rev,
+  .vx-spin-fast,
+
   .vx-glow,
   .vx-cue::after,
   .vx-icon-pulse {
