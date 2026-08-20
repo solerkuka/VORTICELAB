@@ -406,7 +406,6 @@ export function Metodologia() {
           </Reveal>
         </div>
 
-        <CtaLink>Como funciona</CtaLink>
       </Wrap>
       <Rings
         className="pointer-events-none absolute -right-32 -bottom-36 size-[320px] sm:-right-24 sm:size-[460px]"
