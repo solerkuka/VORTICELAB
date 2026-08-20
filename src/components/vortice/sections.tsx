@@ -224,7 +224,6 @@ export function Equilibrio() {
           </Reveal>
         </div>
 
-        <CtaLink>Quero entender melhor</CtaLink>
       </Wrap>
       <Rings
         className="pointer-events-none absolute -right-28 -bottom-32 size-[300px] sm:-right-20 sm:size-[420px]"
@@ -330,7 +329,6 @@ export function Atuacao() {
           ))}
         </div>
 
-        <CtaLink>Quero entender melhor</CtaLink>
       </Wrap>
       <Rings
         className="pointer-events-none absolute -top-24 -left-36 size-[300px] sm:-left-24 sm:size-[440px]"
