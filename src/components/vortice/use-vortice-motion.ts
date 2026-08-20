@@ -12,6 +12,7 @@ export function useVorticeMotion(chapterIds: string[]) {
 
   useEffect(() => {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let cleanupObservers: (() => void) | undefined;
 
     const revealEls = Array.from(document.querySelectorAll<HTMLElement>(".reveal"));
     if (reduce || !("IntersectionObserver" in window)) {
