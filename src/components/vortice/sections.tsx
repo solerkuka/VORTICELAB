@@ -11,8 +11,6 @@ const EMAIL = "mailto:contato@vorticelab.com.br";
 /* ------------------------------------------------------------------ hero */
 
 export function Hero() {
-  const y = useParallax(0.06, 900);
-
   return (
     <Band tone="dark" id="hero">
       <Particles count={3} opacity={0.5} />
