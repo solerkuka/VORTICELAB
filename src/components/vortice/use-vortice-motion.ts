@@ -64,7 +64,7 @@ export function useVorticeMotion(chapterIds: string[]) {
         if (el) chapterIO.observe(el);
       });
 
-      var cleanupObservers = () => {
+      cleanupObservers = () => {
         io.disconnect();
         drawIO.disconnect();
         chapterIO.disconnect();
