@@ -1,5 +1,5 @@
 import { Icon } from "./icons";
-import { Particles, PulseField, QuoteField, Rings, Spiral, SpiralCluster, WindField } from "./field";
+import { Particles, QuoteField, Rings, SpiralCluster, WindField } from "./field";
 import { Band, CtaLink, Highlight, HighlightBox, Reveal, SectionHead, Wrap } from "./primitives";
 import { useParallax } from "./use-vortice-motion";
 
@@ -109,15 +109,6 @@ export function Quote({
         sweep={0.55}
         rotate={90}
         opacity={0.2}
-      />
-      <Rings
-        className="pointer-events-none absolute top-1/2 -right-36 size-[300px] -translate-y-1/2 sm:-right-28 sm:size-[400px]"
-        color="var(--band-accent)"
-        count={5}
-        gap={30}
-        sweep={0.55}
-        rotate={270}
-        opacity={0.18}
       />
 
       <div
@@ -371,7 +362,6 @@ export function Metodologia() {
         seed={3}
         count={5}
       />
-      <PulseField className="pointer-events-none absolute -top-40 -left-40 size-[560px] opacity-25" />
       <Wrap>
         <SectionHead index="03" label="Metodologia e Protocolo de Confidencialidade" icon="knot" />
 
@@ -517,7 +507,6 @@ export function Etapas() {
           ))}
         </div>
 
-        <CtaLink>Como funciona</CtaLink>
       </Wrap>
       <Rings
         className="pointer-events-none absolute -bottom-40 left-1/2 size-[360px] -translate-x-1/2 sm:size-[520px]"
