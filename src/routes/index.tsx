@@ -44,7 +44,7 @@ const INK_VOID = "var(--ink-void)";
 const LIGHT = "var(--surface-light)";
 
 function Index() {
-  const { progress, active } = useVorticeMotion(CHAPTER_IDS);
+  const { progress } = useVorticeMotion(CHAPTER_IDS);
 
   return (
     <main className="relative">
@@ -56,40 +56,7 @@ function Index() {
         aria-hidden="true"
       />
 
-      <nav
-        className="fixed top-1/2 right-2 z-[70] flex -translate-y-1/2 flex-col items-end gap-3 sm:right-5 sm:gap-4"
-        aria-label="Capítulos"
-      >
-        {CHAPTERS.map((c) => {
-          const isActive = active === c.id;
-          return (
-            <a
-              key={c.id}
-              href={`#${c.id}`}
-              aria-label={c.label}
-              aria-current={isActive ? "true" : undefined}
-              className="group flex items-center justify-end gap-2 rounded-full py-1 pr-1 pl-2 no-underline backdrop-blur-[2px]"
-            >
-              <span
-                className={`rounded-full px-1.5 py-0.5 font-mono text-[9px] tracking-[0.14em] uppercase transition-all duration-300 ${
-                  isActive
-                    ? "bg-band/70 text-ember opacity-100"
-                    : "text-band-muted opacity-0 group-hover:bg-band/70 group-hover:opacity-70"
-                }`}
-              >
-                {c.label}
-              </span>
 
-              <span
-                aria-hidden="true"
-                className={`block h-px transition-all duration-300 ${
-                  isActive ? "w-6 bg-ember" : "w-3 bg-bone/30 group-hover:w-5 group-hover:bg-bone/60"
-                }`}
-              />
-            </a>
-          );
-        })}
-      </nav>
 
       <Hero />
       <Seam from={INK} to={INK_VOID} soft />
