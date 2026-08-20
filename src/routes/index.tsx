@@ -76,6 +76,16 @@ function Index() {
         ))}
       </nav>
 
+
+      <a
+        href="#contato"
+        className={`fixed bottom-5 right-5 z-[80] inline-flex items-center gap-2 rounded-full bg-ember px-5 py-3 font-mono text-[11px] font-medium tracking-[0.08em] text-ink uppercase no-underline shadow-[var(--shadow-ember)] transition-all duration-300 hover:-translate-y-0.5 sm:text-xs ${
+          active === "contato" ? "pointer-events-none translate-y-4 opacity-0" : "opacity-100"
+        }`}
+      >
+        Fale conosco
+      </a>
+
       <Hero />
       <Seam from={INK} to={INK_VOID} />
       <Quote tone="deep" seed={0}>
