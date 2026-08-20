@@ -605,18 +605,8 @@ export function Editorial() {
 export function Contato() {
   return (
     <Band tone="light" id="contato" className="py-20 text-center sm:py-28">
-      <div className="pointer-events-none absolute top-1/2 left-1/2 size-[420px] -translate-x-1/2 -translate-y-1/2 opacity-40 sm:size-[560px]" aria-hidden="true">
-        <Spiral className="size-full" strokes={["var(--clay)", "var(--moss)", "var(--ember)"]} spin />
-      </div>
-      <PulseField className="pointer-events-none absolute top-1/2 left-1/2 size-[480px] -translate-x-1/2 -translate-y-1/2 opacity-40 sm:size-[620px]" />
-      <Rings
-        className="pointer-events-none absolute top-1/2 left-1/2 size-[560px] -translate-x-1/2 -translate-y-1/2 sm:size-[820px]"
-        color="var(--clay)"
-        count={9}
-        gap={22}
-        start={60}
-        opacity={0.16}
-      />
+      <SpiralCluster strokes={["var(--clay)", "var(--moss)", "var(--ember)"]} intensity={0.55} clear="46%" />
+
       <Wrap>
         <Reveal>
           <p className="m-0 mb-4 flex items-center justify-center gap-2.5 font-mono text-[11px] tracking-[0.22em] text-band-muted uppercase">
