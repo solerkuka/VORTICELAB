@@ -124,3 +124,28 @@ export function HighlightBox({ children }: { children: ReactNode }) {
     </span>
   );
 }
+
+/** Quiet inline CTA — arrow link, never a heavy filled button. */
+export function CtaLink({
+  children,
+  href = "#contato",
+  className = "",
+}: {
+  children: ReactNode;
+  href?: string;
+  className?: string;
+}) {
+  return (
+    <a
+      href={href}
+      className={`group/cta relative z-[1] mt-9 inline-flex items-center gap-3 font-mono text-[12px] tracking-[0.16em] text-band-accent uppercase no-underline ${className}`}
+    >
+      <span className="border-b border-band-accent/40 pb-1 transition-colors duration-300 group-hover/cta:border-band-accent">
+        {children}
+      </span>
+      <span aria-hidden="true" className="transition-transform duration-300 group-hover/cta:translate-x-1.5">
+        <Icon name="converge" className="size-3.5" />
+      </span>
+    </a>
+  );
+}
