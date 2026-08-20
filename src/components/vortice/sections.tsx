@@ -104,7 +104,7 @@ export function Quote({
       />
       <Reveal>
         <blockquote className="relative z-[1] m-0 max-w-[20ch] font-display text-[clamp(26px,4.6vw,50px)] leading-[1.3] font-light text-band-accent italic">
-          <span className="vx-glow">“{children}”</span>
+          <span>“{children}”</span>
         </blockquote>
       </Reveal>
     </Band>
