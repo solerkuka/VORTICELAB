@@ -256,11 +256,33 @@ export function Equilibrio() {
   );
 }
 
-/* -------------------------------------------------------------- frentes */
+/* ---------------------------------------------------- frentes — três blocos */
 
-export function Frentes() {
+/** Cartão de acesso compartilhado: link para o subdomínio. */
+function FrenteLink({ url, accent = true }: { url: string; accent?: boolean }) {
   return (
-    <Band tone="dark" id="frentes" className="py-16 sm:py-24">
+    <span
+      className={`relative z-[1] mt-8 inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.16em] uppercase ${accent ? "text-band-accent" : "text-clay"}`}
+    >
+      <span className="border-b border-band-accent/40 pb-1 transition-colors duration-300 group-hover:border-band-accent">
+        Acessar
+      </span>
+      <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1.5">
+        →
+      </span>
+    </span>
+  );
+}
+
+const ATUACAO = FRENTES[0];
+const METODOLOGIA = FRENTES[1];
+const EDITORIAL = FRENTES[2];
+
+/* ---- Atuação: faixa escura, cartão largo dividido ---- */
+
+export function AtuacaoBlock() {
+  return (
+    <Band tone="dark" id="atuacao" className="py-16 sm:py-24">
       <WindField
         className="pointer-events-none absolute inset-0 size-full opacity-25"
         color="var(--moss-bright)"
@@ -269,53 +291,165 @@ export function Frentes() {
       />
       <Particles count={3} opacity={0.6} />
       <Wrap>
-        <SectionHead label="Frentes de Trabalho" icon="vortex" />
         <Reveal>
-          <p className="m-0 mb-11 max-w-[62ch] text-[16px] text-band-muted">
-            Cada frente tem espaço próprio, com o conteúdo completo. Aqui fica a amostra — o acesso segue para o
-            endereço dedicado.
+          <p className="m-0 mb-1.5 font-mono text-[11px] tracking-[0.22em] text-moss-bright uppercase">
+            {ATUACAO.lead}
           </p>
+          <h2 className="m-0 mb-10 font-display text-[clamp(26px,5vw,46px)] font-light text-bone">
+            {ATUACAO.title}
+          </h2>
         </Reveal>
 
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
-          {FRENTES.map((f, i) => (
-            <Reveal key={f.key} delay={0.1 + i * 0.1} from={i === 1 ? 0 : i === 0 ? -18 : 18} className="h-full">
-              <a
-                href={f.url}
-                target="_blank"
-                rel="noreferrer noopener"
-                className="group relative flex h-full flex-col overflow-hidden rounded-[10px] border border-bone/12 bg-ink-raise p-7 no-underline shadow-[var(--shadow-deep)] transition-all duration-350 hover:-translate-y-2 hover:border-ember/45 hover:shadow-[var(--shadow-ember)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember"
-              >
-                <span className="pointer-events-none absolute -right-24 -bottom-24 size-48 rounded-full border border-ember/20 transition-transform duration-700 group-hover:scale-150" />
-                <span className="pointer-events-none absolute right-4 bottom-4 size-[75px] rounded-full border border-moss-bright/20 transition-transform duration-700 group-hover:scale-[1.8]" />
-                <span className="relative z-[1] mb-5 block text-moss-bright">
-                  <Icon name={f.icon} className="size-6" pulse />
-                </span>
-                <h3 className="relative z-[1] m-0 mb-3 font-display text-[23px] font-normal text-ember-mid">
-                  {f.title}
-                </h3>
-                <p className="relative z-[1] m-0 text-[15px] text-bone/80">{f.line}</p>
-                <span className="relative z-[1] mt-7 inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.16em] text-ember-mid uppercase">
-                  <span className="border-b border-ember-mid/40 pb-1 transition-colors duration-300 group-hover:border-ember-mid">
-                    Acessar
-                  </span>
-                  <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1.5">
-                    →
-                  </span>
-                </span>
-              </a>
-            </Reveal>
-          ))}
-        </div>
+        <Reveal from={-18}>
+          <a
+            href={ATUACAO.url}
+            target="_blank"
+            rel="noreferrer noopener"
+            className="group relative grid grid-cols-1 items-stretch gap-0 overflow-hidden rounded-[12px] border border-bone/12 bg-ink-raise no-underline shadow-[var(--shadow-deep)] transition-all duration-350 hover:-translate-y-1 hover:border-ember/40 hover:shadow-[var(--shadow-ember)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember sm:grid-cols-[180px_1fr]"
+          >
+            <span className="relative flex items-center justify-center border-b border-bone/10 bg-ink-void/40 px-7 py-10 sm:border-b-0 sm:border-r">
+              <span className="pointer-events-none absolute -bottom-10 -left-6 size-28 rounded-full border border-ember/20 transition-transform duration-700 group-hover:scale-150" />
+              <span className="relative z-[1] text-moss-bright">
+                <Icon name={ATUACAO.icon} className="size-9" pulse />
+              </span>
+            </span>
+            <span className="relative flex flex-col justify-center px-7 py-9">
+              <span className="relative z-[1] mb-2 block font-mono text-[10px] tracking-[0.2em] text-moss uppercase">
+                {ATUACAO.title}
+              </span>
+              <p className="relative z-[1] m-0 max-w-[52ch] text-[15px] leading-[1.7] text-bone/80">
+                {ATUACAO.line}
+              </p>
+              <FrenteLink url={ATUACAO.url} />
+            </span>
+          </a>
+        </Reveal>
       </Wrap>
       <Rings
-        className="pointer-events-none absolute -top-24 -left-36 size-[300px] sm:-left-24 sm:size-[440px]"
+        className="pointer-events-none absolute -top-24 -right-32 size-[300px] sm:-right-20 sm:size-[440px]"
         color="var(--ember)"
         count={7}
         gap={26}
         sweep={0.6}
         rotate={20}
-        opacity={0.18}
+        opacity={0.16}
+      />
+    </Band>
+  );
+}
+
+/* ---- Metodologia: faixa clara, banner com elemento circular ---- */
+
+export function MetodologiaBlock() {
+  return (
+    <Band tone="light" id="metodologia" className="py-16 sm:py-24">
+      <Rings
+        className="pointer-events-none absolute -top-20 -right-24 size-[300px] sm:-right-16 sm:size-[420px]"
+        color="var(--clay)"
+        count={8}
+        gap={24}
+        sweep={0.58}
+        rotate={120}
+        opacity={0.22}
+      />
+      <Wrap>
+        <Reveal>
+          <p className="m-0 mb-1.5 font-mono text-[11px] tracking-[0.22em] text-clay uppercase">
+            {METODOLOGIA.lead}
+          </p>
+          <h2 className="m-0 mb-10 font-display text-[clamp(26px,5vw,46px)] font-light text-ink-deep italic">
+            {METODOLOGIA.title}
+          </h2>
+        </Reveal>
+
+        <Reveal from={18}>
+          <a
+            href={METODOLOGIA.url}
+            target="_blank"
+            rel="noreferrer noopener"
+            className="group relative flex flex-col items-stretch overflow-hidden rounded-[12px] border border-clay/25 bg-band-surface p-7 no-underline shadow-[var(--shadow-light)] transition-all duration-350 hover:-translate-y-1 hover:border-clay/50 hover:shadow-[var(--shadow-light)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-clay sm:flex-row sm:items-center sm:gap-8"
+          >
+            <span className="relative mb-6 flex size-20 shrink-0 items-center justify-center rounded-full border border-clay/30 bg-bone-lift/40 sm:mb-0 sm:size-24">
+              <span className="pointer-events-none absolute inset-0 rounded-full border border-clay/20 transition-transform duration-700 group-hover:scale-150" />
+              <span className="relative z-[1] text-clay">
+                <Icon name={METODOLOGIA.icon} className="size-7 sm:size-8" pulse />
+              </span>
+            </span>
+            <span className="relative flex-1">
+              <span className="relative z-[1] mb-2 block font-mono text-[10px] tracking-[0.2em] text-moss uppercase">
+                {METODOLOGIA.title}
+              </span>
+              <p className="relative z-[1] m-0 max-w-[54ch] text-[15px] leading-[1.7] text-ink-deep/85">
+                {METODOLOGIA.line}
+              </p>
+              <FrenteLink url={METODOLOGIA.url} accent={false} />
+            </span>
+          </a>
+        </Reveal>
+      </Wrap>
+    </Band>
+  );
+}
+
+/* ---- Editorial: faixa escura, bloco editorial centralizado ---- */
+
+export function EditorialBlock() {
+  return (
+    <Band tone="dark" id="editorial" className="py-16 sm:py-24">
+      <WindField
+        className="pointer-events-none absolute inset-0 size-full opacity-20"
+        color="var(--moss-bright)"
+        seed={11}
+        count={4}
+      />
+      <Wrap className="flex flex-col items-center text-center">
+        <Reveal>
+          <p className="m-0 mb-3 font-mono text-[11px] tracking-[0.22em] text-moss-bright uppercase">
+            {EDITORIAL.lead}
+          </p>
+          <span aria-hidden="true" className="mb-8 flex items-center justify-center gap-2.5">
+            <span className="block h-px w-12 bg-band-line" />
+            <span className="block size-1.5 rotate-45 bg-band-accent" />
+            <span className="block h-px w-12 bg-band-line" />
+          </span>
+        </Reveal>
+
+        <Reveal from={-12}>
+          <a
+            href={EDITORIAL.url}
+            target="_blank"
+            rel="noreferrer noopener"
+            className="group relative block max-w-[680px] overflow-hidden rounded-[14px] border border-bone/12 bg-ink-raise/60 px-8 py-11 no-underline shadow-[var(--shadow-deep)] backdrop-blur-[2px] transition-all duration-350 hover:-translate-y-1 hover:border-ember/40 hover:shadow-[var(--shadow-ember)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember"
+          >
+            <span className="pointer-events-none absolute -right-16 -bottom-16 size-44 rounded-full border border-ember/15 transition-transform duration-700 group-hover:scale-150" />
+            <span className="relative z-[1] mb-5 block text-moss-bright">
+              <Icon name={EDITORIAL.icon} className="mx-auto size-8" pulse />
+            </span>
+            <span className="relative z-[1] mb-3 block font-mono text-[10px] tracking-[0.2em] text-moss uppercase">
+              {EDITORIAL.title}
+            </span>
+            <p className="relative z-[1] m-0 max-w-[46ch] font-display text-[clamp(19px,2.4vw,26px)] leading-[1.5] font-light text-bone/90 italic">
+              {EDITORIAL.line}
+            </p>
+            <span className="relative z-[1] mt-8 inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.16em] text-ember-mid uppercase">
+              <span className="border-b border-ember-mid/40 pb-1 transition-colors duration-300 group-hover:border-ember-mid">
+                Acessar
+              </span>
+              <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1.5">
+                →
+              </span>
+            </span>
+          </a>
+        </Reveal>
+      </Wrap>
+      <Rings
+        className="pointer-events-none absolute -bottom-24 -left-28 size-[280px] sm:-left-16 sm:size-[400px]"
+        color="var(--moss-bright)"
+        count={7}
+        gap={26}
+        sweep={0.55}
+        rotate={210}
+        opacity={0.16}
       />
     </Band>
   );
