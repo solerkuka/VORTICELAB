@@ -1,10 +1,15 @@
 # Faixa clara: bege → cinza-quase-branco (Gelo)
 
-Escolha: **Gelo** — Ink a 3% sobre branco = `#F8F8F8`. Branco com um sopro frio, leitura de "tinta de parede" (Surf / Nimbus). Só a faixa clara muda; nada mais é tocado.
+Escolha: **Gelo** — Ink a 3% sobre branco = `#F8F8F8`. Branco com um sopro frio, leitura de "tinta de parede" (Surf / Nimbus). Só as faixas claras e suas superfícies internas mudam; nada mais é tocado.
 
 ## O que muda
 
-Apenas os tokens de superfície da `.band-light` em `src/styles.css`. Todos os componentes já consomem `--band` / `--band-surface` / `--band-line` / `--band-halo`, então nenhuma edição de componente.
+1. Tokens de superfície da `.band-light` em `src/styles.css`.
+2. Caixinhas que hoje usam `bg-bone-lift` (creme quente hardcoded) passam a `bg-band-surface`, para herdarem o novo tom gelo e pararem de destoar. São três pontos:
+   - **Etapas** — cards das 3 etapas (`src/components/vortice/sections.tsx` ~L492)
+   - **Equilíbrio** — aside "Métrica reconhecida pelo próprio mercado" (~L217)
+   - **Editorial** — card do meio (claro) (~L541)
+   Adicionalmente, o card de Etapas ganha filete `border-band-line` para separar do fundo gelo (hoje é `border-transparent` e some).
 
 ## Permanece idêntico
 
@@ -35,11 +40,13 @@ Apenas os tokens de superfície da `.band-light` em `src/styles.css`. Todos os c
 - `--band-line`: hairline em Ink a 14% — visível sobre o cinza sem gritar
 - `--band-halo`: halo Clay suave para profundidade nas citações claras
 
-## Acompanhamento (consequência direta, mesmo bloco)
+## Acompanhamento (consequência direta)
 
 - Texto da faixa clara já é Ink puro; confirmar contraste sobre #F8F8F8 (WCAG AA passa folgado).
 - Linhas SVG de fundo da faixa clara: já usam `var(--band-line)`, herdam o novo tom automaticamente.
 - `--band-muted` sobe de 72% para 78% para manter legibilidade do secundário sobre a superfície mais clara.
+- Caixinhas: `bg-bone-lift` → `bg-band-surface` nos três pontos acima; card de Etapas ganha `border-band-line` no lugar de `border-transparent`.
+- `text-bone-lift` (botão clay do Contato, L613) **mantém** — é cor de texto sobre Clay, não superfície; creme sobre terracota continua correto.
 
 ## Fora de escopo
 
