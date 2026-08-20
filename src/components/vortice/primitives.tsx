@@ -54,32 +54,21 @@ export function Reveal({
 }
 
 /**
- * Chapter head — editorial. A quiet serif numeral on the left margin, a hairline
- * rule between it and the label, and a thin chapter ruler underneath.
+ * Chapter head — editorial. Icon + mono label, a hairline rule underneath and a
+ * short accent marker. No numbering: chapters are no longer a sequence.
  */
 export function SectionHead({
-  index,
   label,
   icon,
 }: {
-  index: string;
   label: string;
   icon: VorticeIcon;
 }) {
   return (
     <div className="group relative mb-12">
       <div className="flex items-center gap-5 sm:gap-7">
-        <span
-          aria-hidden="true"
-          className="select-none font-display leading-none text-band-accent/70"
-          style={{ fontSize: "clamp(2.4rem,5vw,3.4rem)", fontWeight: 300, letterSpacing: "-0.02em" }}
-        >
-          {index}
-        </span>
-
-        <span aria-hidden="true" className="h-[clamp(2rem,4vw,2.8rem)] w-px bg-band-line" />
-
         <div className="flex min-w-0 items-center gap-3 sm:gap-4">
+
           <span className="text-band-accent transition-transform duration-500 group-hover:scale-110">
             <Icon name={icon} className="size-5" />
           </span>

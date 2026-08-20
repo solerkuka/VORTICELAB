@@ -2,14 +2,12 @@ import { createFileRoute } from "@tanstack/react-router";
 import { IconSprite } from "@/components/vortice/icons";
 import { Seam } from "@/components/vortice/field";
 import {
-  Atuacao,
   Contato,
-  Editorial,
   Equilibrio,
   Etapas,
   Footer,
+  Frentes,
   Hero,
-  Metodologia,
   Quote,
 } from "@/components/vortice/sections";
 import { useVorticeMotion } from "@/components/vortice/use-vortice-motion";
@@ -33,10 +31,9 @@ export const Route = createFileRoute("/")({
 });
 
 const CHAPTERS = [
-  { id: "equilibrio", label: "Equilíbrio Energético" },
-  { id: "atuacao", label: "Atuação" },
-  { id: "metodologia", label: "Metodologia" },
-  { id: "editorial", label: "Editorial" },
+  { id: "equilibrio", label: "Equilíbrio" },
+  { id: "frentes", label: "Frentes" },
+  { id: "etapas", label: "Etapas" },
   { id: "contato", label: "Contato" },
 ];
 
@@ -44,7 +41,7 @@ const CHAPTER_IDS = CHAPTERS.map((c) => c.id);
 
 const INK = "var(--ink)";
 const INK_VOID = "var(--ink-void)";
-const BONE = "var(--bone)";
+const LIGHT = "var(--surface-light)";
 
 function Index() {
   const { progress, active } = useVorticeMotion(CHAPTER_IDS);
@@ -60,51 +57,63 @@ function Index() {
       />
 
       <nav
-        className="fixed top-1/2 right-5 z-[70] hidden -translate-y-1/2 flex-col items-center gap-4 lg:flex"
+        className="fixed top-1/2 right-2 z-[70] flex -translate-y-1/2 flex-col items-end gap-3 sm:right-5 sm:gap-4"
         aria-label="Capítulos"
       >
-        {CHAPTERS.map((c) => (
-          <a
-            key={c.id}
-            href={`#${c.id}`}
-            aria-label={c.label}
-            title={c.label}
-            className={`block size-1.5 rounded-full transition-all duration-300 ${
-              active === c.id ? "scale-150 bg-ember shadow-[0_0_14px_var(--ember)]" : "bg-bone/30 hover:bg-bone/60"
-            }`}
-          />
-        ))}
+        {CHAPTERS.map((c) => {
+          const isActive = active === c.id;
+          return (
+            <a
+              key={c.id}
+              href={`#${c.id}`}
+              aria-label={c.label}
+              aria-current={isActive ? "true" : undefined}
+              className="group flex items-center justify-end gap-2 rounded-full py-1 pr-1 pl-2 no-underline backdrop-blur-[2px]"
+            >
+              <span
+                className={`rounded-full px-1.5 py-0.5 font-mono text-[9px] tracking-[0.14em] uppercase transition-all duration-300 ${
+                  isActive
+                    ? "bg-band/70 text-ember opacity-100"
+                    : "text-band-muted opacity-0 group-hover:bg-band/70 group-hover:opacity-70"
+                }`}
+              >
+                {c.label}
+              </span>
+
+              <span
+                aria-hidden="true"
+                className={`block h-px transition-all duration-300 ${
+                  isActive ? "w-6 bg-ember" : "w-3 bg-bone/30 group-hover:w-5 group-hover:bg-bone/60"
+                }`}
+              />
+            </a>
+          );
+        })}
       </nav>
 
-
-
-
       <Hero />
-      <Seam from={INK} to={INK_VOID} />
+      <Seam from={INK} to={INK_VOID} soft />
       <Quote tone="deep" seed={0}>
         A energia já existe — o trabalho é lê-la.
       </Quote>
-      <Seam from={INK_VOID} to={BONE} />
+      <Seam from={INK_VOID} to={LIGHT} />
       <Equilibrio />
-      <Seam from={BONE} to={INK_VOID} />
+      <Seam from={LIGHT} to={INK_VOID} />
       <Quote tone="deep" seed={4}>
         A certeza do alinhamento antes do aperto de mãos.
       </Quote>
-      <Seam from={INK_VOID} to={INK} />
-      <Atuacao />
-      <Seam from={INK} to={BONE} />
-      <Quote tone="light" seed={7}>
+      <Seam from={INK_VOID} to={INK} soft />
+      <Frentes />
+      <Seam from={INK} to={LIGHT} />
+      <Etapas />
+      <Seam from={LIGHT} to={INK_VOID} />
+      <Quote tone="deep" seed={7}>
         A privacidade da sua prática é, também, a sua maior proteção competitiva.
       </Quote>
-      <Seam from={BONE} to={INK_VOID} />
-      <Metodologia />
-      <Seam from={INK_VOID} to={BONE} />
-      <Etapas />
-      <Seam from={BONE} to={INK} />
-      <Editorial />
-      <Seam from={INK} to={BONE} />
+      <Seam from={INK_VOID} to={LIGHT} />
       <Contato />
       <Footer />
     </main>
   );
 }
+

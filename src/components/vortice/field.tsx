@@ -27,7 +27,7 @@ function spiralPath(
 
 export function Spiral({
   className = "",
-  strokes = ["var(--ember)", "var(--moss)", "var(--bone)"],
+  strokes = ["var(--ember)", "var(--moss)", "var(--mist)"],
   spin = false,
 }: {
   className?: string;
@@ -135,10 +135,10 @@ export function PulseField({ className = "", rings = 5 }: { className?: string; 
 
 const PARTICLES = [
   { left: "8%", color: "var(--ember)", delay: "0s", duration: "12s" },
-  { left: "22%", color: "var(--bone)", delay: "3s", duration: "15s" },
+  { left: "22%", color: "var(--mist)", delay: "3s", duration: "15s" },
   { left: "40%", color: "var(--ember)", delay: "6s", duration: "11s" },
   { left: "58%", color: "var(--moss-bright)", delay: "1.5s", duration: "16s" },
-  { left: "74%", color: "var(--bone)", delay: "4.5s", duration: "13s" },
+  { left: "74%", color: "var(--mist)", delay: "4.5s", duration: "13s" },
   { left: "88%", color: "var(--ember)", delay: "8s", duration: "14s" },
 ];
 
@@ -162,30 +162,67 @@ export function Particles({ count = 6, opacity = 1 }: { count?: number; opacity?
 }
 
 /**
- * Seam between two bands — a current line that stitches one band into the next.
+ * Seam between two bands.
  * `from` is the band colour above, `to` the band colour below.
+ * `soft` (two dark bands) renders a short vertical gradient with no drawn edge;
+ * otherwise a shallow drawn seam with feathered edges bridges light and dark.
  */
-export function Seam({ from, to }: { from: string; to: string }) {
+export function Seam({ from, to, soft = false }: { from: string; to: string; soft?: boolean }) {
   const paths = windPaths(3, 1200, 90, 4);
+
+  if (soft) {
+    return (
+      <div
+        className="relative h-12 w-full overflow-hidden"
+        style={{ backgroundImage: `linear-gradient(to bottom, ${from}, ${to})` }}
+        aria-hidden="true"
+      >
+        <svg viewBox="0 0 1200 90" preserveAspectRatio="none" className="absolute inset-0 size-full opacity-40">
+          {paths.map((p, i) => (
+            <path
+              key={i}
+              d={p.d}
+              stroke="var(--ember)"
+              strokeWidth={1}
+              fill="none"
+              opacity={0.1 + i * 0.03}
+              className="vx-drift"
+            />
+          ))}
+        </svg>
+      </div>
+    );
+  }
+
   return (
-    <div className="relative h-[90px] w-full overflow-hidden" style={{ backgroundColor: to }} aria-hidden="true">
-      <svg viewBox="0 0 1200 90" preserveAspectRatio="none" className="absolute inset-0 size-full">
-        <path d="M0,0 H1200 V34 C900,66 700,10 480,40 C300,64 150,28 0,52 Z" fill={from} />
-        {paths.map((p, i) => (
-          <path
-            key={i}
-            d={p.d}
-            stroke="var(--ember)"
-            strokeWidth={1}
-            fill="none"
-            opacity={0.16 + i * 0.05}
-            className="vx-drift"
-          />
-        ))}
+    <div
+      className="relative h-[72px] w-full overflow-hidden"
+      style={{ backgroundImage: `linear-gradient(to bottom, ${from} 0%, ${from} 18%, ${to} 82%, ${to} 100%)` }}
+      aria-hidden="true"
+    >
+      <svg viewBox="0 0 1200 72" preserveAspectRatio="none" className="absolute inset-0 size-full">
+        <path
+          d="M-20,38 C240,24 420,50 620,38 C820,26 1000,50 1220,36"
+          stroke="var(--ember)"
+          strokeWidth={1}
+          fill="none"
+          opacity={0.35}
+          className="vx-drift"
+        />
+        <path
+          d="M-20,48 C260,60 460,32 660,46 C860,60 1020,34 1220,46"
+          stroke="var(--ember)"
+          strokeWidth={1}
+          fill="none"
+          opacity={0.18}
+          className="vx-drift"
+        />
       </svg>
     </div>
   );
 }
+
+
 
 /** Focused line field for quote bands: few continuous curves, edge-faded. */
 export function QuoteField({
@@ -327,7 +364,7 @@ export function Rings({
  */
 export function SpiralCluster({
   className = "",
-  strokes = ["var(--ember)", "var(--moss)", "var(--bone)"],
+  strokes = ["var(--ember)", "var(--moss)", "var(--mist)"],
   intensity = 1,
   clear = "58%",
 }: {

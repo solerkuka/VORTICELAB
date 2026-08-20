@@ -61,6 +61,8 @@
   --color-bone-lift: var(--bone-lift);
   --color-clay: var(--clay);
   --color-clay-bright: var(--clay-bright);
+  --color-mist: var(--mist);
+  --color-surface-light: var(--surface-light);
 
   /* per-band contextual tokens */
   --color-band: var(--band);
@@ -89,6 +91,10 @@
   --bone-lift: oklch(0.971 0.0155 86.42);
   --clay: oklch(0.4383 0.0859 35.27);
   --clay-bright: oklch(0.5521 0.1051 36.34);
+  /* cool neutrals — replace the warm bone on surfaces and decorative strokes */
+  --surface-light: oklch(0.975 0.002 240);
+  --mist: oklch(0.86 0.004 240);
+
 
   /* default band = dark */
   --band: var(--ink);
@@ -152,14 +158,14 @@
 }
 
 .band-light {
-  --band: oklch(0.975 0.002 240);
+  --band: var(--surface-light);
   --band-fg: var(--ink-deep);
   --band-muted: color-mix(in oklab, var(--ink-deep) 78%, transparent);
   --band-accent: var(--clay);
   --band-line: color-mix(in oklab, var(--ink-deep) 14%, transparent);
   --band-surface: oklch(0.99 0.001 240);
   --band-halo: color-mix(in oklab, var(--clay) 14%, transparent);
-  background-color: oklch(0.975 0.002 240);
+  background-color: var(--surface-light);
   color: var(--ink-deep);
 }
 
