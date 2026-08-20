@@ -77,21 +77,6 @@ function Index() {
       </nav>
 
 
-      <div
-        className={`fixed bottom-5 right-5 z-[80] flex flex-col items-end gap-2 transition-all duration-300 ${
-          active === "contato" ? "pointer-events-none translate-y-4 opacity-0" : "opacity-100"
-        }`}
-      >
-        <a
-          href="#contato"
-          className="inline-flex items-center gap-2 rounded-full bg-ember px-5 py-3 font-mono text-[11px] font-medium tracking-[0.08em] text-ink uppercase no-underline shadow-[var(--shadow-ember)] transition-transform duration-200 hover:-translate-y-0.5 sm:text-xs"
-        >
-          Fale conosco
-        </a>
-        <span className="max-w-[220px] text-right font-mono text-[9px] leading-tight tracking-[0.04em] text-bone/55 sm:text-[10px]">
-          Atendimento mediante indicação ou avaliação de compatibilidade.
-        </span>
-      </div>
 
 
       <Hero />
