@@ -163,6 +163,17 @@
   color: var(--ink-deep);
 }
 
+.article-body > p:first-of-type::first-letter {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 64px;
+  float: left;
+  line-height: 0.8;
+  margin: 8px 10px 0 0;
+  color: var(--ember);
+}
+
 
 @layer base {
   * {
