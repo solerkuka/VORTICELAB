@@ -319,3 +319,52 @@ export function Rings({
     </svg>
   );
 }
+
+/**
+ * Three spirals at clearly different scales, bled off distinct edges, each with
+ * its own rotation speed/direction. A radial mask keeps the centre (where the
+ * copy lives) clear so the lines never fight the type.
+ */
+export function SpiralCluster({
+  className = "",
+  strokes = ["var(--ember)", "var(--moss)", "var(--bone)"],
+  intensity = 1,
+  clear = "58%",
+}: {
+  className?: string;
+  strokes?: string[];
+  intensity?: number;
+  clear?: string;
+}) {
+  const mask = `radial-gradient(closest-side at 50% 45%, transparent 0%, transparent ${clear}, black 100%)`;
+
+  return (
+    <div
+      className={`pointer-events-none absolute inset-0 overflow-hidden ${className}`}
+      aria-hidden="true"
+      style={{ maskImage: mask, WebkitMaskImage: mask }}
+    >
+      {/* large — top right, slowest */}
+      <div
+        className="absolute -top-[22vh] -right-[34vw] size-[92vw] sm:-top-[30vh] sm:-right-[16vw] sm:size-[62vw]"
+        style={{ opacity: 0.4 * intensity }}
+      >
+        <Spiral className="vx-spin-slow size-full" strokes={[strokes[0]!]} />
+      </div>
+      {/* medium — bottom left, reverse */}
+      <div
+        className="absolute -bottom-[16vh] -left-[36vw] size-[70vw] sm:-bottom-[22vh] sm:-left-[14vw] sm:size-[42vw]"
+        style={{ opacity: 0.26 * intensity }}
+      >
+        <Spiral className="vx-spin-rev size-full" strokes={[strokes[1] ?? strokes[0]!]} />
+      </div>
+      {/* small — mid right/low, fastest */}
+      <div
+        className="absolute right-[6vw] bottom-[6vh] size-[34vw] sm:right-[10vw] sm:bottom-[8vh] sm:size-[18vw]"
+        style={{ opacity: 0.2 * intensity }}
+      >
+        <Spiral className="vx-spin-fast size-full" strokes={[strokes[2] ?? strokes[0]!]} />
+      </div>
+    </div>
+  );
+}

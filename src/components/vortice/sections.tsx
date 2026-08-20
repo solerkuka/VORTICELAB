@@ -1,5 +1,5 @@
 import { Icon } from "./icons";
-import { Particles, PulseField, QuoteField, Rings, Spiral, WindField } from "./field";
+import { Particles, PulseField, QuoteField, Rings, Spiral, SpiralCluster, WindField } from "./field";
 import { Band, CtaLink, Highlight, HighlightBox, Reveal, SectionHead, Wrap } from "./primitives";
 import { useParallax } from "./use-vortice-motion";
 
@@ -9,29 +9,17 @@ const EMAIL = "mailto:contato@vorticelab.com.br";
 /* ------------------------------------------------------------------ hero */
 
 export function Hero() {
-  const y = useParallax(0.12, 900);
+  const y = useParallax(0.06, 900);
 
   return (
     <Band tone="dark" id="hero">
-      <div
-        className="pointer-events-none absolute -top-24 -right-32 size-[420px] opacity-55 sm:size-[600px]"
-        style={{ transform: `translateY(${y}px)` }}
-        aria-hidden="true"
-      >
-        <Spiral className="size-full" spin />
+      <div style={{ transform: `translateY(${y}px)` }} className="absolute inset-0" aria-hidden="true">
+        <SpiralCluster strokes={["var(--ember)", "var(--moss)", "var(--bone)"]} intensity={1.5} clear="42%" />
       </div>
-      <PulseField className="pointer-events-none absolute -top-10 -right-10 size-[380px] opacity-30 sm:size-[520px]" />
-      <Rings
-        className="pointer-events-none absolute -bottom-40 -left-32 size-[380px] sm:-bottom-52 sm:-left-24 sm:size-[520px]"
-        color="var(--ember)"
-        count={7}
-        gap={24}
-        opacity={0.22}
-      />
-      <Particles />
+      <Particles count={3} opacity={0.5} />
 
       <Wrap className="flex min-h-[100svh] flex-col">
-        <nav className="flex items-center justify-between py-5 sm:py-7">
+        <nav className="flex items-center justify-between py-4 sm:py-7">
           <span className="font-display text-[17px] italic tracking-[0.02em] sm:text-[19px]">VórticeLab</span>
           <a
             className="rounded-full border border-bone/35 px-4 py-2 font-mono text-[11px] tracking-[0.08em] uppercase no-underline transition-colors duration-250 hover:border-ember hover:bg-ember hover:text-ink sm:px-[18px] sm:py-[9px] sm:text-xs"
@@ -41,21 +29,29 @@ export function Hero() {
           </a>
         </nav>
 
-        <div className="flex flex-1 flex-col justify-center pb-14 sm:pb-20">
+        <div className="flex flex-1 flex-col justify-center pb-12 sm:pb-20">
           <div className="max-w-[660px]">
-            <Reveal delay={0.12}>
-              <h1 className="m-0 mb-4 font-display text-[clamp(31px,7.4vw,60px)] leading-[1.08] font-light text-bone sm:mb-6">
+            <Reveal delay={0.1}>
+              <h1 className="m-0 mb-3 font-display text-[clamp(27px,6.6vw,60px)] leading-[1.06] font-light text-bone sm:mb-5">
                 O próximo movimento já começou.
               </h1>
             </Reveal>
-            <Reveal delay={0.22}>
-              <p className="m-0 mb-6 max-w-[46ch] font-mono text-[13px] leading-[1.65] tracking-[0.02em] text-bone/70 sm:mb-8 sm:text-[15px]">
+            <Reveal delay={0.18}>
+              <p className="m-0 mb-3.5 max-w-[46ch] font-mono text-[11.5px] leading-[1.55] tracking-[0.01em] text-bone/70 sm:mb-6 sm:text-[15px] sm:leading-[1.65]">
                 VórticeLab: Arquitetura energética e inteligência estratégica para quem molda o topo do mercado.
+              </p>
+            </Reveal>
+            <Reveal delay={0.24}>
+              <p className="m-0 mb-5 max-w-[52ch] text-[13.5px] leading-[1.55] text-bone/90 sm:mb-8 sm:text-[17px] sm:leading-[1.7]">
+                Unimos a sabedoria das tecnologias ancestrais à dinâmica dos negócios de alta performance. Uma
+                consultoria exclusiva para atletas, empresários e investidores que exigem{" "}
+                <HighlightBox>precisão em cada tomada de decisão</HighlightBox>, seja na expansão de corporações, na
+                gestão de carreiras ou em grandes transições de vida.
               </p>
             </Reveal>
             <Reveal delay={0.3}>
               <a
-                className="inline-block rounded-full bg-ember px-7 py-3.5 font-mono text-[12px] font-medium tracking-[0.08em] text-ink uppercase no-underline transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-[var(--shadow-ember)] sm:px-[30px] sm:py-[14px] sm:text-[13px]"
+                className="inline-block rounded-full bg-ember px-6 py-3 font-mono text-[11.5px] font-medium tracking-[0.08em] text-ink uppercase no-underline transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-[var(--shadow-ember)] sm:px-[30px] sm:py-[14px] sm:text-[13px]"
                 href="#contato"
               >
                 Fale conosco
@@ -66,17 +62,9 @@ export function Hero() {
       </Wrap>
 
       <Wrap className="pb-24">
-        <div className="grid max-w-[880px] grid-cols-1 gap-8 border-t border-bone/12 pt-10 md:grid-cols-[1.4fr_1fr] md:items-start md:gap-14">
-          <Reveal delay={0.08}>
-            <p className="m-0 max-w-[52ch] text-[16px] leading-[1.7] text-bone/90 sm:text-[17px]">
-              Unimos a sabedoria das tecnologias ancestrais à dinâmica dos negócios de alta performance. Uma
-              consultoria exclusiva para atletas, empresários e investidores que exigem{" "}
-              <HighlightBox>precisão em cada tomada de decisão</HighlightBox>, seja na expansão de corporações, na
-              gestão de carreiras ou em grandes transições de vida.
-            </p>
-          </Reveal>
-          <Reveal delay={0.16} from={18}>
-            <p className="m-0 max-w-[34ch] font-display text-[18px] leading-[1.45] font-light text-ember-mid italic">
+        <div className="max-w-[880px] border-t border-bone/12 pt-10">
+          <Reveal delay={0.08} from={18}>
+            <p className="m-0 max-w-[34ch] font-display text-[19px] leading-[1.45] font-light text-ember-mid italic sm:text-[22px]">
               A engenharia sutil por trás das decisões que moldam o futuro.
             </p>
           </Reveal>
@@ -91,6 +79,7 @@ export function Hero() {
     </Band>
   );
 }
+
 
 
 /* ----------------------------------------------------------------- break */
@@ -616,18 +605,8 @@ export function Editorial() {
 export function Contato() {
   return (
     <Band tone="light" id="contato" className="py-20 text-center sm:py-28">
-      <div className="pointer-events-none absolute top-1/2 left-1/2 size-[420px] -translate-x-1/2 -translate-y-1/2 opacity-40 sm:size-[560px]" aria-hidden="true">
-        <Spiral className="size-full" strokes={["var(--clay)", "var(--moss)", "var(--ember)"]} spin />
-      </div>
-      <PulseField className="pointer-events-none absolute top-1/2 left-1/2 size-[480px] -translate-x-1/2 -translate-y-1/2 opacity-40 sm:size-[620px]" />
-      <Rings
-        className="pointer-events-none absolute top-1/2 left-1/2 size-[560px] -translate-x-1/2 -translate-y-1/2 sm:size-[820px]"
-        color="var(--clay)"
-        count={9}
-        gap={22}
-        start={60}
-        opacity={0.16}
-      />
+      <SpiralCluster strokes={["var(--clay)", "var(--moss)", "var(--ember)"]} intensity={0.55} clear="46%" />
+
       <Wrap>
         <Reveal>
           <p className="m-0 mb-4 flex items-center justify-center gap-2.5 font-mono text-[11px] tracking-[0.22em] text-band-muted uppercase">
