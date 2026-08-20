@@ -14,7 +14,7 @@ export function Hero() {
   return (
     <Band tone="dark" id="hero">
       <div style={{ transform: `translateY(${y}px)` }} className="absolute inset-0" aria-hidden="true">
-        <SpiralCluster strokes={["var(--ember)", "var(--moss)", "var(--bone)"]} intensity={1} clear="52%" />
+        <SpiralCluster strokes={["var(--ember)", "var(--moss)", "var(--bone)"]} intensity={1.5} clear="42%" />
       </div>
       <Particles count={3} opacity={0.5} />
 
