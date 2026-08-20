@@ -37,7 +37,7 @@ export function Hero() {
               <a
                 key={f.key}
                 href={f.url}
-                className="font-mono text-[10.5px] tracking-[0.14em] text-bone/65 uppercase no-underline transition-colors duration-250 hover:text-ember sm:text-[11px]"
+                className="rounded-full border border-clay/45 bg-clay/20 px-3 py-[7px] font-mono text-[10px] tracking-[0.14em] text-bone-lift uppercase no-underline transition-all duration-250 hover:border-clay hover:bg-clay/40 sm:text-[10.5px]"
               >
                 {f.title}
               </a>
