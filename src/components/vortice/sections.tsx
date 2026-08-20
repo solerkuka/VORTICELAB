@@ -61,6 +61,9 @@ export function Hero() {
               >
                 Fale conosco
               </a>
+              <p className="m-0 mt-3 max-w-[34ch] font-mono text-[9.5px] leading-[1.45] tracking-[0.03em] text-bone/45 sm:mt-4 sm:text-[10.5px]">
+                Atendimento mediante indicação ou avaliação de compatibilidade.
+              </p>
             </Reveal>
           </div>
         </div>
