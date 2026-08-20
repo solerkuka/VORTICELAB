@@ -34,7 +34,9 @@ export const Route = createFileRoute("/")({
 
 const CHAPTERS = [
   { id: "equilibrio", label: "Equilíbrio" },
-  { id: "frentes", label: "Frentes" },
+  { id: "atuacao", label: "Atuação" },
+  { id: "metodologia", label: "Metodologia" },
+  { id: "editorial", label: "Editorial" },
   { id: "etapas", label: "Etapas" },
   { id: "contato", label: "Contato" },
 ];
@@ -72,7 +74,11 @@ function Index() {
         A certeza do alinhamento antes do aperto de mãos.
       </Quote>
       <Seam from={INK_VOID} to={INK} soft />
-      <Frentes />
+      <AtuacaoBlock />
+      <Seam from={INK} to={LIGHT} />
+      <MetodologiaBlock />
+      <Seam from={LIGHT} to={INK} />
+      <EditorialBlock />
       <Seam from={INK} to={LIGHT} />
       <Etapas />
       <Seam from={LIGHT} to={INK_VOID} />
