@@ -162,30 +162,62 @@ export function Particles({ count = 6, opacity = 1 }: { count?: number; opacity?
 }
 
 /**
- * Seam between two bands — a current line that stitches one band into the next.
+ * Seam between two bands.
  * `from` is the band colour above, `to` the band colour below.
+ * `soft` (two dark bands) renders a short vertical gradient with no drawn edge;
+ * otherwise a shallow drawn seam with feathered edges bridges light and dark.
  */
-export function Seam({ from, to }: { from: string; to: string }) {
+export function Seam({ from, to, soft = false }: { from: string; to: string; soft?: boolean }) {
   const paths = windPaths(3, 1200, 90, 4);
+
+  if (soft) {
+    return (
+      <div
+        className="relative h-12 w-full overflow-hidden"
+        style={{ backgroundImage: `linear-gradient(to bottom, ${from}, ${to})` }}
+        aria-hidden="true"
+      >
+        <svg viewBox="0 0 1200 90" preserveAspectRatio="none" className="absolute inset-0 size-full opacity-40">
+          {paths.map((p, i) => (
+            <path
+              key={i}
+              d={p.d}
+              stroke="var(--ember)"
+              strokeWidth={1}
+              fill="none"
+              opacity={0.1 + i * 0.03}
+              className="vx-drift"
+            />
+          ))}
+        </svg>
+      </div>
+    );
+  }
+
   return (
-    <div className="relative h-[90px] w-full overflow-hidden" style={{ backgroundColor: to }} aria-hidden="true">
-      <svg viewBox="0 0 1200 90" preserveAspectRatio="none" className="absolute inset-0 size-full">
-        <path d="M0,0 H1200 V34 C900,66 700,10 480,40 C300,64 150,28 0,52 Z" fill={from} />
-        {paths.map((p, i) => (
-          <path
-            key={i}
-            d={p.d}
-            stroke="var(--ember)"
-            strokeWidth={1}
-            fill="none"
-            opacity={0.16 + i * 0.05}
-            className="vx-drift"
-          />
-        ))}
-      </svg>
+    <div className="relative w-full overflow-hidden" aria-hidden="true">
+      <div className="h-6 w-full" style={{ backgroundImage: `linear-gradient(to bottom, ${from}, ${from})` }} />
+      <div className="relative h-[74px] w-full" style={{ backgroundColor: to }}>
+        <svg viewBox="0 0 1200 90" preserveAspectRatio="none" className="absolute inset-0 size-full">
+          <path d="M0,0 H1200 V40 C900,58 700,26 480,44 C300,58 150,32 0,50 Z" fill={from} />
+          {paths.map((p, i) => (
+            <path
+              key={i}
+              d={p.d}
+              stroke="var(--ember)"
+              strokeWidth={1}
+              fill="none"
+              opacity={0.12 + i * 0.04}
+              className="vx-drift"
+            />
+          ))}
+        </svg>
+      </div>
+      <div className="h-6 w-full" style={{ backgroundImage: `linear-gradient(to bottom, ${to}, ${to})` }} />
     </div>
   );
 }
+
 
 /** Focused line field for quote bands: few continuous curves, edge-faded. */
 export function QuoteField({
