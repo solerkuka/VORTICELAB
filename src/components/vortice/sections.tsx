@@ -214,7 +214,7 @@ export function Equilibrio() {
           </div>
 
           <Reveal delay={0.2} from={24}>
-            <aside className="relative overflow-hidden rounded-xl border border-clay/30 bg-bone-lift p-7 shadow-[var(--shadow-light)]">
+            <aside className="relative overflow-hidden rounded-xl border border-clay/30 bg-band-surface p-7 shadow-[var(--shadow-light)]">
               <span className="mb-4 block text-clay">
                 <Icon name="vortex" className="size-6" pulse />
               </span>
