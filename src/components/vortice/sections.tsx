@@ -428,10 +428,7 @@ export function Contato() {
 
       <Wrap>
         <Reveal>
-          <p className="m-0 mb-4 flex items-center justify-center gap-2.5 font-mono text-[11px] tracking-[0.22em] text-band-muted uppercase">
-            <span className="text-clay">
-              <Icon name="converge" className="size-4" pulse />
-            </span>
+          <p className="m-0 mb-4 font-mono text-[11px] tracking-[0.22em] text-band-muted uppercase">
             Contato
           </p>
           <h2 className="m-0 mb-8 font-display text-[clamp(34px,5vw,54px)] font-light text-ink-deep italic">
