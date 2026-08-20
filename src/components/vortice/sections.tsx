@@ -157,7 +157,7 @@ export function Quote({
 
 export function Equilibrio() {
   return (
-    <Band tone="light" id="equilibrio" className="py-24">
+    <Band tone="light" id="equilibrio" className="py-16 sm:py-24">
       <WindField
         className="pointer-events-none absolute inset-0 size-full opacity-25"
         color="var(--clay)"
@@ -283,7 +283,7 @@ const PILARES = [
 
 export function Atuacao() {
   return (
-    <Band tone="dark" id="atuacao" className="py-24">
+    <Band tone="dark" id="atuacao" className="py-16 sm:py-24">
       <WindField
         className="pointer-events-none absolute inset-0 size-full opacity-30"
         color="var(--moss-bright)"
@@ -332,7 +332,7 @@ export function Atuacao() {
 
 export function Metodologia() {
   return (
-    <Band tone="deep" id="metodologia" className="py-24">
+    <Band tone="deep" id="metodologia" className="py-16 sm:py-24">
       <WindField
         className="pointer-events-none absolute inset-0 size-full opacity-25"
         color="var(--bone)"
@@ -433,7 +433,7 @@ const ETAPAS = [
 
 export function Etapas() {
   return (
-    <Band tone="light" id="etapas" className="py-24">
+    <Band tone="light" id="etapas" className="py-16 sm:py-24">
       <WindField
         className="pointer-events-none absolute inset-0 size-full opacity-20"
         color="var(--moss)"
@@ -502,7 +502,7 @@ const EDITORIAL = [
 
 export function Editorial() {
   return (
-    <Band tone="dark" id="editorial" className="py-24">
+    <Band tone="dark" id="editorial" className="py-16 sm:py-24">
       <Particles count={4} opacity={0.5} />
       <Wrap>
         <SectionHead index="04" label="Editorial" icon="field" />
