@@ -299,6 +299,19 @@
   animation: vx-spin 240s linear infinite;
   transform-origin: 50% 50%;
 }
+.vx-spin-slow {
+  animation: vx-spin 420s linear infinite;
+  transform-origin: 50% 50%;
+}
+.vx-spin-rev {
+  animation: vx-spin 300s linear infinite reverse;
+  transform-origin: 50% 50%;
+}
+.vx-spin-fast {
+  animation: vx-spin 160s linear infinite;
+  transform-origin: 50% 50%;
+}
+
 .vx-cue::after {
   content: "";
   position: absolute;
