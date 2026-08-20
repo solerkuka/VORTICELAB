@@ -20,9 +20,9 @@ export function Hero() {
 
       <Wrap className="flex min-h-[100svh] flex-col">
         <nav className="flex items-center justify-between py-4 sm:py-7">
-          <span className="font-display text-[17px] italic tracking-[0.02em] sm:text-[19px]">VórticeLab</span>
+          <span className="font-display text-[34px] italic leading-none tracking-[0.02em] sm:text-[19px]">VórticeLab</span>
           <a
-            className="rounded-full border border-bone/35 px-4 py-2 font-mono text-[11px] tracking-[0.08em] uppercase no-underline transition-colors duration-250 hover:border-ember hover:bg-ember hover:text-ink sm:px-[18px] sm:py-[9px] sm:text-xs"
+            className="hidden rounded-full border border-bone/35 px-[18px] py-[9px] font-mono text-xs tracking-[0.08em] uppercase no-underline transition-colors duration-250 hover:border-ember hover:bg-ember hover:text-ink sm:inline-block"
             href="#contato"
           >
             Fale conosco
