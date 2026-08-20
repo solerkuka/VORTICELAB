@@ -1,3 +1,5 @@
+import { Link } from "@tanstack/react-router";
+import { ARTICLES } from "@/content/editorial";
 import { Icon } from "./icons";
 import { Particles, QuoteField, Rings, SpiralCluster, WindField } from "./field";
 import { Band, Highlight, HighlightBox, Reveal, SectionHead, Wrap } from "./primitives";
@@ -518,27 +520,6 @@ export function Etapas() {
 }
 
 /* ----------------------------------------------------------- 04 editorial */
-
-const EDITORIAL = [
-  {
-    title: "Quando o rigor encontra o invisível",
-    body: "Como instituições de alta exigência incorporam leitura energética ao próprio método.",
-    color: "var(--ember)",
-    seed: 1,
-  },
-  {
-    title: "Decisões de expansão e o momento certo",
-    body: "O que muda quando o timing é lido, não apenas calculado.",
-    color: "var(--clay-bright)",
-    seed: 5,
-  },
-  {
-    title: "Instituições centenárias, método atual",
-    body: "A trajetória de práticas antigas até virarem métrica reconhecida pelo mercado.",
-    color: "var(--moss-bright)",
-    seed: 9,
-  },
-];
 
 export function Editorial() {
   return (
