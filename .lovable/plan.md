@@ -40,11 +40,13 @@ Escolha: **Gelo** — Ink a 3% sobre branco = `#F8F8F8`. Branco com um sopro fri
 - `--band-line`: hairline em Ink a 14% — visível sobre o cinza sem gritar
 - `--band-halo`: halo Clay suave para profundidade nas citações claras
 
-## Acompanhamento (consequência direta, mesmo bloco)
+## Acompanhamento (consequência direta)
 
 - Texto da faixa clara já é Ink puro; confirmar contraste sobre #F8F8F8 (WCAG AA passa folgado).
 - Linhas SVG de fundo da faixa clara: já usam `var(--band-line)`, herdam o novo tom automaticamente.
 - `--band-muted` sobe de 72% para 78% para manter legibilidade do secundário sobre a superfície mais clara.
+- Caixinhas: `bg-bone-lift` → `bg-band-surface` nos três pontos acima; card de Etapas ganha `border-band-line` no lugar de `border-transparent`.
+- `text-bone-lift` (botão clay do Contato, L613) **mantém** — é cor de texto sobre Clay, não superfície; creme sobre terracota continua correto.
 
 ## Fora de escopo
 
