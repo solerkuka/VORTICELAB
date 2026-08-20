@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { ARTICLES } from "@/content/editorial";
+import { FRENTES } from "@/content/frentes";
 import { Icon } from "./icons";
 import { Particles, QuoteField, Rings, SpiralCluster, WindField } from "./field";
 import { Band, Highlight, HighlightBox, Reveal, SectionHead, Wrap } from "./primitives";
@@ -164,7 +164,7 @@ export function Equilibrio() {
         count={5}
       />
       <Wrap>
-        <SectionHead index="01" label="Equilíbrio Energético" icon="meridian" />
+        <SectionHead label="Equilíbrio Energético" icon="meridian" />
 
         <div className="grid grid-cols-1 items-start gap-14 lg:grid-cols-[1fr_300px]">
           <div>
@@ -244,96 +244,57 @@ export function Equilibrio() {
   );
 }
 
-/* ------------------------------------------------------------ 02 atuação */
+/* -------------------------------------------------------------- frentes */
 
-const PILARES = [
-  {
-    idx: "01",
-    icon: "converge" as const,
-    title: "Alinhamento de Parcerias e Contratos",
-    sub: "Mitigação de riscos em sociedades, fusões e alianças de longo prazo.",
-    body: (
-      <>
-        Diagnóstico de compatibilidade bioenergética e análise de timing estratégico antes de movimentos que definem o
-        futuro do capital: entrada de novos sócios, captação de investidores, fusões corporativas ou assinaturas de
-        contratos de transferência de alto valor.{" "}
-        <Highlight>A certeza do alinhamento antes do aperto de mãos.</Highlight>
-      </>
-    ),
-  },
-  {
-    idx: "02",
-    icon: "orbit" as const,
-    title: "Blindagem de Ativos e Lideranças",
-    sub: "Preservação energética e estabilidade para quem opera sob extrema pressão.",
-    body: (
-      <>
-        Protocolos customizados de equalização e proteção para figuras de proa — atletas, empresárias, grandes agentes e
-        executivos — que carregam o peso estratégico e a visibilidade de marcas ou delegações.{" "}
-        <Highlight>A sustentação necessária para manter o foco e a performance intactos</Highlight> sob exposição
-        constante.
-      </>
-    ),
-  },
-  {
-    idx: "03",
-    icon: "spiral" as const,
-    title: "Arquitetura de Expansão",
-    sub: "A inteligência sutil por trás da ocupação de novos espaços e mudanças de rota.",
-    body: (
-      <>
-        Auditoria bioenergética de terrenos e imóveis antes de incorporações imobiliárias, aberturas de redes de varejo
-        ou plantas industriais. Este pilar também orienta transições complexas de carreira ou de posicionamento de
-        mercado, <Highlight>apontando o solo fértil e o momento exato para o crescimento</Highlight> quando os métodos
-        tradicionais já não bastam.
-      </>
-    ),
-  },
-];
-
-export function Atuacao() {
+export function Frentes() {
   return (
-    <Band tone="dark" id="atuacao" className="py-16 sm:py-24">
+    <Band tone="dark" id="frentes" className="py-16 sm:py-24">
       <WindField
-        className="pointer-events-none absolute inset-0 size-full opacity-30"
+        className="pointer-events-none absolute inset-0 size-full opacity-25"
         color="var(--moss-bright)"
         seed={6}
         count={5}
       />
       <Particles count={3} opacity={0.6} />
       <Wrap>
-        <SectionHead index="02" label="Atuação" icon="vortex" />
+        <SectionHead label="Frentes de Trabalho" icon="vortex" />
         <Reveal>
           <p className="m-0 mb-11 max-w-[62ch] text-[16px] text-band-muted">
-            A VórticeLab opera na intersecção entre a alta estratégia e a engenharia sutil, entregando clareza e
-            precisão em três pilares independentes:
+            Cada frente tem espaço próprio, com o conteúdo completo. Aqui fica a amostra — o acesso segue para o
+            endereço dedicado.
           </p>
         </Reveal>
 
         <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
-          {PILARES.map((p, i) => (
-            <Reveal key={p.idx} delay={0.1 + i * 0.1} from={i === 1 ? 0 : i === 0 ? -18 : 18} className="h-full">
-              <article className="group relative h-full overflow-hidden rounded-[10px] border border-bone/12 bg-ink-raise p-7 shadow-[var(--shadow-deep)] transition-all duration-350 hover:-translate-y-2 hover:border-ember/45 hover:shadow-[var(--shadow-ember)]">
+          {FRENTES.map((f, i) => (
+            <Reveal key={f.key} delay={0.1 + i * 0.1} from={i === 1 ? 0 : i === 0 ? -18 : 18} className="h-full">
+              <a
+                href={f.url}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="group relative flex h-full flex-col overflow-hidden rounded-[10px] border border-bone/12 bg-ink-raise p-7 no-underline shadow-[var(--shadow-deep)] transition-all duration-350 hover:-translate-y-2 hover:border-ember/45 hover:shadow-[var(--shadow-ember)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember"
+              >
                 <span className="pointer-events-none absolute -right-24 -bottom-24 size-48 rounded-full border border-ember/20 transition-transform duration-700 group-hover:scale-150" />
                 <span className="pointer-events-none absolute right-4 bottom-4 size-[75px] rounded-full border border-moss-bright/20 transition-transform duration-700 group-hover:scale-[1.8]" />
-                <div className="relative z-[1] mb-4 flex items-center justify-between">
-                  <span className="font-mono text-[11px] tracking-[0.14em] text-moss-mid">{p.idx}</span>
-                  <span className="text-moss-bright">
-                    <Icon name={p.icon} className="size-5" pulse />
-                  </span>
-                </div>
-                <h3 className="relative z-[1] m-0 mb-2.5 font-display text-[22px] font-normal text-ember-mid">
-                  {p.title}
+                <span className="relative z-[1] mb-5 block text-moss-bright">
+                  <Icon name={f.icon} className="size-6" pulse />
+                </span>
+                <h3 className="relative z-[1] m-0 mb-3 font-display text-[23px] font-normal text-ember-mid">
+                  {f.title}
                 </h3>
-                <p className="relative z-[1] m-0 mb-3.5 font-display text-[15px] font-light text-bone/90 italic">
-                  {p.sub}
-                </p>
-                <p className="relative z-[1] m-0 text-[15px] text-bone/75">{p.body}</p>
-              </article>
+                <p className="relative z-[1] m-0 text-[15px] text-bone/80">{f.line}</p>
+                <span className="relative z-[1] mt-7 inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.16em] text-ember-mid uppercase">
+                  <span className="border-b border-ember-mid/40 pb-1 transition-colors duration-300 group-hover:border-ember-mid">
+                    Acessar
+                  </span>
+                  <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1.5">
+                    →
+                  </span>
+                </span>
+              </a>
             </Reveal>
           ))}
         </div>
-
       </Wrap>
       <Rings
         className="pointer-events-none absolute -top-24 -left-36 size-[300px] sm:-left-24 sm:size-[440px]"
@@ -345,82 +306,6 @@ export function Atuacao() {
         opacity={0.18}
       />
     </Band>
-
-  );
-}
-
-/* -------------------------------------------------------- 03 metodologia */
-
-export function Metodologia() {
-  return (
-    <Band tone="deep" id="metodologia" className="py-16 sm:py-24">
-      <WindField
-        className="pointer-events-none absolute inset-0 size-full opacity-25"
-        color="var(--mist)"
-        seed={3}
-        count={5}
-      />
-      <Wrap>
-        <SectionHead index="03" label="Metodologia e Protocolo de Confidencialidade" icon="knot" />
-
-        <div className="grid grid-cols-1 items-start gap-7 lg:grid-cols-[1.3fr_1fr]">
-          <Reveal from={-20}>
-            <div className="rounded-[10px] border border-moss/60 bg-moss/25 px-10 py-9 shadow-[var(--shadow-deep)]">
-              <p className="m-0 max-w-[58ch] text-[16px] text-bone/90">
-                A atuação da VórticeLab baseia-se em um protocolo próprio, desenhado para se integrar com{" "}
-                <Highlight>absoluta invisibilidade</Highlight> às rotinas operacionais e estratégicas de nossos
-                clientes, onde cada etapa é conduzida sob o mais estrito rigor analítico e técnico.
-              </p>
-              <div className="my-6 flex items-center gap-3 opacity-60" aria-hidden="true">
-                <span className="h-px flex-1 bg-band-line" />
-                <span className="text-band-accent">
-                  <Icon name="dot" className="size-3.5" />
-                </span>
-                <span className="h-px flex-1 bg-band-line" />
-              </div>
-              <p className="m-0 max-w-[58ch] text-[16px] text-bone/90">
-                Por diretriz institucional e respeito aos negócios e carreiras que blindamos energeticamente, a
-                VórticeLab adota uma política de <HighlightBox>absoluta confidencialidade</HighlightBox> onde nenhuma
-                informação, contrato, diagnóstico ou alinhamento é divulgado, referenciado ou utilizado como portfólio.
-              </p>
-            </div>
-          </Reveal>
-
-          <Reveal delay={0.15} from={20}>
-            <div className="rounded-[10px] border border-ember/30 bg-ink px-7 py-8 shadow-[var(--shadow-deep)]">
-              <span className="mb-5 block font-mono text-[11px] tracking-[0.16em] text-ember-bright uppercase">
-                O que não fazemos
-              </span>
-              <ul className="m-0 list-none p-0">
-                {[
-                  "Não publicamos depoimentos.",
-                  "Não divulgamos logotipos de parceiros.",
-                  "Não expomos estudos de caso.",
-                ].map((t) => (
-                  <li key={t} className="mb-3.5 flex items-start gap-2.5 text-[14px] text-bone/80 last:mb-0">
-                    <span className="mt-1 text-ember-mid">
-                      <Icon name="diamond" className="size-3.5" />
-                    </span>
-                    {t}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </Reveal>
-        </div>
-
-      </Wrap>
-      <Rings
-        className="pointer-events-none absolute -right-32 -bottom-36 size-[320px] sm:-right-24 sm:size-[460px]"
-        color="var(--mist)"
-        count={8}
-        gap={24}
-        sweep={0.58}
-        rotate={185}
-        opacity={0.14}
-      />
-    </Band>
-
   );
 }
 
@@ -513,76 +398,6 @@ export function Etapas() {
         sweep={0.5}
         rotate={270}
         opacity={0.16}
-      />
-    </Band>
-
-  );
-}
-
-/* ----------------------------------------------------------- 04 editorial */
-
-export function Editorial() {
-  return (
-    <Band tone="dark" id="editorial" className="py-16 sm:py-24">
-      <Particles count={4} opacity={0.5} />
-      <Wrap>
-        <SectionHead index="04" label="Editorial" icon="field" />
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
-          {ARTICLES.map((a, i) => {
-            const light = i === 1;
-            const accent = light ? "var(--clay)" : i === 0 ? "var(--ember)" : "var(--moss-bright)";
-            return (
-              <Reveal key={a.slug} delay={0.1 + i * 0.1} from={i === 0 ? -18 : i === 2 ? 18 : 0} className="h-full">
-                <Link
-                  to="/editorial/$slug"
-                  params={{ slug: a.slug }}
-                  className={`group relative flex h-full flex-col overflow-hidden rounded-[10px] border p-7 no-underline shadow-[var(--shadow-deep)] transition-all duration-350 hover:-translate-y-1.5 focus-visible:-translate-y-1.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember ${
-                    light
-                      ? "band-light border-ink-deep/12 bg-band-surface hover:border-clay/60"
-                      : "border-bone/12 bg-ink-raise hover:border-ember/40"
-                  }`}
-                >
-                  <WindField
-                    className="pointer-events-none absolute inset-0 size-full opacity-35 transition-opacity duration-500 group-hover:opacity-70"
-                    color={accent}
-                    seed={1 + i * 4}
-                    width={320}
-                    height={220}
-                    count={4}
-                  />
-                  <span className="relative z-[1] mb-4 block font-mono text-[10px] tracking-[0.14em] text-band-muted/70 uppercase">
-                    Por VórticeLab
-                  </span>
-                  <h4
-                    className="relative z-[1] m-0 mb-2 font-display text-[20px] leading-[1.25] font-normal"
-                    style={{ color: accent }}
-                  >
-                    {a.title}
-                  </h4>
-                  <p className="relative z-[1] m-0 text-[15px] text-band-muted">{a.subtitle}</p>
-                  <span className="relative z-[1] mt-6 inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.16em] uppercase" style={{ color: accent }}>
-                    <span className="border-b border-current/40 pb-1 transition-colors duration-300 group-hover:border-current">
-                      Leia na íntegra
-                    </span>
-                    <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1.5">
-                      →
-                    </span>
-                  </span>
-                </Link>
-              </Reveal>
-            );
-          })}
-        </div>
-
-      </Wrap>
-      <Rings
-        className="pointer-events-none absolute -bottom-32 -left-28 size-[300px] sm:-left-16 sm:size-[420px]"
-        color="var(--ember)"
-        count={7}
-        gap={26}
-        sweep={0.45}
-        rotate={45}
-        opacity={0.2}
       />
     </Band>
 
