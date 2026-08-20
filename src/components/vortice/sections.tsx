@@ -1,7 +1,10 @@
 import { Icon } from "./icons";
-import { Particles, PulseField, QuoteField, Spiral, WindField } from "./field";
-import { Band, Highlight, HighlightBox, Reveal, SectionHead, Wrap } from "./primitives";
+import { Particles, PulseField, QuoteField, Rings, Spiral, WindField } from "./field";
+import { Band, CtaLink, Highlight, HighlightBox, Reveal, SectionHead, Wrap } from "./primitives";
 import { useParallax } from "./use-vortice-motion";
+
+const WHATSAPP = "https://wa.me/5551999990101";
+const EMAIL = "mailto:contato@vorticelab.com.br";
 
 /* ------------------------------------------------------------------ hero */
 
@@ -9,62 +12,74 @@ export function Hero() {
   const y = useParallax(0.12, 900);
 
   return (
-    <Band tone="dark" id="hero" className="min-h-[92vh]">
+    <Band tone="dark" id="hero">
       <div
-        className="pointer-events-none absolute -top-24 -right-32 size-[600px] opacity-55"
+        className="pointer-events-none absolute -top-24 -right-32 size-[420px] opacity-55 sm:size-[600px]"
         style={{ transform: `translateY(${y}px)` }}
         aria-hidden="true"
       >
         <Spiral className="size-full" spin />
       </div>
-      <PulseField className="pointer-events-none absolute -top-10 -right-10 size-[520px] opacity-30" />
+      <PulseField className="pointer-events-none absolute -top-10 -right-10 size-[380px] opacity-30 sm:size-[520px]" />
+      <Rings
+        className="pointer-events-none absolute -bottom-40 -left-32 size-[380px] sm:-bottom-52 sm:-left-24 sm:size-[520px]"
+        color="var(--ember)"
+        count={7}
+        gap={24}
+        opacity={0.22}
+      />
       <Particles />
 
-      <Wrap>
-        <nav className="flex items-center justify-between py-7">
-          <span className="font-display text-[19px] italic tracking-[0.02em]">VórticeLab</span>
+      <Wrap className="flex min-h-[100svh] flex-col">
+        <nav className="flex items-center justify-between py-5 sm:py-7">
+          <span className="font-display text-[17px] italic tracking-[0.02em] sm:text-[19px]">VórticeLab</span>
           <a
-            className="rounded-full border border-bone/35 px-[18px] py-[9px] font-mono text-xs tracking-[0.08em] uppercase no-underline transition-colors duration-250 hover:border-ember hover:bg-ember hover:text-ink"
+            className="rounded-full border border-bone/35 px-4 py-2 font-mono text-[11px] tracking-[0.08em] uppercase no-underline transition-colors duration-250 hover:border-ember hover:bg-ember hover:text-ink sm:px-[18px] sm:py-[9px] sm:text-xs"
             href="#contato"
           >
             Fale conosco
           </a>
         </nav>
 
-        <div className="flex min-h-[74vh] items-center pt-10 pb-16">
+        <div className="flex flex-1 flex-col justify-center pb-14 sm:pb-20">
           <div className="max-w-[660px]">
             <Reveal delay={0.12}>
-              <h1 className="m-0 mb-6 font-display text-[clamp(38px,6vw,60px)] leading-[1.08] font-light text-bone">
+              <h1 className="m-0 mb-4 font-display text-[clamp(31px,7.4vw,60px)] leading-[1.08] font-light text-bone sm:mb-6">
                 O próximo movimento já começou.
               </h1>
             </Reveal>
             <Reveal delay={0.22}>
-              <p className="m-0 mb-4 font-mono text-[15px] tracking-[0.02em] text-bone/65">
+              <p className="m-0 mb-6 max-w-[46ch] font-mono text-[13px] leading-[1.65] tracking-[0.02em] text-bone/70 sm:mb-8 sm:text-[15px]">
                 VórticeLab: Arquitetura energética e inteligência estratégica para quem molda o topo do mercado.
               </p>
             </Reveal>
-            <Reveal delay={0.28}>
-              <p className="m-0 mb-6 max-w-[50ch] text-[17px] text-bone/90">
-                Unimos a sabedoria das tecnologias ancestrais à dinâmica dos negócios de alta performance. Uma
-                consultoria exclusiva para atletas, empresários e investidores que exigem{" "}
-                <HighlightBox>precisão em cada tomada de decisão</HighlightBox>, seja na expansão de corporações, na
-                gestão de carreiras ou em grandes transições de vida.
-              </p>
-            </Reveal>
-            <Reveal delay={0.36}>
-              <p className="m-0 mb-9 max-w-[40ch] font-display text-[18px] font-light text-ember-mid italic">
-                A engenharia sutil por trás das decisões que moldam o futuro.
-              </p>
-            </Reveal>
-            <Reveal delay={0.42}>
+            <Reveal delay={0.3}>
               <a
-                className="inline-block rounded-full bg-ember px-[30px] py-[14px] font-mono text-[13px] font-medium tracking-[0.08em] text-ink uppercase no-underline transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-[var(--shadow-ember)]"
+                className="inline-block rounded-full bg-ember px-7 py-3.5 font-mono text-[12px] font-medium tracking-[0.08em] text-ink uppercase no-underline transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-[var(--shadow-ember)] sm:px-[30px] sm:py-[14px] sm:text-[13px]"
                 href="#contato"
               >
                 Fale conosco
               </a>
             </Reveal>
           </div>
+        </div>
+      </Wrap>
+
+      <Wrap className="pb-24">
+        <div className="grid max-w-[880px] grid-cols-1 gap-8 border-t border-bone/12 pt-10 md:grid-cols-[1.4fr_1fr] md:items-start md:gap-14">
+          <Reveal delay={0.08}>
+            <p className="m-0 max-w-[52ch] text-[16px] leading-[1.7] text-bone/90 sm:text-[17px]">
+              Unimos a sabedoria das tecnologias ancestrais à dinâmica dos negócios de alta performance. Uma
+              consultoria exclusiva para atletas, empresários e investidores que exigem{" "}
+              <HighlightBox>precisão em cada tomada de decisão</HighlightBox>, seja na expansão de corporações, na
+              gestão de carreiras ou em grandes transições de vida.
+            </p>
+          </Reveal>
+          <Reveal delay={0.16} from={18}>
+            <p className="m-0 max-w-[34ch] font-display text-[18px] leading-[1.45] font-light text-ember-mid italic">
+              A engenharia sutil por trás das decisões que moldam o futuro.
+            </p>
+          </Reveal>
         </div>
       </Wrap>
 
@@ -75,6 +90,7 @@ export function Hero() {
     </Band>
   );
 }
+
 
 /* ----------------------------------------------------------------- break */
 
