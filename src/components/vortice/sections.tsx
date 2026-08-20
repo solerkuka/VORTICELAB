@@ -1,4 +1,5 @@
 import { FRENTES } from "@/content/frentes";
+import logoAsset from "@/assets/vorticelab-logo.png.asset.json";
 import { Icon } from "./icons";
 import { Particles, QuoteField, Rings, SpiralCluster, WindField } from "./field";
 import { Band, Highlight, HighlightBox, Reveal, SectionHead, Wrap } from "./primitives";
