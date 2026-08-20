@@ -618,7 +618,11 @@ export function Contato() {
 export function Footer() {
   return (
     <footer className="band-deep flex items-center justify-between px-7 py-10 font-mono text-[11px] tracking-[0.15em] text-bone/55">
-      <span>VórticeLab</span>
+      <span className="font-display text-[15px] tracking-[0.02em]">
+        <span className="font-light text-bone/85">Vórtice</span>
+        <span className="text-ember italic">Lab</span>
+      </span>
+
       <span>51° · Porto Alegre</span>
     </footer>
   );
