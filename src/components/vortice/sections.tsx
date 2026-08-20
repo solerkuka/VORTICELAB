@@ -214,7 +214,7 @@ export function Equilibrio() {
           </div>
 
           <Reveal delay={0.2} from={24}>
-            <aside className="relative overflow-hidden rounded-xl border border-clay/30 bg-bone-lift p-7 shadow-[var(--shadow-light)]">
+            <aside className="relative overflow-hidden rounded-xl border border-clay/30 bg-band-surface p-7 shadow-[var(--shadow-light)]">
               <span className="mb-4 block text-clay">
                 <Icon name="vortex" className="size-6" pulse />
               </span>
@@ -489,7 +489,7 @@ export function Etapas() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {ETAPAS.map((e, i) => (
             <Reveal key={e.n} delay={0.1 + i * 0.1} from={i % 2 === 0 ? -16 : 16}>
-              <div className="rounded-[10px] border border-transparent bg-bone-lift p-6 transition-all duration-350 hover:translate-x-1.5 hover:border-clay/30 hover:shadow-[var(--shadow-light)]">
+              <div className="rounded-[10px] border border-band-line bg-band-surface p-6 transition-all duration-350 hover:translate-x-1.5 hover:border-clay/30 hover:shadow-[var(--shadow-light)]">
                 <div className="mb-3 flex items-center gap-3">
                   <span className="font-mono text-[11px] tracking-[0.14em] text-moss">{e.n}</span>
                   <span className="h-px w-4 bg-band-line" />
@@ -538,7 +538,7 @@ export function Editorial() {
                   params={{ slug: a.slug }}
                   className={`group relative flex h-full flex-col overflow-hidden rounded-[10px] border p-7 no-underline shadow-[var(--shadow-deep)] transition-all duration-350 hover:-translate-y-1.5 focus-visible:-translate-y-1.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember ${
                     light
-                      ? "band-light border-ink-deep/12 bg-bone-lift hover:border-clay/60"
+                      ? "band-light border-ink-deep/12 bg-band-surface hover:border-clay/60"
                       : "border-bone/12 bg-ink-raise hover:border-ember/40"
                   }`}
                 >

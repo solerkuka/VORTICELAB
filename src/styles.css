@@ -152,14 +152,14 @@
 }
 
 .band-light {
-  --band: var(--bone);
+  --band: oklch(0.975 0.002 240);
   --band-fg: var(--ink-deep);
-  --band-muted: color-mix(in oklab, var(--ink-deep) 92%, transparent);
+  --band-muted: color-mix(in oklab, var(--ink-deep) 78%, transparent);
   --band-accent: var(--clay);
-  --band-line: color-mix(in oklab, var(--ink-deep) 30%, transparent);
-  --band-surface: var(--bone-lift);
-  --band-halo: color-mix(in oklab, var(--clay) 20%, transparent);
-  background-color: var(--bone);
+  --band-line: color-mix(in oklab, var(--ink-deep) 14%, transparent);
+  --band-surface: oklch(0.99 0.001 240);
+  --band-halo: color-mix(in oklab, var(--clay) 14%, transparent);
+  background-color: oklch(0.975 0.002 240);
   color: var(--ink-deep);
 }
 
