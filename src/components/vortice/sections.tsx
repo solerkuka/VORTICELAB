@@ -489,7 +489,7 @@ export function Etapas() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {ETAPAS.map((e, i) => (
             <Reveal key={e.n} delay={0.1 + i * 0.1} from={i % 2 === 0 ? -16 : 16}>
-              <div className="rounded-[10px] border border-transparent bg-bone-lift p-6 transition-all duration-350 hover:translate-x-1.5 hover:border-clay/30 hover:shadow-[var(--shadow-light)]">
+              <div className="rounded-[10px] border border-band-line bg-band-surface p-6 transition-all duration-350 hover:translate-x-1.5 hover:border-clay/30 hover:shadow-[var(--shadow-light)]">
                 <div className="mb-3 flex items-center gap-3">
                   <span className="font-mono text-[11px] tracking-[0.14em] text-moss">{e.n}</span>
                   <span className="h-px w-4 bg-band-line" />
