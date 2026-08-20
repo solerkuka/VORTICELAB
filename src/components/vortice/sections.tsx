@@ -547,28 +547,52 @@ export function Editorial() {
       <Wrap>
         <SectionHead index="04" label="Editorial" icon="field" />
         <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
-          {EDITORIAL.map((e, i) => (
-            <Reveal key={e.title} delay={0.1 + i * 0.1} from={i === 0 ? -18 : i === 2 ? 18 : 0} className="h-full">
-              <article className="group relative h-full overflow-hidden rounded-[10px] border border-bone/12 bg-ink-raise p-7 shadow-[var(--shadow-deep)] transition-all duration-350 hover:-translate-y-1.5 hover:border-ember/40">
-                <WindField
-                  className="pointer-events-none absolute inset-0 size-full opacity-35 transition-opacity duration-500 group-hover:opacity-70"
-                  color={e.color}
-                  seed={e.seed}
-                  width={320}
-                  height={220}
-                  count={4}
-                />
-                <span className="relative z-[1] mb-4 block font-mono text-[10px] tracking-[0.14em] text-bone/45 uppercase">
-                  Por VórticeLab
-                </span>
-                <h4 className="relative z-[1] m-0 mb-2 font-display text-[20px] font-normal text-ember-mid">
-                  {e.title}
-                </h4>
-                <p className="relative z-[1] m-0 text-[15px] text-bone/75">{e.body}</p>
-              </article>
-            </Reveal>
-          ))}
+          {ARTICLES.map((a, i) => {
+            const light = i === 1;
+            const accent = light ? "var(--clay)" : i === 0 ? "var(--ember)" : "var(--moss-bright)";
+            return (
+              <Reveal key={a.slug} delay={0.1 + i * 0.1} from={i === 0 ? -18 : i === 2 ? 18 : 0} className="h-full">
+                <Link
+                  to="/editorial/$slug"
+                  params={{ slug: a.slug }}
+                  className={`group relative flex h-full flex-col overflow-hidden rounded-[10px] border p-7 no-underline shadow-[var(--shadow-deep)] transition-all duration-350 hover:-translate-y-1.5 focus-visible:-translate-y-1.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember ${
+                    light
+                      ? "band-light border-ink-deep/12 bg-bone-lift hover:border-clay/60"
+                      : "border-bone/12 bg-ink-raise hover:border-ember/40"
+                  }`}
+                >
+                  <WindField
+                    className="pointer-events-none absolute inset-0 size-full opacity-35 transition-opacity duration-500 group-hover:opacity-70"
+                    color={accent}
+                    seed={1 + i * 4}
+                    width={320}
+                    height={220}
+                    count={4}
+                  />
+                  <span className="relative z-[1] mb-4 block font-mono text-[10px] tracking-[0.14em] text-band-muted/70 uppercase">
+                    Por VórticeLab
+                  </span>
+                  <h4
+                    className="relative z-[1] m-0 mb-2 font-display text-[20px] leading-[1.25] font-normal"
+                    style={{ color: accent }}
+                  >
+                    {a.title}
+                  </h4>
+                  <p className="relative z-[1] m-0 text-[15px] text-band-muted">{a.subtitle}</p>
+                  <span className="relative z-[1] mt-6 inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.16em] uppercase" style={{ color: accent }}>
+                    <span className="border-b border-current/40 pb-1 transition-colors duration-300 group-hover:border-current">
+                      Leia na íntegra
+                    </span>
+                    <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1.5">
+                      →
+                    </span>
+                  </span>
+                </Link>
+              </Reveal>
+            );
+          })}
         </div>
+
       </Wrap>
       <Rings
         className="pointer-events-none absolute -bottom-32 -left-28 size-[300px] sm:-left-16 sm:size-[420px]"
