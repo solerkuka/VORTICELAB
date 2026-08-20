@@ -1,5 +1,5 @@
 import { Icon } from "./icons";
-import { Particles, PulseField, QuoteField, Rings, Spiral, SpiralCluster, WindField } from "./field";
+import { Particles, QuoteField, Rings, Spiral, SpiralCluster, WindField } from "./field";
 import { Band, CtaLink, Highlight, HighlightBox, Reveal, SectionHead, Wrap } from "./primitives";
 import { useParallax } from "./use-vortice-motion";
 
