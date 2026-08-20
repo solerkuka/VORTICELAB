@@ -2,12 +2,14 @@ import { createFileRoute } from "@tanstack/react-router";
 import { IconSprite } from "@/components/vortice/icons";
 import { Seam } from "@/components/vortice/field";
 import {
+  AtuacaoBlock,
   Contato,
+  EditorialBlock,
   Equilibrio,
   Etapas,
   Footer,
-  Frentes,
   Hero,
+  MetodologiaBlock,
   Quote,
 } from "@/components/vortice/sections";
 import { useVorticeMotion } from "@/components/vortice/use-vortice-motion";
