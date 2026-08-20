@@ -146,14 +146,14 @@
 }
 
 .band-deep {
-  --band: var(--ink-void);
+  --band: var(--ink);
   --band-fg: var(--bone);
   --band-muted: color-mix(in oklab, var(--bone) 84%, transparent);
   --band-accent: var(--ember-bright);
   --band-line: color-mix(in oklab, var(--bone) 24%, transparent);
   --band-surface: var(--ink-deep);
   --band-halo: color-mix(in oklab, var(--ember-bright) 24%, transparent);
-  background-color: var(--ink-void);
+  background-color: var(--ink);
   color: var(--bone);
 }
 
