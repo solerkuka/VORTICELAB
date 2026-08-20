@@ -195,28 +195,33 @@ export function Seam({ from, to, soft = false }: { from: string; to: string; sof
   }
 
   return (
-    <div className="relative w-full overflow-hidden" aria-hidden="true">
-      <div className="h-6 w-full" style={{ backgroundImage: `linear-gradient(to bottom, ${from}, ${from})` }} />
-      <div className="relative h-[74px] w-full" style={{ backgroundColor: to }}>
-        <svg viewBox="0 0 1200 90" preserveAspectRatio="none" className="absolute inset-0 size-full">
-          <path d="M0,0 H1200 V40 C900,58 700,26 480,44 C300,58 150,32 0,50 Z" fill={from} />
-          {paths.map((p, i) => (
-            <path
-              key={i}
-              d={p.d}
-              stroke="var(--ember)"
-              strokeWidth={1}
-              fill="none"
-              opacity={0.12 + i * 0.04}
-              className="vx-drift"
-            />
-          ))}
-        </svg>
-      </div>
-      <div className="h-6 w-full" style={{ backgroundImage: `linear-gradient(to bottom, ${to}, ${to})` }} />
+    <div
+      className="relative h-[72px] w-full overflow-hidden"
+      style={{ backgroundImage: `linear-gradient(to bottom, ${from} 0%, ${from} 18%, ${to} 82%, ${to} 100%)` }}
+      aria-hidden="true"
+    >
+      <svg viewBox="0 0 1200 72" preserveAspectRatio="none" className="absolute inset-0 size-full">
+        <path
+          d="M-20,38 C240,24 420,50 620,38 C820,26 1000,50 1220,36"
+          stroke="var(--ember)"
+          strokeWidth={1}
+          fill="none"
+          opacity={0.35}
+          className="vx-drift"
+        />
+        <path
+          d="M-20,48 C260,60 460,32 660,46 C860,60 1020,34 1220,46"
+          stroke="var(--ember)"
+          strokeWidth={1}
+          fill="none"
+          opacity={0.18}
+          className="vx-drift"
+        />
+      </svg>
     </div>
   );
 }
+
 
 
 /** Focused line field for quote bands: few continuous curves, edge-faded. */
