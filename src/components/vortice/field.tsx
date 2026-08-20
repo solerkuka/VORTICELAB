@@ -186,3 +186,65 @@ export function Seam({ from, to }: { from: string; to: string }) {
     </div>
   );
 }
+
+/** Focused line field for quote bands: few continuous curves, edge-faded. */
+export function QuoteField({
+  className = "",
+  color = "var(--band-accent)",
+  seed = 0,
+  count = 5,
+}: {
+  className?: string;
+  color?: string;
+  seed?: number;
+  count?: number;
+}) {
+  const w = 1200;
+  const h = 340;
+  const id = `qf-${seed}`;
+  const lines = Array.from({ length: count }).map((_, i) => {
+    const y = (h / (count + 1)) * (i + 1) + ((seed * 13) % 17) - 8;
+    const amp = 26 + ((i * 7 + seed * 5) % 22);
+    const dir = i % 2 === 0 ? 1 : -1;
+    const d =
+      `M -40 ${y.toFixed(1)} ` +
+      `C 200 ${(y - amp * dir).toFixed(1)}, 400 ${(y + amp * dir).toFixed(1)}, 600 ${y.toFixed(1)} ` +
+      `S 1000 ${(y + amp * dir * 1.1).toFixed(1)}, ${w + 40} ${(y - amp * dir * 0.4).toFixed(1)}`;
+    const strong = i === 1 || i === count - 2;
+    return { d, strong, opacity: strong ? 0.85 : 0.4 };
+  });
+
+  return (
+    <svg
+      viewBox={`0 0 ${w} ${h}`}
+      preserveAspectRatio="none"
+      className={className}
+      aria-hidden="true"
+    >
+      <defs>
+        <linearGradient id={`${id}-fade`} x1="0" x2="1" y1="0" y2="0">
+          <stop offset="0%" stopColor="black" stopOpacity="0" />
+          <stop offset="18%" stopColor="white" stopOpacity="1" />
+          <stop offset="82%" stopColor="white" stopOpacity="1" />
+          <stop offset="100%" stopColor="black" stopOpacity="0" />
+        </linearGradient>
+        <mask id={`${id}-mask`}>
+          <rect x="0" y="0" width={w} height={h} fill={`url(#${id}-fade)`} />
+        </mask>
+      </defs>
+      <g mask={`url(#${id}-mask)`} className="vx-drift">
+        {lines.map((l, i) => (
+          <path
+            key={i}
+            d={l.d}
+            stroke={color}
+            strokeWidth={l.strong ? 1.9 : 1}
+            fill="none"
+            opacity={l.opacity}
+            strokeLinecap="round"
+          />
+        ))}
+      </g>
+    </svg>
+  );
+}

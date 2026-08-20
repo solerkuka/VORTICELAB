@@ -97,6 +97,7 @@
   --band-accent: var(--ember-mid);
   --band-line: color-mix(in oklab, var(--bone) 16%, transparent);
   --band-surface: oklch(0.245 0.0121 214.59);
+  --band-halo: color-mix(in oklab, var(--ember) 26%, transparent);
 
   --shadow-ember: 0 24px 60px -30px color-mix(in oklab, var(--ember) 55%, transparent);
   --shadow-deep: 0 28px 70px -34px oklch(0 0 0 / 0.65);
@@ -133,6 +134,7 @@
   --band-accent: var(--ember-mid);
   --band-line: color-mix(in oklab, var(--bone) 26%, transparent);
   --band-surface: var(--ink-raise);
+  --band-halo: color-mix(in oklab, var(--ember) 26%, transparent);
   background-color: var(--ink);
   color: var(--bone);
 }
@@ -144,6 +146,7 @@
   --band-accent: var(--ember-bright);
   --band-line: color-mix(in oklab, var(--bone) 24%, transparent);
   --band-surface: var(--ink-deep);
+  --band-halo: color-mix(in oklab, var(--ember-bright) 24%, transparent);
   background-color: var(--ink-void);
   color: var(--bone);
 }
@@ -155,6 +158,7 @@
   --band-accent: var(--clay);
   --band-line: color-mix(in oklab, var(--ink-deep) 30%, transparent);
   --band-surface: var(--bone-lift);
+  --band-halo: color-mix(in oklab, var(--clay) 20%, transparent);
   background-color: var(--bone);
   color: var(--ink-deep);
 }

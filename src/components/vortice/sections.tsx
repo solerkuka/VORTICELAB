@@ -1,5 +1,5 @@
 import { Icon } from "./icons";
-import { Particles, PulseField, Spiral, WindField } from "./field";
+import { Particles, PulseField, QuoteField, Spiral, WindField } from "./field";
 import { Band, Highlight, HighlightBox, Reveal, SectionHead, Wrap } from "./primitives";
 import { useParallax } from "./use-vortice-motion";
 
@@ -94,18 +94,48 @@ export function Quote({
 }) {
   return (
     <Band tone={tone} className="flex min-h-[46vh] items-center justify-center px-7 py-20 text-center">
-      <WindField
-        className="pointer-events-none absolute inset-0 size-full opacity-40"
+      <QuoteField
+        className="pointer-events-none absolute inset-0 size-full"
         color={tone === "light" ? "var(--clay)" : "var(--ember)"}
         seed={seed}
-        width={1200}
-        height={340}
-        count={6}
+        count={5}
+      />
+      <div
+        className="pointer-events-none absolute top-1/2 left-1/2 aspect-[16/9] w-[min(1100px,120%)] -translate-x-1/2 -translate-y-1/2 rounded-full"
+        aria-hidden="true"
+        style={{
+          background:
+            "radial-gradient(closest-side, var(--band-halo), color-mix(in oklab, var(--band) 70%, transparent) 55%, transparent 78%)",
+        }}
       />
       <Reveal>
-        <blockquote className="relative z-[1] m-0 max-w-[20ch] font-display text-[clamp(26px,4.6vw,50px)] leading-[1.3] font-light text-band-accent italic">
-          <span>“{children}”</span>
-        </blockquote>
+        <figure className="relative z-[1] m-0 flex flex-col items-center gap-6">
+          <span aria-hidden="true" className="flex items-center gap-2.5">
+            <span className="block h-px w-14 bg-band-line" />
+            <span className="block size-1.5 rotate-45 bg-band-accent" />
+            <span className="block h-px w-14 bg-band-line" />
+          </span>
+          <blockquote className="relative m-0 max-w-[20ch] font-display text-[clamp(28px,4.8vw,52px)] leading-[1.28] font-light text-band-accent italic">
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute -top-8 -left-8 font-display text-[clamp(70px,10vw,130px)] leading-none text-band-accent/15 select-none"
+            >
+              “
+            </span>
+            <span className="relative">“{children}”</span>
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute -right-6 -bottom-16 font-display text-[clamp(70px,10vw,130px)] leading-none text-band-accent/15 select-none"
+            >
+              ”
+            </span>
+          </blockquote>
+          <span aria-hidden="true" className="flex items-center gap-2.5">
+            <span className="block h-px w-14 bg-band-line" />
+            <span className="block size-1.5 rotate-45 bg-band-accent" />
+            <span className="block h-px w-14 bg-band-line" />
+          </span>
+        </figure>
       </Reveal>
     </Band>
   );
