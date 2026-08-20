@@ -274,9 +274,9 @@ function FrenteLink({ url, accent = true }: { url: string; accent?: boolean }) {
   );
 }
 
-const ATUACAO = FRENTES[0];
-const METODOLOGIA = FRENTES[1];
-const EDITORIAL = FRENTES[2];
+const ATUACAO = FRENTES.find((f) => f.key === "atuacao")!;
+const METODOLOGIA = FRENTES.find((f) => f.key === "metodologia")!;
+const EDITORIAL = FRENTES.find((f) => f.key === "editorial")!;
 
 /* ---- Atuação: faixa escura, cartão largo dividido ---- */
 
