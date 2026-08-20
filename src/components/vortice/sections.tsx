@@ -83,10 +83,11 @@ export function Hero() {
         </div>
       </Wrap>
 
-      <span className="absolute bottom-5 left-7 z-[1] flex items-center gap-2.5 font-mono text-[10px] tracking-[0.2em] text-bone/45 uppercase">
+      <span className="absolute top-[calc(100svh-2.2rem)] left-7 z-[1] flex items-center gap-2.5 font-mono text-[10px] tracking-[0.2em] text-bone/45 uppercase">
         <span className="vx-cue relative block h-px w-7 overflow-hidden bg-bone/35" />
         rolar
       </span>
+
     </Band>
   );
 }
