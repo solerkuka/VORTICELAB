@@ -16,7 +16,7 @@ export function Hero() {
   return (
     <Band tone="dark" id="hero">
       <div style={{ transform: `translateY(${y}px)` }} className="absolute inset-0" aria-hidden="true">
-        <SpiralCluster strokes={["var(--ember)", "var(--moss)", "var(--bone)"]} intensity={1.5} clear="42%" />
+        <SpiralCluster strokes={["var(--ember)", "var(--moss)", "var(--mist)"]} intensity={1.5} clear="42%" />
       </div>
       <Particles count={3} opacity={0.5} />
 
@@ -356,7 +356,7 @@ export function Metodologia() {
     <Band tone="deep" id="metodologia" className="py-16 sm:py-24">
       <WindField
         className="pointer-events-none absolute inset-0 size-full opacity-25"
-        color="var(--bone)"
+        color="var(--mist)"
         seed={3}
         count={5}
       />
@@ -412,7 +412,7 @@ export function Metodologia() {
       </Wrap>
       <Rings
         className="pointer-events-none absolute -right-32 -bottom-36 size-[320px] sm:-right-24 sm:size-[460px]"
-        color="var(--bone)"
+        color="var(--mist)"
         count={8}
         gap={24}
         sweep={0.58}

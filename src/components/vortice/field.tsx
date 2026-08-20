@@ -27,7 +27,7 @@ function spiralPath(
 
 export function Spiral({
   className = "",
-  strokes = ["var(--ember)", "var(--moss)", "var(--bone)"],
+  strokes = ["var(--ember)", "var(--moss)", "var(--mist)"],
   spin = false,
 }: {
   className?: string;
@@ -135,10 +135,10 @@ export function PulseField({ className = "", rings = 5 }: { className?: string; 
 
 const PARTICLES = [
   { left: "8%", color: "var(--ember)", delay: "0s", duration: "12s" },
-  { left: "22%", color: "var(--bone)", delay: "3s", duration: "15s" },
+  { left: "22%", color: "var(--mist)", delay: "3s", duration: "15s" },
   { left: "40%", color: "var(--ember)", delay: "6s", duration: "11s" },
   { left: "58%", color: "var(--moss-bright)", delay: "1.5s", duration: "16s" },
-  { left: "74%", color: "var(--bone)", delay: "4.5s", duration: "13s" },
+  { left: "74%", color: "var(--mist)", delay: "4.5s", duration: "13s" },
   { left: "88%", color: "var(--ember)", delay: "8s", duration: "14s" },
 ];
 
@@ -359,7 +359,7 @@ export function Rings({
  */
 export function SpiralCluster({
   className = "",
-  strokes = ["var(--ember)", "var(--moss)", "var(--bone)"],
+  strokes = ["var(--ember)", "var(--moss)", "var(--mist)"],
   intensity = 1,
   clear = "58%",
 }: {
