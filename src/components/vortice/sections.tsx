@@ -597,7 +597,17 @@ export function Editorial() {
           ))}
         </div>
       </Wrap>
+      <Rings
+        className="pointer-events-none absolute -bottom-32 -left-28 size-[300px] sm:-left-16 sm:size-[420px]"
+        color="var(--ember)"
+        count={7}
+        gap={26}
+        sweep={0.45}
+        rotate={45}
+        opacity={0.2}
+      />
     </Band>
+
   );
 }
 
