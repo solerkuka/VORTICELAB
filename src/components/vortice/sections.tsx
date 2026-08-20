@@ -538,7 +538,7 @@ export function Editorial() {
                   params={{ slug: a.slug }}
                   className={`group relative flex h-full flex-col overflow-hidden rounded-[10px] border p-7 no-underline shadow-[var(--shadow-deep)] transition-all duration-350 hover:-translate-y-1.5 focus-visible:-translate-y-1.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember ${
                     light
-                      ? "band-light border-ink-deep/12 bg-bone-lift hover:border-clay/60"
+                      ? "band-light border-ink-deep/12 bg-band-surface hover:border-clay/60"
                       : "border-bone/12 bg-ink-raise hover:border-ember/40"
                   }`}
                 >
