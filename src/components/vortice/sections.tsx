@@ -605,11 +605,19 @@ export function Editorial() {
 
 export function Contato() {
   return (
-    <Band tone="light" id="contato" className="py-28 text-center">
-      <div className="pointer-events-none absolute top-1/2 left-1/2 size-[560px] -translate-x-1/2 -translate-y-1/2 opacity-40" aria-hidden="true">
+    <Band tone="light" id="contato" className="py-20 text-center sm:py-28">
+      <div className="pointer-events-none absolute top-1/2 left-1/2 size-[420px] -translate-x-1/2 -translate-y-1/2 opacity-40 sm:size-[560px]" aria-hidden="true">
         <Spiral className="size-full" strokes={["var(--clay)", "var(--moss)", "var(--ember)"]} spin />
       </div>
-      <PulseField className="pointer-events-none absolute top-1/2 left-1/2 size-[620px] -translate-x-1/2 -translate-y-1/2 opacity-40" />
+      <PulseField className="pointer-events-none absolute top-1/2 left-1/2 size-[480px] -translate-x-1/2 -translate-y-1/2 opacity-40 sm:size-[620px]" />
+      <Rings
+        className="pointer-events-none absolute top-1/2 left-1/2 size-[560px] -translate-x-1/2 -translate-y-1/2 sm:size-[820px]"
+        color="var(--clay)"
+        count={9}
+        gap={22}
+        start={60}
+        opacity={0.16}
+      />
       <Wrap>
         <Reveal>
           <p className="m-0 mb-4 flex items-center justify-center gap-2.5 font-mono text-[11px] tracking-[0.22em] text-band-muted uppercase">
@@ -621,13 +629,30 @@ export function Contato() {
           <h2 className="m-0 mb-8 font-display text-[clamp(34px,5vw,54px)] font-light text-ink-deep italic">
             Fale conosco.
           </h2>
-          <a
-            className="inline-block rounded-full bg-clay px-[30px] py-[14px] font-mono text-[13px] font-medium tracking-[0.08em] text-bone-lift uppercase no-underline transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-[var(--shadow-light)]"
-            href="mailto:contato@vorticelab.com.br"
-          >
-            contato@vorticelab.com.br
-          </a>
-          <p className="mt-6 mb-0 text-[13px] text-band-muted">
+
+          <div className="flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
+            <a
+              className="inline-flex items-center justify-center gap-3 rounded-full bg-clay px-7 py-4 font-mono text-[12px] font-medium tracking-[0.08em] text-bone-lift uppercase no-underline transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-[var(--shadow-light)] sm:px-[30px] sm:text-[13px]"
+              href={WHATSAPP}
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              <Icon name="wave" className="size-4" />
+              WhatsApp
+            </a>
+            <a
+              className="inline-flex items-center justify-center gap-3 rounded-full border border-clay/45 px-7 py-4 font-mono text-[12px] font-medium tracking-[0.06em] text-ink-deep no-underline transition-colors duration-200 hover:border-clay hover:bg-clay/10 sm:px-[30px] sm:text-[13px]"
+              href={EMAIL}
+            >
+              <Icon name="orbit" className="size-4 text-clay" />
+              contato@vorticelab.com.br
+            </a>
+          </div>
+
+          <p className="mx-auto mt-10 mb-0 flex max-w-[42ch] items-center justify-center gap-4 border-t border-band-line pt-5 font-mono text-[11px] leading-[1.7] tracking-[0.1em] text-band-muted uppercase">
+            <span aria-hidden="true" className="text-clay">
+              <Icon name="diamond" className="size-3" />
+            </span>
             Atendimento mediante indicação ou avaliação de compatibilidade.
           </p>
         </Reveal>
@@ -635,6 +660,7 @@ export function Contato() {
     </Band>
   );
 }
+
 
 export function Footer() {
   return (
