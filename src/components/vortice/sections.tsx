@@ -248,8 +248,20 @@ export function Equilibrio() {
             </aside>
           </Reveal>
         </div>
+
+        <CtaLink>Quero entender melhor</CtaLink>
       </Wrap>
+      <Rings
+        className="pointer-events-none absolute -right-28 -bottom-32 size-[300px] sm:-right-20 sm:size-[420px]"
+        color="var(--clay)"
+        count={7}
+        gap={26}
+        sweep={0.62}
+        rotate={200}
+        opacity={0.25}
+      />
     </Band>
+
   );
 }
 
