@@ -105,13 +105,32 @@ export function Quote({
   seed?: number;
 }) {
   return (
-    <Band tone={tone} className="flex min-h-[46vh] items-center justify-center px-7 py-20 text-center">
+    <Band tone={tone} className="flex min-h-[42vh] items-center justify-center px-7 py-16 text-center sm:min-h-[46vh] sm:py-20">
       <QuoteField
         className="pointer-events-none absolute inset-0 size-full"
         color={tone === "light" ? "var(--clay)" : "var(--ember)"}
         seed={seed}
         count={5}
       />
+      <Rings
+        className="pointer-events-none absolute top-1/2 -left-32 size-[320px] -translate-y-1/2 sm:-left-24 sm:size-[420px]"
+        color="var(--band-accent)"
+        count={6}
+        gap={28}
+        sweep={0.55}
+        rotate={90}
+        opacity={0.2}
+      />
+      <Rings
+        className="pointer-events-none absolute top-1/2 -right-36 size-[300px] -translate-y-1/2 sm:-right-28 sm:size-[400px]"
+        color="var(--band-accent)"
+        count={5}
+        gap={30}
+        sweep={0.55}
+        rotate={270}
+        opacity={0.18}
+      />
+
       <div
         className="pointer-events-none absolute top-1/2 left-1/2 aspect-[16/9] w-[min(1100px,120%)] -translate-x-1/2 -translate-y-1/2 rounded-full"
         aria-hidden="true"
