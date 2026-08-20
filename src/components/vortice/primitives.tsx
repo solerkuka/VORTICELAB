@@ -67,14 +67,16 @@ export function SectionHead({
   icon: VorticeIcon;
 }) {
   return (
-    <div className="relative mb-8">
-      <p className="m-0 flex items-center gap-3 font-mono text-[11px] tracking-[0.22em] uppercase">
-        <span className="text-moss-mid">{index}</span>
-        <span className="h-px w-6 bg-band-line" />
+    <div className="relative mb-10">
+      <p className="m-0 flex flex-wrap items-center gap-3 font-mono uppercase sm:gap-4">
+        <span className="text-[13px] tracking-[0.2em] text-moss-mid sm:text-[15px]">{index}</span>
+        <span className="h-px w-8 bg-band-line sm:w-10" />
         <span className="text-band-accent">
-          <Icon name={icon} className="size-4" pulse />
+          <Icon name={icon} className="size-6 sm:size-7" pulse />
         </span>
-        <span className="text-band-muted">{label}</span>
+        <span className="text-[clamp(1.05rem,2.6vw,1.6rem)] font-semibold tracking-[0.16em] text-band-fg">
+          {label}
+        </span>
       </p>
       <svg
         viewBox="0 0 1000 6"
@@ -86,14 +88,15 @@ export function SectionHead({
           className="draw-line"
           d="M0,3 C220,0 420,6 620,3 C800,0 900,5 1000,3"
           stroke="var(--band-accent)"
-          strokeWidth="1"
+          strokeWidth="1.6"
           fill="none"
-          opacity="0.5"
+          opacity="0.75"
         />
       </svg>
     </div>
   );
 }
+
 
 export function Highlight({ children }: { children: ReactNode }) {
   return <span className="font-medium text-band-accent">{children}</span>;
