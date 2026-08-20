@@ -16,31 +16,39 @@ export function Hero() {
       <Particles count={3} opacity={0.5} />
 
       <Wrap className="flex min-h-[100svh] flex-col">
-        <nav className="relative flex flex-col items-center gap-3 py-4 sm:py-7">
-          <a
-            className="absolute right-0 top-1/2 hidden -translate-y-1/2 rounded-full border border-bone/35 px-[18px] py-[9px] font-mono text-xs tracking-[0.08em] uppercase no-underline transition-colors duration-250 hover:border-ember hover:bg-ember hover:text-ink sm:inline-block"
-            href="#contato"
-          >
-            Fale conosco
-          </a>
-          <div className="flex items-center gap-2.5">
-            <img src={logoAsset.url} alt="VórticeLab" className="size-9 sm:size-6" />
-            <span className="font-display text-[34px] leading-none tracking-[0.02em] italic sm:text-[19px]">
+        <nav className="relative flex items-center justify-between gap-4 py-4 sm:py-6">
+          <div className="flex min-w-0 items-center gap-2.5">
+            <img src={logoAsset.url} alt="VórticeLab" className="size-9 shrink-0 sm:size-6" />
+            <span className="font-display text-[30px] leading-none tracking-[0.02em] italic sm:text-[19px]">
               VórticeLab
             </span>
           </div>
-          <div className="flex flex-wrap items-center justify-center gap-2">
+
+          <div className="hidden items-center gap-7 sm:flex">
             {FRENTES.map((f) => (
               <a
                 key={f.key}
                 href={f.url}
-                className="rounded-full border border-clay/45 bg-clay/20 px-3 py-[7px] font-mono text-[10px] tracking-[0.14em] text-bone-lift uppercase no-underline transition-all duration-250 hover:border-clay hover:bg-clay/40 sm:text-[10.5px]"
+                className="group relative inline-flex items-center gap-2 font-mono text-[10.5px] tracking-[0.14em] text-bone/75 uppercase no-underline transition-colors duration-250 hover:text-bone"
               >
+                <span className="size-[3px] rounded-full bg-clay transition-transform duration-250 group-hover:scale-150" />
                 {f.title}
+                <span className="absolute -bottom-1.5 left-[11px] h-px w-0 bg-clay transition-all duration-300 group-hover:w-[calc(100%-11px)]" />
               </a>
             ))}
           </div>
+
+          <div className="flex items-center gap-3">
+            <a
+              className="hidden rounded-full border border-bone/35 px-[18px] py-[9px] font-mono text-xs tracking-[0.08em] uppercase no-underline transition-colors duration-250 hover:border-clay hover:bg-clay hover:text-bone sm:inline-block"
+              href="#contato"
+            >
+              Fale conosco
+            </a>
+            <MobileMenu />
+          </div>
         </nav>
+
 
 
         <div className="flex flex-1 flex-col justify-center pb-12 sm:pb-20">
