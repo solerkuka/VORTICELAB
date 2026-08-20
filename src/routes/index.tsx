@@ -68,15 +68,18 @@ function Index() {
               href={`#${c.id}`}
               aria-label={c.label}
               aria-current={isActive ? "true" : undefined}
-              className="group flex items-center justify-end gap-2 no-underline"
+              className="group flex items-center justify-end gap-2 rounded-full py-1 pr-1 pl-2 no-underline backdrop-blur-[2px]"
             >
               <span
-                className={`font-mono text-[9px] tracking-[0.16em] uppercase transition-all duration-300 ${
-                  isActive ? "text-ember opacity-100" : "text-band-muted opacity-0 group-hover:opacity-70"
+                className={`rounded-full px-1.5 py-0.5 font-mono text-[9px] tracking-[0.14em] uppercase transition-all duration-300 ${
+                  isActive
+                    ? "bg-band/70 text-ember opacity-100"
+                    : "text-band-muted opacity-0 group-hover:bg-band/70 group-hover:opacity-70"
                 }`}
               >
                 {c.label}
               </span>
+
               <span
                 aria-hidden="true"
                 className={`block h-px transition-all duration-300 ${
