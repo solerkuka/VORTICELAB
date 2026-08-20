@@ -15,25 +15,23 @@ export function Hero() {
 
   return (
     <Band tone="dark" id="hero">
-      <div style={{ transform: `translateY(${y}px)` }} className="absolute inset-0" aria-hidden="true">
-        <SpiralCluster strokes={["var(--ember)", "var(--moss)", "var(--mist)"]} intensity={1.5} clear="42%" />
-      </div>
       <Particles count={3} opacity={0.5} />
 
       <Wrap className="flex min-h-[100svh] flex-col">
-        <nav className="flex flex-col gap-2.5 py-4 sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:py-7">
-          <div className="flex items-center justify-between gap-4">
+        <nav className="relative flex flex-col items-center gap-3 py-4 sm:py-7">
+          <a
+            className="absolute right-0 top-1/2 hidden -translate-y-1/2 rounded-full border border-bone/35 px-[18px] py-[9px] font-mono text-xs tracking-[0.08em] uppercase no-underline transition-colors duration-250 hover:border-ember hover:bg-ember hover:text-ink sm:inline-block"
+            href="#contato"
+          >
+            Fale conosco
+          </a>
+          <div className="flex items-center gap-2.5">
+            <img src={logoAsset.url} alt="VórticeLab" className="size-9 sm:size-6" />
             <span className="font-display text-[34px] leading-none tracking-[0.02em] italic sm:text-[19px]">
               VórticeLab
             </span>
-            <a
-              className="hidden rounded-full border border-bone/35 px-[18px] py-[9px] font-mono text-xs tracking-[0.08em] uppercase no-underline transition-colors duration-250 hover:border-ember hover:bg-ember hover:text-ink sm:inline-block sm:order-2"
-              href="#contato"
-            >
-              Fale conosco
-            </a>
           </div>
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 sm:order-1 sm:ml-auto sm:mr-6">
+          <div className="flex flex-wrap items-center justify-center gap-2">
             {FRENTES.map((f) => (
               <a
                 key={f.key}
