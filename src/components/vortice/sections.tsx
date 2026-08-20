@@ -19,12 +19,19 @@ export function Hero() {
 
       <Wrap className="flex min-h-[100svh] flex-col">
         <nav className="relative flex items-center justify-between gap-4 py-4 sm:py-6">
-          <div className="flex min-w-0 items-center gap-2.5">
-            <img src={logoAsset.url} alt="VórticeLab" className="size-9 shrink-0 sm:size-6" />
-            <span className="font-display text-[30px] leading-none tracking-[0.02em] italic sm:text-[19px]">
-              VórticeLab
+          <div className="flex min-w-0 items-center gap-3">
+            <span
+              className="relative flex shrink-0 items-center justify-center"
+              style={{ filter: "drop-shadow(0 0 10px color-mix(in oklab, var(--ember) 35%, transparent))" }}
+            >
+              <img src={logoAsset.url} alt="VórticeLab" className="size-11 sm:size-8" />
+            </span>
+            <span className="font-display text-[30px] leading-none tracking-[0.02em] sm:text-[19px]">
+              <span className="font-light text-bone">Vórtice</span>
+              <span className="text-ember italic">Lab</span>
             </span>
           </div>
+
 
           <div className="hidden items-center gap-7 sm:flex">
             {FRENTES.map((f) => (
