@@ -54,8 +54,8 @@ export function Reveal({
 }
 
 /**
- * Chapter head. The numeral is promoted to a large stylized outlined glyph
- * that anchors the section visually, with the label set beside/over it.
+ * Chapter head — editorial. A quiet serif numeral on the left margin, a hairline
+ * rule between it and the label, and a thin chapter ruler underneath.
  */
 export function SectionHead({
   index,
@@ -67,51 +67,50 @@ export function SectionHead({
   icon: VorticeIcon;
 }) {
   return (
-    <div className="relative mb-12">
-      <div className="flex flex-wrap items-end gap-x-5 gap-y-2">
-        {/* Large stylized numeral — outlined gradient, breathing */}
+    <div className="group relative mb-12">
+      <div className="flex items-center gap-5 sm:gap-7">
         <span
           aria-hidden="true"
-          className="vx-breathe select-none font-mono font-bold leading-[0.8] tracking-tighter"
-          style={{
-            fontSize: "clamp(3.5rem,9vw,6.5rem)",
-            lineHeight: 0.78,
-            color: "transparent",
-            WebkitTextStroke: "1.4px var(--band-accent)",
-            textShadow: "0 0 28px color-mix(in oklab, var(--band-accent) 35%, transparent)",
-            opacity: 0.92,
-          }}
+          className="select-none font-display leading-none text-band-accent/70"
+          style={{ fontSize: "clamp(2.4rem,5vw,3.4rem)", fontWeight: 300, letterSpacing: "-0.02em" }}
         >
           {index}
         </span>
-        {/* Meta line: icon + label */}
-        <div className="flex items-center gap-3 pb-1 font-mono uppercase sm:gap-4">
-          <span className="text-band-accent">
-            <Icon name={icon} className="size-6 sm:size-7" pulse />
+
+        <span aria-hidden="true" className="h-[clamp(2rem,4vw,2.8rem)] w-px bg-band-line" />
+
+        <div className="flex min-w-0 items-center gap-3 sm:gap-4">
+          <span className="text-band-accent transition-transform duration-500 group-hover:scale-110">
+            <Icon name={icon} className="size-5" />
           </span>
-          <span className="text-[clamp(1.05rem,2.6vw,1.6rem)] font-semibold tracking-[0.16em] text-band-fg">
+          <h2 className="font-mono text-[clamp(0.95rem,2.2vw,1.35rem)] font-medium uppercase tracking-[0.22em] text-band-fg">
             {label}
-          </span>
+          </h2>
         </div>
       </div>
+
       <svg
-        viewBox="0 0 1000 6"
+        viewBox="0 0 1000 2"
         preserveAspectRatio="none"
-        className="mt-5 block h-[6px] w-full"
+        className="mt-6 block h-px w-full"
         aria-hidden="true"
       >
         <path
           className="draw-line"
-          d="M0,3 C220,0 420,6 620,3 C800,0 900,5 1000,3"
-          stroke="var(--band-accent)"
-          strokeWidth="1.6"
+          d="M0,1 L1000,1"
+          stroke="var(--band-line)"
+          strokeWidth="2"
           fill="none"
-          opacity="0.75"
         />
       </svg>
+      <span
+        aria-hidden="true"
+        className="mt-[-1px] block h-px w-16 bg-band-accent"
+      />
     </div>
   );
 }
+
 
 
 export function Highlight({ children }: { children: ReactNode }) {
