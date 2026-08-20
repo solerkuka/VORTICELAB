@@ -173,7 +173,7 @@ export function Seam({ from, to, soft = false }: { from: string; to: string; sof
   if (soft) {
     return (
       <div
-        className="relative h-12 w-full overflow-hidden"
+        className="relative -mt-px -mb-px h-12 w-full overflow-hidden"
         style={{ backgroundImage: `linear-gradient(to bottom, ${from}, ${to})` }}
         aria-hidden="true"
       >
@@ -196,13 +196,13 @@ export function Seam({ from, to, soft = false }: { from: string; to: string; sof
 
   return (
     <div
-      className="relative -mt-px h-[86px] w-full overflow-hidden"
+      className="relative -mt-px -mb-px h-[86px] w-full overflow-hidden"
       style={{ backgroundColor: from }}
       aria-hidden="true"
     >
-      <svg viewBox="0 0 1200 86" preserveAspectRatio="none" className="absolute inset-0 size-full">
+      <svg viewBox="0 0 1200 86" preserveAspectRatio="none" className="absolute -inset-px size-[calc(100%+2px)]">
         <path
-          d="M0,44 C200,10 380,74 620,48 C840,24 1000,66 1200,38 L1200,86 L0,86 Z"
+          d="M0,44 C200,10 380,74 620,48 C840,24 1000,66 1200,38 L1200,90 L0,90 Z"
           fill={to}
         />
         <path
