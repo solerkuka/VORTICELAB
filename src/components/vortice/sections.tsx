@@ -49,7 +49,12 @@ export function Hero() {
                 gestão de carreiras ou em grandes transições de vida.
               </p>
             </Reveal>
-            <Reveal delay={0.3}>
+            <Reveal delay={0.28} from={18}>
+              <p className="m-0 mb-5 max-w-[34ch] font-display text-[19px] leading-[1.45] font-light text-ember-mid italic sm:mb-8 sm:text-[22px]">
+                A engenharia sutil por trás das decisões que moldam o futuro.
+              </p>
+            </Reveal>
+            <Reveal delay={0.34}>
               <a
                 className="inline-block rounded-full bg-ember px-6 py-3 font-mono text-[11.5px] font-medium tracking-[0.08em] text-ink uppercase no-underline transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-[var(--shadow-ember)] sm:px-[30px] sm:py-[14px] sm:text-[13px]"
                 href="#contato"
@@ -58,16 +63,6 @@ export function Hero() {
               </a>
             </Reveal>
           </div>
-        </div>
-      </Wrap>
-
-      <Wrap className="pb-24">
-        <div className="max-w-[880px] border-t border-bone/12 pt-10">
-          <Reveal delay={0.08} from={18}>
-            <p className="m-0 max-w-[34ch] font-display text-[19px] leading-[1.45] font-light text-ember-mid italic sm:text-[22px]">
-              A engenharia sutil por trás das decisões que moldam o futuro.
-            </p>
-          </Reveal>
         </div>
       </Wrap>
 
