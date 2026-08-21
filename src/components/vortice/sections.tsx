@@ -474,41 +474,12 @@ export function EditorialBlock() {
 
 /* --------------------------------------------------------------- etapas */
 
-const ETAPAS = [
-  {
-    n: "01",
-    icon: "arc" as const,
-    title: "Diagnóstico Inicial de Cenário",
-    body: (
-      <>
-        Avaliação restrita das dinâmicas energéticas atuais do ativo, projeto ou liderança para identificação de{" "}
-        <Highlight>pontos de fricção invisíveis</Highlight>.
-      </>
-    ),
-  },
-  {
-    n: "02",
-    icon: "wave" as const,
-    title: "Equalização e Modulação",
-    body: (
-      <>
-        Aplicação dos protocolos customizados de radiestesia e arquitetura energética em paralelo às decisões de
-        governança do cliente.
-      </>
-    ),
-  },
-  {
-    n: "03",
-    icon: "meridian" as const,
-    title: "Sustentação e Monitoramento",
-    body: (
-      <>
-        Suporte contínuo de bastidores para assegurar a estabilidade do padrão de alta performance e a{" "}
-        <Highlight>mitigação de riscos em momentos críticos</Highlight>.
-      </>
-    ),
-  },
-];
+function etapaBody(parts: { text: string; highlight?: boolean }[]) {
+  return parts.map((p, i) =>
+    p.highlight ? <Highlight key={i}>{p.text}</Highlight> : <span key={i}>{p.text}</span>,
+  );
+}
+
 
 export function Etapas() {
   return (
