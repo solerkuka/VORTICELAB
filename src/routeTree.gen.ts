@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AtuacaoRouteImport } from './routes/atuacao'
+import { Route as MetodologiaRouteImport } from './routes/metodologia'
 import { Route as Pagina2RouteImport } from './routes/pagina2'
 import { Route as EditorialSlugRouteImport } from './routes/editorial.$slug'
 
@@ -22,6 +23,11 @@ const IndexRoute = IndexRouteImport.update({
 const AtuacaoRoute = AtuacaoRouteImport.update({
   id: '/atuacao',
   path: '/atuacao',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MetodologiaRoute = MetodologiaRouteImport.update({
+  id: '/metodologia',
+  path: '/metodologia',
   getParentRoute: () => rootRouteImport,
 } as any)
 const Pagina2Route = Pagina2RouteImport.update({
@@ -38,12 +44,14 @@ const EditorialSlugRoute = EditorialSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/atuacao': typeof AtuacaoRoute
+  '/metodologia': typeof MetodologiaRoute
   '/pagina2': typeof Pagina2Route
   '/editorial/$slug': typeof EditorialSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/atuacao': typeof AtuacaoRoute
+  '/metodologia': typeof MetodologiaRoute
   '/pagina2': typeof Pagina2Route
   '/editorial/$slug': typeof EditorialSlugRoute
 }
@@ -51,20 +59,28 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/atuacao': typeof AtuacaoRoute
+  '/metodologia': typeof MetodologiaRoute
   '/pagina2': typeof Pagina2Route
   '/editorial/$slug': typeof EditorialSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/atuacao' | '/pagina2' | '/editorial/$slug'
+  fullPaths: '/' | '/atuacao' | '/metodologia' | '/pagina2' | '/editorial/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/atuacao' | '/pagina2' | '/editorial/$slug'
-  id: '__root__' | '/' | '/atuacao' | '/pagina2' | '/editorial/$slug'
+  to: '/' | '/atuacao' | '/metodologia' | '/pagina2' | '/editorial/$slug'
+  id:
+    | '__root__'
+    | '/'
+    | '/atuacao'
+    | '/metodologia'
+    | '/pagina2'
+    | '/editorial/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AtuacaoRoute: typeof AtuacaoRoute
+  MetodologiaRoute: typeof MetodologiaRoute
   Pagina2Route: typeof Pagina2Route
   EditorialSlugRoute: typeof EditorialSlugRoute
 }
@@ -83,6 +99,13 @@ declare module '@tanstack/react-router' {
       path: '/atuacao'
       fullPath: '/atuacao'
       preLoaderRoute: typeof AtuacaoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/metodologia': {
+      id: '/metodologia'
+      path: '/metodologia'
+      fullPath: '/metodologia'
+      preLoaderRoute: typeof MetodologiaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/pagina2': {
@@ -105,6 +128,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AtuacaoRoute: AtuacaoRoute,
+  MetodologiaRoute: MetodologiaRoute,
   Pagina2Route: Pagina2Route,
   EditorialSlugRoute: EditorialSlugRoute,
 }
