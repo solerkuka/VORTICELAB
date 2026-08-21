@@ -10,11 +10,17 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as Pagina2RouteImport } from './routes/pagina2'
 import { Route as EditorialSlugRouteImport } from './routes/editorial.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Pagina2Route = Pagina2RouteImport.update({
+  id: '/pagina2',
+  path: '/pagina2',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EditorialSlugRoute = EditorialSlugRouteImport.update({
@@ -25,27 +31,31 @@ const EditorialSlugRoute = EditorialSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/pagina2': typeof Pagina2Route
   '/editorial/$slug': typeof EditorialSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/pagina2': typeof Pagina2Route
   '/editorial/$slug': typeof EditorialSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/pagina2': typeof Pagina2Route
   '/editorial/$slug': typeof EditorialSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/editorial/$slug'
+  fullPaths: '/' | '/pagina2' | '/editorial/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/editorial/$slug'
-  id: '__root__' | '/' | '/editorial/$slug'
+  to: '/' | '/pagina2' | '/editorial/$slug'
+  id: '__root__' | '/' | '/pagina2' | '/editorial/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  Pagina2Route: typeof Pagina2Route
   EditorialSlugRoute: typeof EditorialSlugRoute
 }
 
@@ -56,6 +66,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pagina2': {
+      id: '/pagina2'
+      path: '/pagina2'
+      fullPath: '/pagina2'
+      preLoaderRoute: typeof Pagina2RouteImport
       parentRoute: typeof rootRouteImport
     }
     '/editorial/$slug': {
@@ -70,6 +87,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  Pagina2Route: Pagina2Route,
   EditorialSlugRoute: EditorialSlugRoute,
 }
 export const routeTree = rootRouteImport
