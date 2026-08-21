@@ -71,7 +71,16 @@
   --color-band-accent: var(--band-accent);
   --color-band-line: var(--band-line);
   --color-band-surface: var(--band-surface);
+
+  /* institutional variant (/pagina2) */
+  --color-inst-fg: var(--inst-fg);
+  --color-inst-muted: var(--inst-muted);
+  --color-inst-accent: var(--inst-accent);
+  --color-inst-rule: var(--inst-rule);
+  --color-inst-dark-bg: var(--inst-dark-bg);
+  --color-inst-light-bg: var(--inst-light-bg);
 }
+
 
 :root {
   --radius: 0.625rem;
