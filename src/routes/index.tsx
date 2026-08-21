@@ -47,7 +47,7 @@ function Index() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Fale conosco · WhatsApp (51) 98913-9609
+              Fale conosco
             </a>
             <p className="fineprint">
               Atendimento mediante indicação ou avaliação de compatibilidade.
