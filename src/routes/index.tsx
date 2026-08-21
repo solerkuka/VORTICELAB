@@ -6,7 +6,6 @@ import {
   Contato,
   EditorialBlock,
   Equilibrio,
-  Etapas,
   Footer,
   Hero,
   MetodologiaBlock,
