@@ -167,8 +167,8 @@ export const P2_CSS = `
 .p2 .nav-cta{font-family:'IBM Plex Mono', monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;border:1px solid rgba(237,227,208,0.35);padding:9px 18px;border-radius:30px;text-decoration:none;transition:all .25s ease;}
 .p2 .nav-cta:hover{background:var(--ember);border-color:var(--ember);color:var(--ink);}
 
-.p2 .hero{position:relative;padding:64px 0 88px;overflow:hidden;}
-.p2 .hero-bg{position:absolute;top:-60px;right:-120px;width:520px;height:520px;opacity:.5;z-index:0;}
+.p2 .hero{position:relative;padding:64px 0 88px;}
+.p2 .hero-bg{position:absolute;top:-10px;right:0;width:460px;height:460px;opacity:.45;z-index:0;pointer-events:none;}
 .p2 .spin{animation:p2spin 90s linear infinite;}
 .p2 .spin-1{animation-duration:140s;animation-direction:reverse;}
 .p2 .spin-2{animation-duration:200s;}
@@ -182,7 +182,7 @@ export const P2_CSS = `
 .p2 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 30px -12px rgba(201,138,75,0.8);}
 .p2 .fineprint{font-family:'IBM Plex Mono', monospace;font-size:11.5px;letter-spacing:0.04em;color:rgba(237,227,208,0.4);margin:16px 0 0;}
 
-.p2 section{padding:60px 0;border-top:1px solid rgba(237,227,208,0.08);}
+.p2 section{padding:56px 0;}
 .p2 .section-label{font-family:'IBM Plex Mono', monospace;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(237,227,208,0.45);margin:0 0 28px;}
 .p2 .legit p.lead{font-family:'Fraunces', serif;font-weight:300;font-style:italic;font-size:clamp(21px,2.6vw,27px);line-height:1.55;color:var(--bone);max-width:52ch;margin:0 0 26px;}
 .p2 .legit p.support{font-size:16px;line-height:1.75;color:rgba(237,227,208,0.7);max-width:58ch;margin:0 0 18px;}
@@ -201,14 +201,14 @@ export const P2_CSS = `
 .p2 .frente:hover .go{transform:translateX(5px);}
 
 .p2 .etapas-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;}
-.p2 .etapa{padding:0 26px;border-left:1px solid rgba(237,227,208,0.1);}
-.p2 .etapa:first-child{padding-left:0;border-left:0;}
+.p2 .etapa{padding:0 26px;}
+.p2 .etapa:first-child{padding-left:0;}
 .p2 .etapa .num{font-family:'IBM Plex Mono', monospace;font-size:11px;letter-spacing:0.2em;color:var(--ember);display:block;margin-bottom:12px;}
 .p2 .etapa h3{font-family:'Fraunces', serif;font-weight:400;font-size:19px;margin:0 0 10px;color:var(--bone);}
 .p2 .etapa p{font-size:14.5px;color:rgba(237,227,208,0.68);margin:0;}
 .p2 .etapa strong{font-weight:400;color:var(--bone);}
 
-.p2 .page-head{position:relative;padding:56px 0 44px;overflow:hidden;}
+.p2 .page-head{position:relative;padding:56px 0 44px;}
 .p2 .page-head h1{font-family:'Fraunces', serif;font-weight:300;font-size:clamp(34px,5.4vw,52px);line-height:1.1;margin:0 0 18px;}
 .p2 .page-head p.lead{font-family:'Fraunces', serif;font-style:italic;font-weight:300;font-size:clamp(18px,2.4vw,24px);color:rgba(237,227,208,0.82);max-width:46ch;margin:0 0 18px;}
 .p2 .page-head p.body{font-size:16.5px;max-width:58ch;color:rgba(237,227,208,0.72);margin:0;}
@@ -224,7 +224,7 @@ export const P2_CSS = `
 
 .p2 .contato{text-align:center;padding:90px 0 100px;}
 .p2 .contato h2{font-family:'Fraunces', serif;font-weight:300;font-size:clamp(30px,5vw,44px);margin:0 0 26px;}
-.p2 footer{padding:32px 0 50px;display:flex;justify-content:space-between;align-items:center;opacity:.4;font-family:'IBM Plex Mono', monospace;font-size:11px;letter-spacing:0.12em;border-top:1px solid rgba(237,227,208,0.08);}
+.p2 footer{padding:32px 0 50px;display:flex;justify-content:space-between;align-items:center;opacity:.4;font-family:'IBM Plex Mono', monospace;font-size:11px;letter-spacing:0.12em;}
 
 .p2 .reveal{opacity:0;transform:translateY(16px);transition:opacity .7s cubic-bezier(.22,.61,.36,1), transform .7s cubic-bezier(.22,.61,.36,1);}
 .p2 .reveal.in{opacity:1;transform:none;}
@@ -234,12 +234,12 @@ export const P2_CSS = `
 @media (max-width:760px){
   .p2 nav{gap:14px;padding:18px 0;}
   .p2 .nav-cta{display:none;}
-  .p2 .nav-links{order:3;width:100%;gap:0;justify-content:space-between;border-top:1px solid rgba(237,227,208,0.1);padding-top:12px;}
+  .p2 .nav-links{order:3;width:100%;gap:0;justify-content:space-between;padding-top:10px;}
   .p2 .frentes-grid{grid-template-columns:1fr;}
   .p2 .etapas-grid{grid-template-columns:1fr;}
-  .p2 .etapa{padding:22px 0;border-left:0;border-top:1px solid rgba(237,227,208,0.1);}
-  .p2 .etapa:first-child{padding-top:0;border-top:0;}
-  .p2 .hero-bg{display:block;top:auto;bottom:-140px;right:-160px;width:400px;height:400px;opacity:.28;}
+  .p2 .etapa{padding:22px 0;}
+  .p2 .etapa:first-child{padding-top:0;}
+  .p2 .hero-bg{display:block;top:auto;bottom:-40px;right:-10px;width:min(300px,86vw);height:min(300px,86vw);opacity:.22;}
   .p2 .wrap{padding:0 20px;}
   .p2 .hero{padding:14px 0 48px;}
   .p2 .hero h1{font-size:29px;line-height:1.12;margin:0 0 12px;}
