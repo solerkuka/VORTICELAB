@@ -6,7 +6,6 @@ import {
   Contato,
   EditorialBlock,
   Equilibrio,
-  Etapas,
   Footer,
   Hero,
   MetodologiaBlock,
@@ -37,7 +36,6 @@ const CHAPTERS = [
   { id: "atuacao", label: "Atuação" },
   { id: "metodologia", label: "Metodologia" },
   { id: "editorial", label: "Editorial" },
-  { id: "etapas", label: "Etapas" },
   { id: "contato", label: "Contato" },
 ];
 
@@ -79,9 +77,7 @@ function Index() {
       <MetodologiaBlock />
       <Seam from={LIGHT} to={INK} />
       <EditorialBlock />
-      <Seam from={INK} to={LIGHT} />
-      <Etapas />
-      <Seam from={LIGHT} to={INK_VOID} />
+      <Seam from={INK} to={INK_VOID} soft />
       <Quote tone="deep" seed={7}>
         A privacidade da sua prática é, também, a sua maior proteção competitiva.
       </Quote>
