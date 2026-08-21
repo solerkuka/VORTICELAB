@@ -36,7 +36,6 @@ const CHAPTERS = [
   { id: "atuacao", label: "Atuação" },
   { id: "metodologia", label: "Metodologia" },
   { id: "editorial", label: "Editorial" },
-  { id: "etapas", label: "Etapas" },
   { id: "contato", label: "Contato" },
 ];
 
