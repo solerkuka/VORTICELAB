@@ -517,7 +517,7 @@ export function Etapas() {
                   </span>
                 </div>
                 <h4 className="m-0 mb-2 font-display text-[19px] font-normal text-ink-deep">{e.title}</h4>
-                <p className="m-0 text-[15px] text-band-muted">{e.body}</p>
+                <p className="m-0 text-[15px] text-band-muted">{etapaBody(e.parts)}</p>
               </div>
             </Reveal>
           ))}
