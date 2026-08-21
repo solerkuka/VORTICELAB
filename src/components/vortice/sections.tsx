@@ -293,7 +293,7 @@ export function MetodologiaBlock() {
         <Reveal from={18}>
           <a
             href={METODOLOGIA.url}
-            className="group relative flex flex-col items-stretch overflow-hidden rounded-[12px] border border-clay/25 bg-band-surface p-7 no-underline shadow-[var(--shadow-light)] transition-all duration-350 hover:border-clay/55 hover:bg-ink-deep/[0.03] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-clay sm:flex-row sm:items-center sm:gap-8"
+            className="group relative flex flex-col items-stretch overflow-hidden rounded-[12px] border border-clay/25 bg-band-surface p-7 no-underline transition-colors duration-350 hover:border-clay/55 hover:bg-ink-deep/[0.03] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-clay sm:flex-row sm:items-center sm:gap-8"
           >
             <span className="relative mb-6 flex size-20 shrink-0 items-center justify-center rounded-full border border-clay/30 bg-bone-lift/40 sm:mb-0 sm:size-24">
               <span className="relative z-[1] text-clay">
@@ -336,7 +336,7 @@ export function EditorialBlock() {
         <Reveal from={-12}>
           <a
             href={EDITORIAL.url}
-            className="group relative block max-w-[680px] overflow-hidden rounded-[14px] border border-bone/12 bg-ink-raise px-8 py-11 no-underline shadow-[var(--shadow-deep)] transition-colors duration-350 hover:border-ember/45 hover:bg-bone/[0.03] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember"
+            className="group relative block max-w-[680px] overflow-hidden rounded-[14px] border border-bone/12 bg-ink-raise px-8 py-11 no-underline transition-colors duration-350 hover:border-ember/45 hover:bg-bone/[0.03] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember"
           >
             <span className="relative z-[1] mb-5 block text-moss-bright">
               <Icon name={EDITORIAL.icon} className="mx-auto size-8" />
