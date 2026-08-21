@@ -240,7 +240,14 @@ export const P2_CSS = `
   .p2 .etapa{padding:22px 0;border-left:0;border-top:1px solid rgba(237,227,208,0.1);}
   .p2 .etapa:first-child{padding-top:0;border-top:0;}
   .p2 .hero-bg{display:block;top:auto;bottom:-140px;right:-160px;width:400px;height:400px;opacity:.28;}
-  .p2 .hero{padding:36px 0 64px;}
+  .p2 .wrap{padding:0 20px;}
+  .p2 .hero{padding:14px 0 48px;}
+  .p2 .hero h1{font-size:29px;line-height:1.12;margin:0 0 12px;}
+  .p2 .hero p.tagline{font-size:12.5px;line-height:1.5;margin:0 0 10px;}
+  .p2 .hero p.body{font-size:13.5px;line-height:1.55;margin:0 0 12px;}
+  .p2 .hero p.closing{font-size:15px;line-height:1.4;margin:0 0 16px;}
+  .p2 .btn-primary{padding:12px 24px;font-size:12px;}
+  .p2 .fineprint{font-size:10.5px;line-height:1.5;margin:12px 0 0;}
 }
 @media (prefers-reduced-motion: reduce){
   .p2 .spin{animation:none;}
