@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AtuacaoRouteImport } from './routes/atuacao'
 import { Route as MetodologiaRouteImport } from './routes/metodologia'
 import { Route as Pagina2RouteImport } from './routes/pagina2'
+import { Route as EditorialIndexRouteImport } from './routes/editorial.index'
 import { Route as EditorialSlugRouteImport } from './routes/editorial.$slug'
 
 const IndexRoute = IndexRouteImport.update({
@@ -35,6 +36,11 @@ const Pagina2Route = Pagina2RouteImport.update({
   path: '/pagina2',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EditorialIndexRoute = EditorialIndexRouteImport.update({
+  id: '/editorial/',
+  path: '/editorial/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const EditorialSlugRoute = EditorialSlugRouteImport.update({
   id: '/editorial/$slug',
   path: '/editorial/$slug',
@@ -47,6 +53,7 @@ export interface FileRoutesByFullPath {
   '/metodologia': typeof MetodologiaRoute
   '/pagina2': typeof Pagina2Route
   '/editorial/$slug': typeof EditorialSlugRoute
+  '/editorial/': typeof EditorialIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -54,6 +61,7 @@ export interface FileRoutesByTo {
   '/metodologia': typeof MetodologiaRoute
   '/pagina2': typeof Pagina2Route
   '/editorial/$slug': typeof EditorialSlugRoute
+  '/editorial': typeof EditorialIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -62,12 +70,25 @@ export interface FileRoutesById {
   '/metodologia': typeof MetodologiaRoute
   '/pagina2': typeof Pagina2Route
   '/editorial/$slug': typeof EditorialSlugRoute
+  '/editorial/': typeof EditorialIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/atuacao' | '/metodologia' | '/pagina2' | '/editorial/$slug'
+  fullPaths:
+    | '/'
+    | '/atuacao'
+    | '/metodologia'
+    | '/pagina2'
+    | '/editorial/$slug'
+    | '/editorial/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/atuacao' | '/metodologia' | '/pagina2' | '/editorial/$slug'
+  to:
+    | '/'
+    | '/atuacao'
+    | '/metodologia'
+    | '/pagina2'
+    | '/editorial/$slug'
+    | '/editorial'
   id:
     | '__root__'
     | '/'
@@ -75,6 +96,7 @@ export interface FileRouteTypes {
     | '/metodologia'
     | '/pagina2'
     | '/editorial/$slug'
+    | '/editorial/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -83,6 +105,7 @@ export interface RootRouteChildren {
   MetodologiaRoute: typeof MetodologiaRoute
   Pagina2Route: typeof Pagina2Route
   EditorialSlugRoute: typeof EditorialSlugRoute
+  EditorialIndexRoute: typeof EditorialIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -115,6 +138,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Pagina2RouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/editorial/': {
+      id: '/editorial/'
+      path: '/editorial'
+      fullPath: '/editorial/'
+      preLoaderRoute: typeof EditorialIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/editorial/$slug': {
       id: '/editorial/$slug'
       path: '/editorial/$slug'
@@ -131,6 +161,7 @@ const rootRouteChildren: RootRouteChildren = {
   MetodologiaRoute: MetodologiaRoute,
   Pagina2Route: Pagina2Route,
   EditorialSlugRoute: EditorialSlugRoute,
+  EditorialIndexRoute: EditorialIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
