@@ -1,3 +1,4 @@
+import { ETAPAS } from "@/content/etapas";
 import { FRENTES } from "@/content/frentes";
 import logoAsset from "@/assets/vorticelab-logo.png.asset.json";
 import { Icon } from "./icons";
