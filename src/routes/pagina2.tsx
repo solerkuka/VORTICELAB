@@ -95,22 +95,6 @@ function Pagina2() {
         </div>
       </section>
 
-      <section className="etapas">
-        <p className="section-label reveal">As Etapas do Alinhamento</p>
-        <div className="etapas-grid">
-          {ETAPAS.map((e, i) => (
-            <div className={`etapa reveal d${i + 1}`} key={e.n}>
-              <span className="num">{e.n}</span>
-              <h3>{e.title}</h3>
-              <p>
-                {e.parts.map((p, j) =>
-                  p.highlight ? <strong key={j}>{p.text}</strong> : <span key={j}>{p.text}</span>,
-                )}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
     </P2Shell>
   );
 }
