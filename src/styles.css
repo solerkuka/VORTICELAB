@@ -178,6 +178,48 @@
   color: var(--ink-deep);
 }
 
+/* ---- institutional variant (/pagina2) --------------------------------- */
+
+:root {
+  --inst-dark-bg: oklch(0.1885 0.0069 220);
+  --inst-light-bg: oklch(0.978 0.0015 240);
+  --inst-fg: var(--bone);
+  --inst-muted: color-mix(in oklab, var(--bone) 72%, transparent);
+  --inst-accent: var(--ember-mid);
+  --inst-rule: color-mix(in oklab, var(--bone) 15%, transparent);
+  --shadow-flat: 0 1px 2px oklch(0 0 0 / 0.18);
+}
+
+.inst-band {
+  overflow: hidden;
+}
+
+.inst-dark {
+  --inst-fg: var(--bone);
+  --inst-muted: color-mix(in oklab, var(--bone) 72%, transparent);
+  --inst-accent: var(--ember-mid);
+  --inst-rule: color-mix(in oklab, var(--bone) 15%, transparent);
+  background-color: var(--inst-dark-bg);
+  color: var(--bone);
+}
+
+.inst-light {
+  --inst-fg: var(--ink-deep);
+  --inst-muted: color-mix(in oklab, var(--ink-deep) 76%, transparent);
+  --inst-accent: var(--clay);
+  --inst-rule: color-mix(in oklab, var(--ink-deep) 14%, transparent);
+  background-color: var(--inst-light-bg);
+  color: var(--ink-deep);
+}
+
+/* institutional page: entry motion only — vertical, short, no loops */
+.inst-page .reveal {
+  transform: translate3d(0, 12px, 0);
+  transition-duration: 0.55s;
+}
+
+
+
 .article-body > p:first-of-type::first-letter {
   font-family: var(--font-display);
   font-style: italic;
