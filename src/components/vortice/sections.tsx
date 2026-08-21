@@ -191,7 +191,7 @@ export function Equilibrio() {
           </div>
 
           <Reveal delay={0.2} from={24}>
-            <aside className="relative overflow-hidden rounded-xl border border-clay/30 bg-band-surface p-7 shadow-[var(--shadow-light)]">
+            <aside className="relative overflow-hidden rounded-xl border border-clay/30 bg-band-surface p-7 ">
               <span className="mb-4 block text-clay">
                 <Icon name="vortex" className="size-6" />
               </span>
@@ -252,7 +252,7 @@ export function AtuacaoBlock() {
         <Reveal from={-18}>
           <a
             href={ATUACAO.url}
-            className="group relative grid grid-cols-1 items-stretch gap-0 overflow-hidden rounded-[12px] border border-bone/12 bg-ink-raise no-underline shadow-[var(--shadow-deep)] transition-all duration-350 hover:-translate-y-1 hover:border-ember/40 hover:shadow-[var(--shadow-ember)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember sm:grid-cols-[180px_1fr]"
+            className="group relative grid grid-cols-1 items-stretch gap-0 overflow-hidden rounded-[12px] border border-bone/12 bg-ink-raise no-underline transition-colors duration-350 hover:border-ember/45 hover:bg-bone/[0.03] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember sm:grid-cols-[180px_1fr]"
           >
             <span className="relative flex items-center justify-center border-b border-bone/10 bg-ink-void/40 px-7 py-10 sm:border-b-0 sm:border-r">
               <span className="relative z-[1] text-moss-bright">
@@ -293,7 +293,7 @@ export function MetodologiaBlock() {
         <Reveal from={18}>
           <a
             href={METODOLOGIA.url}
-            className="group relative flex flex-col items-stretch overflow-hidden rounded-[12px] border border-clay/25 bg-band-surface p-7 no-underline shadow-[var(--shadow-light)] transition-all duration-350 hover:-translate-y-1 hover:border-clay/50 hover:shadow-[var(--shadow-light)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-clay sm:flex-row sm:items-center sm:gap-8"
+            className="group relative flex flex-col items-stretch overflow-hidden rounded-[12px] border border-clay/25 bg-band-surface p-7 no-underline shadow-[var(--shadow-light)] transition-all duration-350 hover:border-clay/55 hover:bg-ink-deep/[0.03] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-clay sm:flex-row sm:items-center sm:gap-8"
           >
             <span className="relative mb-6 flex size-20 shrink-0 items-center justify-center rounded-full border border-clay/30 bg-bone-lift/40 sm:mb-0 sm:size-24">
               <span className="relative z-[1] text-clay">
@@ -336,7 +336,7 @@ export function EditorialBlock() {
         <Reveal from={-12}>
           <a
             href={EDITORIAL.url}
-            className="group relative block max-w-[680px] overflow-hidden rounded-[14px] border border-bone/12 bg-ink-raise/60 px-8 py-11 no-underline shadow-[var(--shadow-deep)] backdrop-blur-[2px] transition-all duration-350 hover:-translate-y-1 hover:border-ember/40 hover:shadow-[var(--shadow-ember)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember"
+            className="group relative block max-w-[680px] overflow-hidden rounded-[14px] border border-bone/12 bg-ink-raise px-8 py-11 no-underline shadow-[var(--shadow-deep)] transition-colors duration-350 hover:border-ember/45 hover:bg-bone/[0.03] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember"
           >
             <span className="relative z-[1] mb-5 block text-moss-bright">
               <Icon name={EDITORIAL.icon} className="mx-auto size-8" />
@@ -392,7 +392,7 @@ export function Etapas() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {ETAPAS.map((e, i) => (
             <Reveal key={e.n} delay={0.1 + i * 0.1} from={i % 2 === 0 ? -16 : 16}>
-              <div className="rounded-[10px] border border-band-line bg-band-surface p-6 transition-all duration-350 hover:translate-x-1.5 hover:border-clay/30 hover:shadow-[var(--shadow-light)]">
+              <div className="rounded-[10px] border border-band-line bg-band-surface p-6 transition-all duration-350 hover:border-clay/35">
                 <div className="mb-3 flex items-center gap-3">
                   <span className="font-mono text-[11px] tracking-[0.14em] text-moss">{e.n}</span>
                   <span className="h-px w-4 bg-band-line" />
