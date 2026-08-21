@@ -1,3 +1,4 @@
+import { ETAPAS } from "@/content/etapas";
 import { FRENTES } from "@/content/frentes";
 import logoAsset from "@/assets/vorticelab-logo.png.asset.json";
 import { Icon } from "./icons";
@@ -320,8 +321,6 @@ export function AtuacaoBlock() {
         <Reveal from={-18}>
           <a
             href={ATUACAO.url}
-            target="_blank"
-            rel="noreferrer noopener"
             className="group relative grid grid-cols-1 items-stretch gap-0 overflow-hidden rounded-[12px] border border-bone/12 bg-ink-raise no-underline shadow-[var(--shadow-deep)] transition-all duration-350 hover:-translate-y-1 hover:border-ember/40 hover:shadow-[var(--shadow-ember)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember sm:grid-cols-[180px_1fr]"
           >
             <span className="relative flex items-center justify-center border-b border-bone/10 bg-ink-void/40 px-7 py-10 sm:border-b-0 sm:border-r">
@@ -382,8 +381,6 @@ export function MetodologiaBlock() {
         <Reveal from={18}>
           <a
             href={METODOLOGIA.url}
-            target="_blank"
-            rel="noreferrer noopener"
             className="group relative flex flex-col items-stretch overflow-hidden rounded-[12px] border border-clay/25 bg-band-surface p-7 no-underline shadow-[var(--shadow-light)] transition-all duration-350 hover:-translate-y-1 hover:border-clay/50 hover:shadow-[var(--shadow-light)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-clay sm:flex-row sm:items-center sm:gap-8"
           >
             <span className="relative mb-6 flex size-20 shrink-0 items-center justify-center rounded-full border border-clay/30 bg-bone-lift/40 sm:mb-0 sm:size-24">
@@ -434,8 +431,6 @@ export function EditorialBlock() {
         <Reveal from={-12}>
           <a
             href={EDITORIAL.url}
-            target="_blank"
-            rel="noreferrer noopener"
             className="group relative block max-w-[680px] overflow-hidden rounded-[14px] border border-bone/12 bg-ink-raise/60 px-8 py-11 no-underline shadow-[var(--shadow-deep)] backdrop-blur-[2px] transition-all duration-350 hover:-translate-y-1 hover:border-ember/40 hover:shadow-[var(--shadow-ember)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember"
           >
             <span className="pointer-events-none absolute -right-16 -bottom-16 size-44 rounded-full border border-ember/15 transition-transform duration-700 group-hover:scale-150" />
@@ -474,41 +469,12 @@ export function EditorialBlock() {
 
 /* --------------------------------------------------------------- etapas */
 
-const ETAPAS = [
-  {
-    n: "01",
-    icon: "arc" as const,
-    title: "Diagnóstico Inicial de Cenário",
-    body: (
-      <>
-        Avaliação restrita das dinâmicas energéticas atuais do ativo, projeto ou liderança para identificação de{" "}
-        <Highlight>pontos de fricção invisíveis</Highlight>.
-      </>
-    ),
-  },
-  {
-    n: "02",
-    icon: "wave" as const,
-    title: "Equalização e Modulação",
-    body: (
-      <>
-        Aplicação dos protocolos customizados de radiestesia e arquitetura energética em paralelo às decisões de
-        governança do cliente.
-      </>
-    ),
-  },
-  {
-    n: "03",
-    icon: "meridian" as const,
-    title: "Sustentação e Monitoramento",
-    body: (
-      <>
-        Suporte contínuo de bastidores para assegurar a estabilidade do padrão de alta performance e a{" "}
-        <Highlight>mitigação de riscos em momentos críticos</Highlight>.
-      </>
-    ),
-  },
-];
+function etapaBody(parts: { text: string; highlight?: boolean }[]) {
+  return parts.map((p, i) =>
+    p.highlight ? <Highlight key={i}>{p.text}</Highlight> : <span key={i}>{p.text}</span>,
+  );
+}
+
 
 export function Etapas() {
   return (
@@ -546,7 +512,7 @@ export function Etapas() {
                   </span>
                 </div>
                 <h4 className="m-0 mb-2 font-display text-[19px] font-normal text-ink-deep">{e.title}</h4>
-                <p className="m-0 text-[15px] text-band-muted">{e.body}</p>
+                <p className="m-0 text-[15px] text-band-muted">{etapaBody(e.parts)}</p>
               </div>
             </Reveal>
           ))}
