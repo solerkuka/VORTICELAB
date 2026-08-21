@@ -1,21 +1,10 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { IconSprite } from "@/components/vortice/icons";
-import { Seam } from "@/components/vortice/field";
-import {
-  AtuacaoBlock,
-  Contato,
-  EditorialBlock,
-  Equilibrio,
-  Footer,
-  Hero,
-  MetodologiaBlock,
-  Quote,
-} from "@/components/vortice/sections";
-import { useVorticeMotion } from "@/components/vortice/use-vortice-motion";
+import { Link, createFileRoute } from "@tanstack/react-router";
+import { HeroSpiral, P2Shell } from "@/components/vortice/p2";
+import { FRENTES } from "@/content/frentes";
 
 const TITLE = "VórticeLab — Arquitetura energética e inteligência estratégica";
 const DESCRIPTION =
-  "Consultoria exclusiva em arquitetura energética e inteligência estratégica para atletas, empresários e investidores que moldam o topo do mercado.";
+  "Consultoria exclusiva para atletas, empresários e investidores: alinhamento de parcerias, blindagem de lideranças e arquitetura de expansão, sob absoluta confidencialidade.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -31,60 +20,80 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const CHAPTERS = [
-  { id: "equilibrio", label: "Equilíbrio" },
-  { id: "atuacao", label: "Atuação" },
-  { id: "metodologia", label: "Metodologia" },
-  { id: "editorial", label: "Editorial" },
-  { id: "contato", label: "Contato" },
-];
-
-const CHAPTER_IDS = CHAPTERS.map((c) => c.id);
-
-const INK = "var(--ink)";
-const INK_VOID = "var(--ink)";
-const LIGHT = "var(--surface-light)";
-
 function Index() {
-  const { progress } = useVorticeMotion(CHAPTER_IDS);
-
   return (
-    <main className="relative">
-      <IconSprite />
+    <P2Shell>
+      <header className="hero" id="top">
+        <HeroSpiral />
+        <div className="hero-content">
+          <h1 className="reveal">O próximo movimento já começou.</h1>
+          <p className="tagline reveal d1">
+            VórticeLab: Arquitetura energética e inteligência estratégica para quem molda o topo do
+            mercado.
+          </p>
+          <p className="body reveal d2">
+            Unimos a sabedoria das tecnologias ancestrais à dinâmica dos negócios de alta
+            performance. Uma consultoria exclusiva para atletas, empresários e investidores que
+            exigem precisão em cada tomada de decisão, seja na expansão de corporações, na gestão de
+            carreiras ou em grandes transições de vida.
+          </p>
+          <p className="closing reveal d3">
+            A engenharia sutil por trás das decisões que moldam o futuro.
+          </p>
+          <div className="reveal d4">
+            <a className="btn-primary" href="#contato">
+              Fale conosco
+            </a>
+            <p className="fineprint">
+              Atendimento mediante indicação ou avaliação de compatibilidade.
+            </p>
+          </div>
+        </div>
+      </header>
 
-      <div
-        className="fixed top-0 left-0 z-[80] h-0.5 bg-ember opacity-85"
-        style={{ width: `${progress}%` }}
-        aria-hidden="true"
-      />
+      <section className="legit">
+        <p className="section-label reveal">Equilíbrio Energético</p>
+        <p className="lead reveal d1">
+          O que começa como o segredo de bastidores de grandes projetos — o mapeamento bioenergético
+          do terroir que consagra as vinícolas mais valiosas do mundo, ou os milenares critérios de
+          inteligência energética que orientam a engenharia e a alta arquitetura corporativa em
+          Dubai, na China e no Japão — consolida-se, com o tempo, em{" "}
+          <em>métrica reconhecida pelo próprio mercado</em>.
+        </p>
+        <p className="support reveal d2">
+          O equilíbrio energético e a radiestesia integram práticas milenares, difundidas em
+          diferentes culturas, que hoje se traduzem no rigor técnico de auditorias de campo
+          eletromagnético em certificações imobiliárias internacionais e em protocolos oficiais que
+          blindam comitês olímpicos, clubes centenários e figuras de grande visibilidade pública.
+        </p>
+        <p className="support reveal d3">
+          Nos ambientes onde o capital e o talento em jogo são elevados — fundações de grandes
+          empreendimentos, decisões de expansão internacional ou a véspera de uma janela decisiva de
+          contratações e torneios — a leitura e a equalização energética raramente são anunciadas.
+          Operam em paralelo à governança e ao rigor operacional, sob o mais estrito sigilo, e
+          tendem a aparecer com mais força justamente quando as ferramentas tradicionais já não
+          sustentam sozinhas a decisão.
+        </p>
+      </section>
 
-
-
-      <Hero />
-      <Seam from={INK} to={INK_VOID} soft />
-      <Quote tone="deep" seed={0}>
-        A energia já existe — o trabalho é lê-la.
-      </Quote>
-      <Seam from={INK_VOID} to={LIGHT} />
-      <Equilibrio />
-      <Seam from={LIGHT} to={INK_VOID} />
-      <Quote tone="deep" seed={4}>
-        A certeza do alinhamento antes do aperto de mãos.
-      </Quote>
-      <Seam from={INK_VOID} to={INK} soft />
-      <AtuacaoBlock />
-      <Seam from={INK} to={LIGHT} />
-      <MetodologiaBlock />
-      <Seam from={LIGHT} to={INK} />
-      <EditorialBlock />
-      <Seam from={INK} to={INK_VOID} soft />
-      <Quote tone="deep" seed={7}>
-        A privacidade da sua prática é, também, a sua maior proteção competitiva.
-      </Quote>
-      <Seam from={INK_VOID} to={LIGHT} />
-      <Contato />
-      <Footer />
-    </main>
+      <section className="frentes">
+        <p className="section-label reveal">Frentes</p>
+        <div className="frentes-grid">
+          {FRENTES.map((f, i) => (
+            <Link
+              className={`frente reveal d${i + 1}`}
+              to={f.url}
+              key={f.key}
+              style={{ ["--acc" as string]: f.accent }}
+            >
+              <h3>{f.title}</h3>
+              <p className="subhead">{f.lead}</p>
+              <p>{f.line}</p>
+              <span className="go">Acessar →</span>
+            </Link>
+          ))}
+        </div>
+      </section>
+    </P2Shell>
   );
 }
-

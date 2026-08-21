@@ -74,7 +74,7 @@ export function useReveal() {
 export function P2Nav({ current }: { current?: string | undefined }) {
   return (
     <nav>
-      <Link className="brand" to="/pagina2">
+      <Link className="brand" to="/">
         <img src={logo.url} alt="VórticeLab" />
         <span className="wordmark">
           Vórtice<i>Lab</i>
