@@ -113,7 +113,7 @@ export function P2Contato() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          WhatsApp (51) 98913-9609
+          contato@vorticelab.com.br
         </a>
         <p className="fineprint">Atendimento mediante indicação ou avaliação de compatibilidade.</p>
       </div>
