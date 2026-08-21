@@ -77,8 +77,7 @@ function Index() {
       <MetodologiaBlock />
       <Seam from={LIGHT} to={INK} />
       <EditorialBlock />
-      <Seam from={INK} to={LIGHT} />
-      <Seam from={LIGHT} to={INK_VOID} />
+      <Seam from={INK} to={INK_VOID} soft />
       <Quote tone="deep" seed={7}>
         A privacidade da sua prática é, também, a sua maior proteção competitiva.
       </Quote>
