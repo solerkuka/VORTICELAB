@@ -107,8 +107,13 @@ export function P2Contato() {
       </p>
       <h2 className="reveal d1">Fale conosco.</h2>
       <div className="reveal d2">
-        <a className="btn-primary" href="mailto:contato@vorticelab.com.br">
-          contato@vorticelab.com.br
+        <a
+          className="btn-primary"
+          href="https://wa.me/5551989139609?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20a%20V%C3%B3rticeLab"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          WhatsApp (51) 98913-9609
         </a>
         <p className="fineprint">Atendimento mediante indicação ou avaliação de compatibilidade.</p>
       </div>
