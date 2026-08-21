@@ -106,16 +106,28 @@ export function P2Contato() {
         Contato
       </p>
       <h2 className="reveal d1">Fale conosco.</h2>
-      <div className="reveal d2">
+      <p className="contato-lead reveal d2">
+        Atendimento mediante indicação ou avaliação de compatibilidade.
+      </p>
+      <div className="contato-channels reveal d3">
         <a
-          className="btn-primary"
+          className="channel channel-wa"
           href="https://wa.me/5551989139609?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20a%20V%C3%B3rticeLab"
           target="_blank"
           rel="noopener noreferrer"
         >
-          contato@vorticelab.com.br
+          <span className="channel-tag">WhatsApp</span>
+          <span className="channel-value">(51) 98913-9609</span>
+          <span className="channel-hint">Iniciar conversa →</span>
         </a>
-        <p className="fineprint">Atendimento mediante indicação ou avaliação de compatibilidade.</p>
+        <a
+          className="channel channel-mail"
+          href="mailto:contato@vorticelab.com.br"
+        >
+          <span className="channel-tag">E-mail</span>
+          <span className="channel-value">contato@vorticelab.com.br</span>
+          <span className="channel-hint">Enviar mensagem →</span>
+        </a>
       </div>
     </section>
   );
