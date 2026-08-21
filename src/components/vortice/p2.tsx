@@ -71,7 +71,7 @@ export function useReveal() {
   return ref;
 }
 
-export function P2Nav({ current }: { current?: string }) {
+export function P2Nav({ current }: { current?: string | undefined }) {
   return (
     <nav>
       <Link className="brand" to="/pagina2">
