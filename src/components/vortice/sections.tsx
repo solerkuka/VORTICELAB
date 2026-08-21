@@ -115,54 +115,24 @@ export function Hero() {
 export function Quote({
   tone,
   children,
-  seed = 0,
 }: {
   tone: "deep" | "light";
   children: React.ReactNode;
   seed?: number;
 }) {
   return (
-    <Band tone={tone} className="flex min-h-[42vh] items-center justify-center px-7 py-16 text-center sm:min-h-[46vh] sm:py-20">
-
-      <div
-        className="pointer-events-none absolute top-1/2 left-1/2 aspect-[16/9] w-[min(1100px,120%)] -translate-x-1/2 -translate-y-1/2 rounded-full"
-        aria-hidden="true"
-        style={{
-          background:
-            "radial-gradient(closest-side, var(--band-halo), color-mix(in oklab, var(--band) 70%, transparent) 55%, transparent 78%)",
-        }}
-      />
+    <Band tone={tone} className="flex min-h-[32vh] items-center justify-center px-7 py-16 text-center sm:min-h-[34vh] sm:py-24">
       <Reveal>
-        <figure className="relative z-[1] m-0 flex flex-col items-center gap-6">
-          <span aria-hidden="true" className="flex items-center gap-2.5">
-            <span className="block h-px w-14 bg-band-line" />
-            <span className="block size-1.5 rotate-45 bg-band-accent" />
-            <span className="block h-px w-14 bg-band-line" />
-          </span>
-          <blockquote className="relative m-0 max-w-[20ch] font-display text-[clamp(28px,4.8vw,52px)] leading-[1.28] font-light text-band-accent italic">
-            <span
-              aria-hidden="true"
-              className="pointer-events-none absolute -top-8 -left-8 font-display text-[clamp(70px,10vw,130px)] leading-none text-band-accent/15 select-none"
-            >
-              “
-            </span>
-            <span className="relative">“{children}”</span>
-            <span
-              aria-hidden="true"
-              className="pointer-events-none absolute -right-6 -bottom-16 font-display text-[clamp(70px,10vw,130px)] leading-none text-band-accent/15 select-none"
-            >
-              ”
-            </span>
+        <figure className="relative z-[1] m-0 flex flex-col items-center gap-7">
+          <span aria-hidden="true" className="block h-px w-10 bg-band-accent/60" />
+          <blockquote className="m-0 max-w-[24ch] font-display text-[clamp(24px,3.6vw,40px)] leading-[1.32] font-light text-band-fg">
+            {children}
           </blockquote>
-          <span aria-hidden="true" className="flex items-center gap-2.5">
-            <span className="block h-px w-14 bg-band-line" />
-            <span className="block size-1.5 rotate-45 bg-band-accent" />
-            <span className="block h-px w-14 bg-band-line" />
-          </span>
         </figure>
       </Reveal>
     </Band>
   );
+
 }
 
 /* --------------------------------------------------------- 01 equilíbrio */
