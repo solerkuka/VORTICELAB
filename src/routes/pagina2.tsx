@@ -1,6 +1,5 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { HeroSpiral, P2Shell } from "@/components/vortice/p2";
-import { ETAPAS } from "@/content/etapas";
 import { FRENTES } from "@/content/frentes";
 
 const TITLE = "VórticeLab — Arquitetura energética e inteligência estratégica";
