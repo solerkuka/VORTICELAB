@@ -279,6 +279,10 @@ export const P2_CSS = `
   .p2 .hero p.closing{font-size:15px;line-height:1.4;margin:0 0 16px;}
   .p2 .btn-primary{padding:12px 24px;font-size:12px;}
   .p2 .fineprint{font-size:10.5px;line-height:1.5;margin:12px 0 0;}
+  .p2 .contato{padding:60px 0 72px;}
+  .p2 .contato-lead{font-size:11px;margin:0 auto 28px;}
+  .p2 .contato-channels{grid-template-columns:1fr;gap:14px;}
+  .p2 .channel-value{font-size:17px;}
 }
 @media (prefers-reduced-motion: reduce){
   .p2 .spin{animation:none;}
