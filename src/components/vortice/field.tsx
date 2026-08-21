@@ -168,64 +168,35 @@ export function Particles({ count = 6, opacity = 1 }: { count?: number; opacity?
  * otherwise a shallow drawn seam with feathered edges bridges light and dark.
  */
 export function Seam({ from, to, soft = false }: { from: string; to: string; soft?: boolean }) {
-  const paths = windPaths(3, 1200, 90, 4);
-
   if (soft) {
     return (
       <div
-        className="relative -mt-px -mb-px h-12 w-full overflow-hidden"
-        style={{ backgroundImage: `linear-gradient(to bottom, ${from}, ${to})` }}
+        className="relative -mt-px -mb-px h-10 w-full"
+        style={{ backgroundColor: from }}
         aria-hidden="true"
-      >
-        <svg viewBox="0 0 1200 90" preserveAspectRatio="none" className="absolute inset-0 size-full opacity-40">
-          {paths.map((p, i) => (
-            <path
-              key={i}
-              d={p.d}
-              stroke="var(--ember)"
-              strokeWidth={1}
-              fill="none"
-              opacity={0.1 + i * 0.03}
-              className="vx-drift"
-            />
-          ))}
-        </svg>
-      </div>
+      />
     );
   }
 
   return (
     <div
-      className="relative -mt-px -mb-px h-[86px] w-full overflow-hidden"
+      className="relative -mt-px -mb-px h-[72px] w-full overflow-hidden"
       style={{ backgroundColor: from }}
       aria-hidden="true"
     >
       <svg viewBox="0 0 1200 86" preserveAspectRatio="none" className="absolute -inset-px size-[calc(100%+2px)]">
+        <path d="M0,44 C260,18 420,64 640,46 C860,28 1010,58 1200,36 L1200,90 L0,90 Z" fill={to} />
         <path
-          d="M0,44 C200,10 380,74 620,48 C840,24 1000,66 1200,38 L1200,90 L0,90 Z"
-          fill={to}
-        />
-        <path
-          d="M0,44 C200,10 380,74 620,48 C840,24 1000,66 1200,38"
+          d="M0,44 C260,18 420,64 640,46 C860,28 1010,58 1200,36"
           stroke="var(--ember)"
           strokeWidth={1}
           fill="none"
-          opacity={0.4}
-        />
-        <path
-          d="M0,30 C220,0 400,60 640,34 C860,12 1020,52 1200,26"
-          stroke="var(--ember)"
-          strokeWidth={1}
-          fill="none"
-          opacity={0.16}
-          className="vx-drift"
+          opacity={0.22}
         />
       </svg>
     </div>
   );
 }
-
-
 
 
 /** Focused line field for quote bands: few continuous curves, edge-faded. */

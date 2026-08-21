@@ -2,7 +2,6 @@ import { ETAPAS } from "@/content/etapas";
 import { FRENTES } from "@/content/frentes";
 import logoAsset from "@/assets/vorticelab-logo.png.asset.json";
 import { Icon } from "./icons";
-import { Particles, QuoteField, Rings, SpiralCluster, WindField } from "./field";
 import { Band, Highlight, HighlightBox, Reveal, SectionHead, Wrap } from "./primitives";
 import { MobileMenu } from "./nav";
 
@@ -16,7 +15,6 @@ const EMAIL = "mailto:contato@vorticelab.com.br";
 export function Hero() {
   return (
     <Band tone="dark" id="hero">
-      <Particles count={3} opacity={0.5} />
 
       <Wrap className="flex min-h-[100svh] flex-col">
         <nav className="relative flex items-center justify-between gap-4 py-4 sm:py-6">
@@ -125,21 +123,6 @@ export function Quote({
 }) {
   return (
     <Band tone={tone} className="flex min-h-[42vh] items-center justify-center px-7 py-16 text-center sm:min-h-[46vh] sm:py-20">
-      <QuoteField
-        className="pointer-events-none absolute inset-0 size-full"
-        color={tone === "light" ? "var(--clay)" : "var(--ember)"}
-        seed={seed}
-        count={5}
-      />
-      <Rings
-        className="pointer-events-none absolute top-1/2 -left-32 size-[320px] -translate-y-1/2 sm:-left-24 sm:size-[420px]"
-        color="var(--band-accent)"
-        count={6}
-        gap={28}
-        sweep={0.55}
-        rotate={90}
-        opacity={0.2}
-      />
 
       <div
         className="pointer-events-none absolute top-1/2 left-1/2 aspect-[16/9] w-[min(1100px,120%)] -translate-x-1/2 -translate-y-1/2 rounded-full"
@@ -187,12 +170,6 @@ export function Quote({
 export function Equilibrio() {
   return (
     <Band tone="light" id="equilibrio" className="py-16 sm:py-24">
-      <WindField
-        className="pointer-events-none absolute inset-0 size-full opacity-25"
-        color="var(--clay)"
-        seed={2}
-        count={5}
-      />
       <Wrap>
         <SectionHead label="Equilíbrio Energético" icon="meridian" />
 
@@ -212,7 +189,7 @@ export function Equilibrio() {
                 <Reveal delay={0.1} from={-16}>
                   <div className="flex gap-3 text-[15px] leading-[1.75] text-band-muted">
                     <span className="mt-1.5 text-band-accent">
-                      <Icon name="field" className="size-[18px]" pulse />
+                      <Icon name="field" className="size-[18px]" />
                     </span>
                     <span>
                       O equilíbrio energético e a radiestesia integram práticas milenares, difundidas em diferentes
@@ -228,7 +205,7 @@ export function Equilibrio() {
                 <Reveal delay={0.2} from={16}>
                   <div className="flex gap-3 text-[15px] leading-[1.75] text-band-muted">
                     <span className="mt-1.5 text-band-accent">
-                      <Icon name="knot" className="size-[18px]" pulse />
+                      <Icon name="knot" className="size-[18px]" />
                     </span>
                     <span>
                       Nos ambientes onde o capital e o talento em jogo são elevados — fundações de grandes
@@ -246,7 +223,7 @@ export function Equilibrio() {
           <Reveal delay={0.2} from={24}>
             <aside className="relative overflow-hidden rounded-xl border border-clay/30 bg-band-surface p-7 shadow-[var(--shadow-light)]">
               <span className="mb-4 block text-clay">
-                <Icon name="vortex" className="size-6" pulse />
+                <Icon name="vortex" className="size-6" />
               </span>
               <p className="m-0 font-display text-[19px] leading-[1.4] font-light text-ink-deep italic">
                 Métrica reconhecida pelo próprio mercado.
@@ -254,21 +231,12 @@ export function Equilibrio() {
               <span className="mt-5 block font-mono text-[10px] tracking-[0.14em] text-ink-deep/55 uppercase">
                 Equilíbrio Energético
               </span>
-              <span className="absolute -right-9 -bottom-9 size-24 rounded-full border border-clay/25" />
+              
             </aside>
           </Reveal>
         </div>
 
       </Wrap>
-      <Rings
-        className="pointer-events-none absolute -right-28 -bottom-32 size-[300px] sm:-right-20 sm:size-[420px]"
-        color="var(--clay)"
-        count={7}
-        gap={26}
-        sweep={0.62}
-        rotate={200}
-        opacity={0.25}
-      />
     </Band>
 
   );
@@ -301,13 +269,6 @@ const EDITORIAL = FRENTES.find((f) => f.key === "editorial")!;
 export function AtuacaoBlock() {
   return (
     <Band tone="dark" id="atuacao" className="py-16 sm:py-24">
-      <WindField
-        className="pointer-events-none absolute inset-0 size-full opacity-25"
-        color="var(--moss-bright)"
-        seed={6}
-        count={5}
-      />
-      <Particles count={3} opacity={0.6} />
       <Wrap>
         <Reveal>
           <p className="m-0 mb-1.5 font-mono text-[11px] tracking-[0.22em] text-moss-bright uppercase">
@@ -324,9 +285,8 @@ export function AtuacaoBlock() {
             className="group relative grid grid-cols-1 items-stretch gap-0 overflow-hidden rounded-[12px] border border-bone/12 bg-ink-raise no-underline shadow-[var(--shadow-deep)] transition-all duration-350 hover:-translate-y-1 hover:border-ember/40 hover:shadow-[var(--shadow-ember)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember sm:grid-cols-[180px_1fr]"
           >
             <span className="relative flex items-center justify-center border-b border-bone/10 bg-ink-void/40 px-7 py-10 sm:border-b-0 sm:border-r">
-              <span className="pointer-events-none absolute -bottom-10 -left-6 size-28 rounded-full border border-ember/20 transition-transform duration-700 group-hover:scale-150" />
               <span className="relative z-[1] text-moss-bright">
-                <Icon name={ATUACAO.icon} className="size-9" pulse />
+                <Icon name={ATUACAO.icon} className="size-9" />
               </span>
             </span>
             <span className="relative flex flex-col justify-center px-7 py-9">
@@ -341,15 +301,6 @@ export function AtuacaoBlock() {
           </a>
         </Reveal>
       </Wrap>
-      <Rings
-        className="pointer-events-none absolute -top-24 -right-32 size-[300px] sm:-right-20 sm:size-[440px]"
-        color="var(--ember)"
-        count={7}
-        gap={26}
-        sweep={0.6}
-        rotate={20}
-        opacity={0.16}
-      />
     </Band>
   );
 }
@@ -359,15 +310,6 @@ export function AtuacaoBlock() {
 export function MetodologiaBlock() {
   return (
     <Band tone="light" id="metodologia" className="py-16 sm:py-24">
-      <Rings
-        className="pointer-events-none absolute -top-20 -right-24 size-[300px] sm:-right-16 sm:size-[420px]"
-        color="var(--clay)"
-        count={8}
-        gap={24}
-        sweep={0.58}
-        rotate={120}
-        opacity={0.22}
-      />
       <Wrap>
         <Reveal>
           <p className="m-0 mb-1.5 font-mono text-[11px] tracking-[0.22em] text-clay uppercase">
@@ -384,9 +326,8 @@ export function MetodologiaBlock() {
             className="group relative flex flex-col items-stretch overflow-hidden rounded-[12px] border border-clay/25 bg-band-surface p-7 no-underline shadow-[var(--shadow-light)] transition-all duration-350 hover:-translate-y-1 hover:border-clay/50 hover:shadow-[var(--shadow-light)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-clay sm:flex-row sm:items-center sm:gap-8"
           >
             <span className="relative mb-6 flex size-20 shrink-0 items-center justify-center rounded-full border border-clay/30 bg-bone-lift/40 sm:mb-0 sm:size-24">
-              <span className="pointer-events-none absolute inset-0 rounded-full border border-clay/20 transition-transform duration-700 group-hover:scale-150" />
               <span className="relative z-[1] text-clay">
-                <Icon name={METODOLOGIA.icon} className="size-7 sm:size-8" pulse />
+                <Icon name={METODOLOGIA.icon} className="size-7 sm:size-8" />
               </span>
             </span>
             <span className="relative flex-1">
@@ -410,12 +351,6 @@ export function MetodologiaBlock() {
 export function EditorialBlock() {
   return (
     <Band tone="dark" id="editorial" className="py-16 sm:py-24">
-      <WindField
-        className="pointer-events-none absolute inset-0 size-full opacity-20"
-        color="var(--moss-bright)"
-        seed={11}
-        count={4}
-      />
       <Wrap className="flex flex-col items-center text-center">
         <Reveal>
           <p className="m-0 mb-3 font-mono text-[11px] tracking-[0.22em] text-moss-bright uppercase">
@@ -433,9 +368,8 @@ export function EditorialBlock() {
             href={EDITORIAL.url}
             className="group relative block max-w-[680px] overflow-hidden rounded-[14px] border border-bone/12 bg-ink-raise/60 px-8 py-11 no-underline shadow-[var(--shadow-deep)] backdrop-blur-[2px] transition-all duration-350 hover:-translate-y-1 hover:border-ember/40 hover:shadow-[var(--shadow-ember)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember"
           >
-            <span className="pointer-events-none absolute -right-16 -bottom-16 size-44 rounded-full border border-ember/15 transition-transform duration-700 group-hover:scale-150" />
             <span className="relative z-[1] mb-5 block text-moss-bright">
-              <Icon name={EDITORIAL.icon} className="mx-auto size-8" pulse />
+              <Icon name={EDITORIAL.icon} className="mx-auto size-8" />
             </span>
             <span className="relative z-[1] mb-3 block font-mono text-[10px] tracking-[0.2em] text-moss uppercase">
               {EDITORIAL.title}
@@ -454,15 +388,6 @@ export function EditorialBlock() {
           </a>
         </Reveal>
       </Wrap>
-      <Rings
-        className="pointer-events-none absolute -bottom-24 -left-28 size-[280px] sm:-left-16 sm:size-[400px]"
-        color="var(--moss-bright)"
-        count={7}
-        gap={26}
-        sweep={0.55}
-        rotate={210}
-        opacity={0.16}
-      />
     </Band>
   );
 }
@@ -479,12 +404,6 @@ function etapaBody(parts: { text: string; highlight?: boolean }[]) {
 export function Etapas() {
   return (
     <Band tone="light" id="etapas" className="py-16 sm:py-24">
-      <WindField
-        className="pointer-events-none absolute inset-0 size-full opacity-20"
-        color="var(--moss)"
-        seed={8}
-        count={4}
-      />
       <Wrap>
         <p className="relative z-[1] m-0 mb-1.5 font-mono text-[11px] tracking-[0.18em] text-clay uppercase">
           As Etapas do Alinhamento
@@ -508,7 +427,7 @@ export function Etapas() {
                   <span className="font-mono text-[11px] tracking-[0.14em] text-moss">{e.n}</span>
                   <span className="h-px w-4 bg-band-line" />
                   <span className="text-clay">
-                    <Icon name={e.icon} className="size-[18px]" pulse />
+                    <Icon name={e.icon} className="size-[18px]" />
                   </span>
                 </div>
                 <h4 className="m-0 mb-2 font-display text-[19px] font-normal text-ink-deep">{e.title}</h4>
@@ -519,15 +438,6 @@ export function Etapas() {
         </div>
 
       </Wrap>
-      <Rings
-        className="pointer-events-none absolute -bottom-40 left-1/2 size-[360px] -translate-x-1/2 sm:size-[520px]"
-        color="var(--moss)"
-        count={8}
-        gap={26}
-        sweep={0.5}
-        rotate={270}
-        opacity={0.16}
-      />
     </Band>
 
   );
@@ -538,7 +448,6 @@ export function Etapas() {
 export function Contato() {
   return (
     <Band tone="light" id="contato" className="py-20 text-center sm:py-28">
-      <SpiralCluster strokes={["var(--clay)", "var(--moss)", "var(--ember)"]} intensity={0.55} clear="46%" />
 
       <Wrap>
         <Reveal>
