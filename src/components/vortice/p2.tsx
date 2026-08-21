@@ -125,7 +125,7 @@ export function P2Footer() {
   );
 }
 
-export function P2Shell({ current, children }: { current?: string; children: ReactNode }) {
+export function P2Shell({ current, children }: { current?: string | undefined; children: ReactNode }) {
   const ref = useReveal();
   return (
     <div className="p2" ref={ref}>
